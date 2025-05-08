@@ -8,6 +8,10 @@ command:
     runPubGetInParallel: false
 
 scripts:
+  gen:
+    exec: dart run build_runner build
+    packageFilters:
+      flutter: true
   gen-l10n:
     exec: flutter gen-l10n
     ignoreErrors: true
