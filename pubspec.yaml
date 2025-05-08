@@ -1,6 +1,6 @@
 name: money_tracker
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -15,6 +15,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  husky: ^0.1.7
+  lint_staged: ^0.5.1
 
 flutter:
   uses-material-design: true
+
+lint_staged:
+  "**/*.dart": dart format --fix && dart fix --apply
