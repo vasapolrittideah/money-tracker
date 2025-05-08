@@ -1,0 +1,40 @@
+# <type>(<scope>): <subject> (Why is this change necessary?)
+# ---------------------------------------------------------
+# - Body lines should wrap at 72 characters.
+# - Leave a blank line between subject and body.
+# ---------------------------------------------------------
+
+# Body (Optional)
+# - Explain what the change does and why it is needed (not how).
+# - Include important details about implementation or reasoning.
+# - Use bullet points (-) if listing multiple changes.
+# - Wrap lines at 72 characters.
+
+# Footer (Optional)
+# - Link to any related issues, Jira tickets, or PRs.
+# - Example: Closes #123, Related to Jira [ABC-456].
+
+# ---------------------------------------------------------
+# Commit Types:
+# 
+# feat:      A new feature
+# fix:       A bug fix
+# refactor:  A code change that neither fixes a bug nor adds a feature
+# style:     Changes that do not affect behavior (formatting, missing semicolons)
+# docs:      Documentation-only changes
+# test:      Adding or updating tests without affecting production code
+# chore:     Maintenance tasks (build scripts, tooling, dependencies)
+# wip:       Work-in-progress (local only, must be squashed before merge)
+# ---------------------------------------------------------
+# Important:
+# - Separate subject from body with a blank line.
+# - Write in imperative mood ("Add" not "Added" or "Adds").
+# - Do not end the subject line with a period.
+# - Use wip commits only locally — squash before merging shared branches.
+# ---------------------------------------------------------
+# References for Better Commit Messages:
+# - https://gist.github.com/median-man/3a7c4324005e96f02691f3a20aeac26b
+# - https://gist.github.com/adeekshith/cd4c95a064977cdc6c50
+# - https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message
+# - https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+# - https://8thlight.com/blog/kevin-liddle/2012/09/27/mind-your-git-manners.html
