@@ -83,12 +83,12 @@ final class AppColors extends ThemeExtension<AppColors> {
   final Color successLight;
   final Color successLighter;
 
-  static const _primaryDark = AppColorPalette.orange800;
-  static const _primaryDarker = AppColorPalette.orange700;
-  static const _primaryBase = AppColorPalette.orange500;
-  static const _primaryAlpha24 = AppColorPalette.orangeAlpha24;
-  static const _primaryAlpha16 = AppColorPalette.orangeAlpha16;
-  static const _primaryAlpha10 = AppColorPalette.orangeAlpha10;
+  static const _primaryDark = AppColorPalette.purple800;
+  static const _primaryDarker = AppColorPalette.purple700;
+  static const _primaryBase = AppColorPalette.purple500;
+  static const _primaryAlpha24 = AppColorPalette.purpleAlpha24;
+  static const _primaryAlpha16 = AppColorPalette.purpleAlpha16;
+  static const _primaryAlpha10 = AppColorPalette.purpleAlpha10;
 
   static const light = AppColors(
     // Static colors
@@ -131,10 +131,10 @@ final class AppColors extends ThemeExtension<AppColors> {
     informationLighter: AppColorPalette.blue50,
 
     // Warning colors
-    warningDark: AppColorPalette.yellow950,
-    warningBase: AppColorPalette.yellow500,
-    warningLight: AppColorPalette.yellow200,
-    warningLighter: AppColorPalette.yellow50,
+    warningDark: AppColorPalette.orange950,
+    warningBase: AppColorPalette.orange500,
+    warningLight: AppColorPalette.orange200,
+    warningLighter: AppColorPalette.orange50,
 
     // Error colors
     errorDark: AppColorPalette.red950,
@@ -385,4 +385,19 @@ final class AppColorPalette {
   static const blue200 = Color.fromRGBO(192, 213, 255, 1);
   static const blue100 = Color.fromRGBO(213, 226, 255, 1);
   static const blue50 = Color.fromRGBO(235, 241, 255, 1);
+
+  static const purple950 = Color.fromRGBO(53, 26, 117, 1);
+  static const purple900 = Color.fromRGBO(61, 29, 134, 1);
+  static const purple800 = Color.fromRGBO(76, 37, 167, 1);
+  static const purple700 = Color.fromRGBO(91, 44, 201, 1);
+  static const purple600 = Color.fromRGBO(105, 62, 224, 1);
+  static const purple500 = Color.fromRGBO(125, 82, 244, 1);
+  static const purple400 = Color.fromRGBO(140, 113, 246, 1);
+  static const purple300 = Color.fromRGBO(168, 151, 255, 1);
+  static const purple200 = Color.fromRGBO(202, 192, 255, 1);
+  static const purple100 = Color.fromRGBO(220, 213, 255, 1);
+  static const purple50 = Color.fromRGBO(239, 235, 255, 1);
+  static const purpleAlpha24 = Color.fromRGBO(120, 77, 239, 0.24);
+  static const purpleAlpha16 = Color.fromRGBO(120, 77, 239, 0.16);
+  static const purpleAlpha10 = Color.fromRGBO(120, 77, 239, 0.10);
 }

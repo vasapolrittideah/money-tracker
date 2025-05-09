@@ -17,8 +17,8 @@ final class AppBorders extends ThemeExtension<AppBorders> {
     radiusX2s: 2.0.r,
     radiusXs: 4.0.r,
     radiusSm: 8.0.r,
-    radiusMd: 12.0.r,
-    radiusLg: 16.0.r,
+    radiusMd: 10.0.r,
+    radiusLg: 12.0.r,
     radiusFull: 999.0.r,
     defaultWidth: 1.0.r,
   );

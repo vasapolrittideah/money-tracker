@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final class AppShadows extends ThemeExtension<AppShadows> {
-  const AppShadows({required this.regularXSmall, this.regularMedium});
+  const AppShadows({required this.xs, this.md});
 
-  final List<BoxShadow> regularXSmall;
-  final List<BoxShadow>? regularMedium;
+  final List<BoxShadow> xs;
+  final List<BoxShadow>? md;
 
   static final light = AppShadows(
-    regularXSmall: [
+    xs: [
       BoxShadow(
         color: Color.fromRGBO(10, 13, 20, 0.04),
         blurRadius: 2.r,
@@ -16,7 +16,7 @@ final class AppShadows extends ThemeExtension<AppShadows> {
         offset: Offset(0, 1.h),
       ),
     ],
-    regularMedium: [
+    md: [
       BoxShadow(
         color: Color.fromRGBO(14, 18, 27, 0.10),
         blurRadius: 32.r,
@@ -27,14 +27,8 @@ final class AppShadows extends ThemeExtension<AppShadows> {
   );
 
   @override
-  AppShadows copyWith({
-    List<BoxShadow>? regularXSmall,
-    List<BoxShadow>? regularMedium,
-  }) {
-    return AppShadows(
-      regularXSmall: regularXSmall ?? this.regularXSmall,
-      regularMedium: regularMedium ?? this.regularMedium,
-    );
+  AppShadows copyWith({List<BoxShadow>? xs, List<BoxShadow>? md}) {
+    return AppShadows(xs: xs ?? this.xs, md: md ?? this.md);
   }
 
   @override
@@ -43,8 +37,8 @@ final class AppShadows extends ThemeExtension<AppShadows> {
       return this;
     }
     return AppShadows(
-      regularXSmall: BoxShadow.lerpList(regularXSmall, other.regularXSmall, t)!,
-      regularMedium: BoxShadow.lerpList(regularMedium, other.regularMedium, t),
+      xs: BoxShadow.lerpList(xs, other.xs, t)!,
+      md: BoxShadow.lerpList(md, other.md, t),
     );
   }
 }

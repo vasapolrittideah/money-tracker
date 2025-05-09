@@ -64,8 +64,8 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
 
   static const _regular = FontWeight.w400;
   static const _regularVariant = [FontVariation('wght', 400)];
-  static const _bold = FontWeight.w500;
-  static const _boldVariant = [FontVariation('wght', 500)];
+  static const _bold = FontWeight.w700;
+  static const _boldVariant = [FontVariation('wght', 700)];
   static const _fontFamily = FontFamily.lINESeedSansTH;
 
   static regular(Color defaultColor) => AppTextStyles(
@@ -140,7 +140,6 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-
       color: defaultColor,
     ),
     text8: TextStyle(
