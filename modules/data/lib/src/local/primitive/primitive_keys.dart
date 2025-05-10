@@ -1,0 +1,1 @@
+enum PrimitiveKeys { secureStorageKey }
