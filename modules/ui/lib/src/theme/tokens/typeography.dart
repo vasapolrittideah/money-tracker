@@ -75,6 +75,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text8: TextStyle(
       fontSize: 8.sp,
@@ -82,6 +83,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text10: TextStyle(
       fontSize: 10.sp,
@@ -89,6 +91,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text12: TextStyle(
       fontSize: 12.sp,
@@ -96,6 +99,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text16: TextStyle(
       fontSize: 16.sp,
@@ -103,6 +107,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text18: TextStyle(
       fontSize: 18.sp,
@@ -110,6 +115,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text20: TextStyle(
       fontSize: 20.sp,
@@ -117,6 +123,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text24: TextStyle(
       fontSize: 24.sp,
@@ -124,6 +131,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text28: TextStyle(
       fontSize: 28.sp,
@@ -131,6 +139,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
   );
 
@@ -141,6 +150,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text8: TextStyle(
       fontSize: 8.sp,
@@ -148,6 +158,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text10: TextStyle(
       fontSize: 10.sp,
@@ -155,6 +166,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text12: TextStyle(
       fontSize: 12.sp,
@@ -162,6 +174,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text16: TextStyle(
       fontSize: 16.sp,
@@ -169,6 +182,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text18: TextStyle(
       fontSize: 18.sp,
@@ -176,6 +190,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text20: TextStyle(
       fontSize: 20.sp,
@@ -183,6 +198,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text24: TextStyle(
       fontSize: 24.sp,
@@ -190,6 +206,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
     text28: TextStyle(
       fontSize: 28.sp,
@@ -197,6 +214,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
       color: defaultColor,
+      letterSpacing: 0.1,
     ),
   );
 

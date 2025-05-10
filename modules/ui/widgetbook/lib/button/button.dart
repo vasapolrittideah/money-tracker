@@ -4,7 +4,7 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 import 'package:ui/ui.dart';
 
 @widgetbook.UseCase(name: 'Default', type: AppButton)
-Widget buildCoolButtonUseCase(BuildContext context) {
+Widget buildButtonUseCase(BuildContext context) {
   return AppButton(
     text: 'การทดลองสิ่งมหัศจรรย์',
     isBlock: context.knobs.boolean(label: 'Block'),
