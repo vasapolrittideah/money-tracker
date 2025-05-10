@@ -1,1 +1,1 @@
-enum PrimitiveKeys { secureStorageKey }
+enum PrimitiveKeys { secureStorageKey, tokenStorageKey }

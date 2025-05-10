@@ -11,7 +11,6 @@ class HiveManger {
 
   Future<void> init() async {
     await _open();
-    registerAdapters();
   }
 
   Future<void> clear() async {
@@ -25,6 +24,4 @@ class HiveManger {
     );
     await _hive.initFlutter(subPath);
   }
-
-  void registerAdapters() {}
 }
