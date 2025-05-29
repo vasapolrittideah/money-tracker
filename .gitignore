@@ -46,3 +46,9 @@ app.*.map.json
 
 # Dart generated files
 *.g.dart
+
+# Environment variable files
+.env
+.env.dev
+.env.prod
+.env.staging
