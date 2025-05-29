@@ -9,18 +9,18 @@ final class Jwt extends Equatable {
   const Jwt({
     required this.accessToken,
     this.tokenType = 'Bearer',
-    this.expiresIn,
+    this.expiresIn = 0,
     this.refreshToken,
   });
 
   @HiveField(0)
-  final String? accessToken;
+  final String accessToken;
 
   @HiveField(1)
-  final String? tokenType;
+  final String tokenType;
 
   @HiveField(2)
-  final int? expiresIn;
+  final int expiresIn;
 
   @HiveField(3)
   final String? refreshToken;
