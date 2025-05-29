@@ -1,18 +1,24 @@
 import 'package:core/core.dart';
-import 'package:data/src/local/hive/hive_manager.dart';
-import 'package:data/src/local/hive/hive_operation.dart';
+import 'package:data/data.dart';
 import 'package:data/src/local/primitive/primitive_database.dart';
 import 'package:data/src/local/secure/secure_storage_manager.dart';
 import 'package:data/src/local/token/token_operation.dart';
 import 'package:data/src/local/token/token_storage_manager.dart';
-import 'package:data/src/models/jwt/jwt.dart';
-import 'package:data/src/remote/api_client.dart';
 import 'package:data/src/remote/dio_factory.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class DataModule extends BaseModule {
-  DataModule();
+  static final DataModule _instance = DataModule._internal();
+
+  factory DataModule() => _instance;
+
+  DataModule._internal();
+
+  @override
+  void init() {
+    register();
+  }
 
   @override
   void register() async {
