@@ -9,7 +9,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  go_router: ^15.1.2
   melos: ^6.3.2
+  auth:
+    path: modules/auth
+  ui:
+    path: modules/ui
+  core:
+    path: modules/core
+  data:
+    path: modules/data
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
@@ -20,6 +30,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - .env.dev
+    - .env.prod
+    - .env.staging
 
 lint_staged:
   "**/*.dart": dart format -l 80 && dart analyze --fatal-infos --fatal-warnings
