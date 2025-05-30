@@ -1,3 +1,4 @@
+import 'package:auth/auth.dart';
 import 'package:core/core.dart';
 
 class AuthModule extends BaseModule {
@@ -9,9 +10,12 @@ class AuthModule extends BaseModule {
 
   @override
   void init() {
-    // TODO: implement init
+    register();
   }
 
   @override
-  void register() {}
+  void register() {
+    sl.registerLazySingleton(() => AuthRepository(sl()));
+    sl.registerFactory(() => AuthCubit(sl(), sl()));
+  }
 }

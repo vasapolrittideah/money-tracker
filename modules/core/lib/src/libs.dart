@@ -8,3 +8,7 @@ export 'package:flutter_bloc/flutter_bloc.dart'
 export 'package:flutter_hooks/flutter_hooks.dart';
 export 'package:hooked_bloc/hooked_bloc.dart';
 export 'package:flutter_form_builder/flutter_form_builder.dart';
+export 'package:form_builder_validators/form_builder_validators.dart';
+export 'package:flutter_svg/flutter_svg.dart';
+export './generated/assets.gen.dart';
+export './generated/fonts.gen.dart';

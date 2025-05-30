@@ -1,3 +1,4 @@
+import 'package:auth/auth.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,22 +28,46 @@ class MainApp extends StatelessWidget {
       ensureScreenSize: true,
       designSize: const Size(360, 690),
       builder: (context, child) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          routerDelegate: AppRouter.router.routerDelegate,
-          routeInformationParser: AppRouter.router.routeInformationParser,
-          routeInformationProvider: AppRouter.router.routeInformationProvider,
-          theme: ThemeData.light().copyWith(
-            scaffoldBackgroundColor: Colors.transparent,
-            extensions: <ThemeExtension<dynamic>>[
-              AppTheme(tokens: AppTokens.light),
-            ],
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<AuthCubit>(
+              lazy: false,
+              create: (_) => sl()..subscribeToAuthChanges(),
+            ),
+          ],
+          child: MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerDelegate: AppRouter.router.routerDelegate,
+            routeInformationParser: AppRouter.router.routeInformationParser,
+            routeInformationProvider: AppRouter.router.routeInformationProvider,
+            theme: ThemeData.light().copyWith(
+              scaffoldBackgroundColor: Colors.transparent,
+              extensions: <ThemeExtension<dynamic>>[
+                AppTheme(tokens: AppTokens.light),
+              ],
+            ),
+            builder: (context, child) => MainAppInner(child: child!),
           ),
-          builder: (context, child) {
-            return child!;
-          },
         );
       },
     );
+  }
+}
+
+class MainAppInner extends HookWidget {
+  const MainAppInner({super.key, required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final authCubit = useBloc<AuthCubit>();
+
+    useBlocListener<AuthCubit, AuthState>(
+      authCubit,
+      (cubit, value, context) => AppRouter.router.refresh(),
+    );
+
+    return child;
   }
 }

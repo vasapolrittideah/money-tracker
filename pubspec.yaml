@@ -11,15 +11,15 @@ dependencies:
     sdk: flutter
   go_router: ^15.1.2
   melos: ^6.3.2
-  auth:
-    path: modules/auth
+  flutter_screenutil: ^5.9.3
   ui:
     path: modules/ui
   core:
     path: modules/core
-  data:
-    path: modules/data
-  flutter_screenutil: ^5.9.3
+  auth:
+    path: modules/auth
+  user:
+    path: modules/user
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +27,8 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   husky: ^0.1.7
   lint_staged: ^0.5.1
+  build_runner: ^2.4.15
+  flutter_gen_runner: ^5.10.0
 
 flutter:
   uses-material-design: true
@@ -34,6 +36,22 @@ flutter:
     - .env.dev
     - .env.prod
     - .env.staging
+    - ./assets/images/
+  fonts:
+    - family: LineSeedSansTH
+      fonts:
+        - asset: ./assets/fonts/LINESeedSansTH_A_Rg.ttf
+          weight: 400
+        - asset: ./assets/fonts/LINESeedSansTH_A_Bd.ttf
+          weight: 500
 
 lint_staged:
   "**/*.dart": dart format -l 80 && dart analyze --fatal-infos --fatal-warnings
+
+flutter_gen:
+  output: ./modules/core/lib/src/generated
+  assets:
+    exclude:
+      - .env.dev
+      - .env.prod
+      - .env.staging

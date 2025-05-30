@@ -1,6 +1,6 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ui/src/generated/fonts.gen.dart';
 import 'package:ui/src/theme/tokens/colors.dart';
 
 final class AppTypography extends ThemeExtension<AppTypography> {
@@ -66,7 +66,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
   static const _regularVariant = [FontVariation('wght', 400)];
   static const _bold = FontWeight.w700;
   static const _boldVariant = [FontVariation('wght', 700)];
-  static const _fontFamily = FontFamily.lINESeedSansTH;
+  static const _fontFamily = FontFamily.lineSeedSansTH;
 
   static regular(Color defaultColor) => AppTextStyles(
     textDefault: TextStyle(

@@ -52,3 +52,10 @@ app.*.map.json
 .env.dev
 .env.prod
 .env.staging
+
+# Generated files
+**/*.g.dart
+**/*.freezed.dart
+**/*.gr.dart
+**/*.config.dart
+generated/

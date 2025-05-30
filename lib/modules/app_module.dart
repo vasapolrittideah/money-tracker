@@ -1,6 +1,6 @@
 import 'package:auth/auth.dart';
 import 'package:core/core.dart';
-import 'package:data/data.dart';
+import 'package:user/user.dart';
 
 class AppModule {
   AppModule._();
@@ -8,14 +8,14 @@ class AppModule {
   static final List<BaseModule> _modules = [];
 
   static Future<void> init() async {
-    _modules.addAll([AuthModule(), DataModule()]);
+    _modules.addAll([CoreModule(), AuthModule(), UserModule()]);
 
-    await _register();
+    await _initModules();
   }
 
-  static Future<void> _register() async {
+  static Future<void> _initModules() async {
     for (final module in _modules) {
-      module.register();
+      module.init();
     }
   }
 }
