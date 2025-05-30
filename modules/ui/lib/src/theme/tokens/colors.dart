@@ -4,12 +4,12 @@ final class AppColors extends ThemeExtension<AppColors> {
   const AppColors({
     required this.staticBlack,
     required this.staticWhite,
-    required this.primaryDark,
-    required this.primaryDarker,
+    // required this.primaryDark,
+    // required this.primaryDarker,
     required this.primaryBase,
-    required this.primaryAlpha24,
-    required this.primaryAlpha16,
-    required this.primaryAlpha10,
+    // required this.primaryAlpha24,
+    // required this.primaryAlpha16,
+    // required this.primaryAlpha10,
     required this.bgStrong950,
     required this.bgSurface800,
     required this.bgSub300,
@@ -45,12 +45,12 @@ final class AppColors extends ThemeExtension<AppColors> {
 
   final Color staticBlack;
   final Color staticWhite;
-  final Color primaryDark;
-  final Color primaryDarker;
+  // final Color primaryDark;
+  // final Color primaryDarker;
   final Color primaryBase;
-  final Color primaryAlpha24;
-  final Color primaryAlpha16;
-  final Color primaryAlpha10;
+  // final Color primaryAlpha24;
+  // final Color primaryAlpha16;
+  // final Color primaryAlpha10;
   final Color bgStrong950;
   final Color bgSurface800;
   final Color bgSub300;
@@ -83,12 +83,12 @@ final class AppColors extends ThemeExtension<AppColors> {
   final Color successLight;
   final Color successLighter;
 
-  static const _primaryDark = AppColorPalette.neutral950;
-  static const _primaryDarker = AppColorPalette.neutral950;
-  static const _primaryBase = AppColorPalette.neutral950;
-  static const _primaryAlpha24 = AppColorPalette.neutralAlpha24;
-  static const _primaryAlpha16 = AppColorPalette.neutralAlpha16;
-  static const _primaryAlpha10 = AppColorPalette.neutralAlpha10;
+  // static const _primaryDark = AppColorPalette.neutral950;
+  // static const _primaryDarker = AppColorPalette.neutral950;
+  static const _primaryBase = Color(0xFFDD2590);
+  // static const _primaryAlpha24 = AppColorPalette.neutralAlpha24;
+  // static const _primaryAlpha16 = AppColorPalette.neutralAlpha16;
+  // static const _primaryAlpha10 = AppColorPalette.neutralAlpha10;
 
   static const light = AppColors(
     // Static colors
@@ -96,12 +96,12 @@ final class AppColors extends ThemeExtension<AppColors> {
     staticWhite: AppColorPalette.neutral0,
 
     // Brand colors
-    primaryDark: _primaryDark,
-    primaryDarker: _primaryDarker,
+    // primaryDark: _primaryDark,
+    // primaryDarker: _primaryDarker,
     primaryBase: _primaryBase,
-    primaryAlpha24: _primaryAlpha24,
-    primaryAlpha16: _primaryAlpha16,
-    primaryAlpha10: _primaryAlpha10,
+    // primaryAlpha24: _primaryAlpha24,
+    // primaryAlpha16: _primaryAlpha16,
+    // primaryAlpha10: _primaryAlpha10,
 
     // Background colors
     bgStrong950: AppColorPalette.neutral950,
@@ -194,12 +194,12 @@ final class AppColors extends ThemeExtension<AppColors> {
     return AppColors(
       staticBlack: staticBlack ?? this.staticBlack,
       staticWhite: staticWhite ?? this.staticWhite,
-      primaryDark: primaryDark ?? this.primaryDark,
-      primaryDarker: primaryDarker ?? this.primaryDarker,
+      // primaryDark: primaryDark ?? this.primaryDark,
+      // primaryDarker: primaryDarker ?? this.primaryDarker,
       primaryBase: primaryBase ?? this.primaryBase,
-      primaryAlpha24: primaryAlpha24 ?? this.primaryAlpha24,
-      primaryAlpha16: primaryAlpha16 ?? this.primaryAlpha16,
-      primaryAlpha10: primaryAlpha10 ?? this.primaryAlpha10,
+      // primaryAlpha24: primaryAlpha24 ?? this.primaryAlpha24,
+      // primaryAlpha16: primaryAlpha16 ?? this.primaryAlpha16,
+      // primaryAlpha10: primaryAlpha10 ?? this.primaryAlpha10,
       bgStrong950: bgStrong950 ?? this.bgStrong950,
       bgSurface800: bgSurface800 ?? this.bgSurface800,
       bgSub300: bgSub300 ?? this.bgSub300,
@@ -242,12 +242,12 @@ final class AppColors extends ThemeExtension<AppColors> {
     return AppColors(
       staticBlack: Color.lerp(staticBlack, other.staticBlack, t)!,
       staticWhite: Color.lerp(staticWhite, other.staticWhite, t)!,
-      primaryDark: Color.lerp(primaryDark, other.primaryDark, t)!,
-      primaryDarker: Color.lerp(primaryDarker, other.primaryDarker, t)!,
+      // primaryDark: Color.lerp(primaryDark, other.primaryDark, t)!,
+      // primaryDarker: Color.lerp(primaryDarker, other.primaryDarker, t)!,
       primaryBase: Color.lerp(primaryBase, other.primaryBase, t)!,
-      primaryAlpha24: Color.lerp(primaryAlpha24, other.primaryAlpha24, t)!,
-      primaryAlpha16: Color.lerp(primaryAlpha16, other.primaryAlpha16, t)!,
-      primaryAlpha10: Color.lerp(primaryAlpha10, other.primaryAlpha10, t)!,
+      // primaryAlpha24: Color.lerp(primaryAlpha24, other.primaryAlpha24, t)!,
+      // primaryAlpha16: Color.lerp(primaryAlpha16, other.primaryAlpha16, t)!,
+      // primaryAlpha10: Color.lerp(primaryAlpha10, other.primaryAlpha10, t)!,
       bgStrong950: Color.lerp(bgStrong950, other.bgStrong950, t)!,
       bgSurface800: Color.lerp(bgSurface800, other.bgSurface800, t)!,
       bgSub300: Color.lerp(bgSub300, other.bgSub300, t)!,
