@@ -15,6 +15,9 @@ class AppButton extends StatelessWidget {
     this.fullWidth = false,
     this.disabled = false,
     this.borderWidth,
+    this.borderColor,
+    this.textColor,
+    this.backgroundColor,
     this.size = AppButtonSize.md,
     this.variant = AppButtonVariant.primary,
     this.mode = AppButtonMode.filled,
@@ -27,6 +30,9 @@ class AppButton extends StatelessWidget {
   final bool fullWidth;
   final bool disabled;
   final double? borderWidth;
+  final Color? borderColor;
+  final Color? textColor;
+  final Color? backgroundColor;
   final AppButtonSize size;
   final AppButtonVariant variant;
   final AppButtonMode mode;
@@ -62,7 +68,8 @@ class AppButton extends StatelessWidget {
     };
 
     final Color effectiveBorderColor =
-        !disabled
+        borderColor ??
+        (!disabled
             ? switch (mode) {
               AppButtonMode.filled => Colors.transparent,
               AppButtonMode.stroke => switch (variant) {
@@ -72,10 +79,11 @@ class AppButton extends StatelessWidget {
               },
               AppButtonMode.ghost => Colors.transparent,
             }
-            : context.appColors.strokeSub300;
+            : context.appColors.strokeSub300);
 
     final Color effectiveTextColor =
-        !disabled
+        textColor ??
+        (!disabled
             ? switch (mode) {
               AppButtonMode.filled => context.appColors.textWhite0,
               AppButtonMode.stroke => switch (variant) {
@@ -85,10 +93,11 @@ class AppButton extends StatelessWidget {
               },
               AppButtonMode.ghost => context.appColors.textSub600,
             }
-            : context.appColors.textDisabled300;
+            : context.appColors.textDisabled300);
 
     final Color effectiveBackgroundColor =
-        !disabled
+        backgroundColor ??
+        (!disabled
             ? switch (mode) {
               AppButtonMode.filled => switch (variant) {
                 AppButtonVariant.primary => context.appColors.primaryBase,
@@ -98,7 +107,7 @@ class AppButton extends StatelessWidget {
               AppButtonMode.stroke => context.appColors.bgWhite0,
               AppButtonMode.ghost => Colors.transparent,
             }
-            : context.appColors.bgSub300;
+            : context.appColors.bgSub300);
 
     return Container(
       height: effectiveHeight,
