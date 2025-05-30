@@ -1,8 +1,12 @@
 export 'src/libs.dart';
+export 'src/core_module.dart';
 export 'src/config/app_config.dart';
-export 'src/constants/authentication_status.dart';
-export 'src/errors/app_error.dart';
-export 'src/errors/error_handler.dart';
+export 'src/constants/auth_status.dart';
+export 'src/constants/hive_type_ids.dart';
+export 'src/data/local/hive/hive_operation.dart';
+export 'src/data/remote/api_client.dart';
+export 'src/models/jwt.dart';
+export 'src/models/result.dart';
 export 'src/extensions/string_extension.dart';
 export 'src/injection/injection.dart';
 export 'src/module/base_module.dart';
