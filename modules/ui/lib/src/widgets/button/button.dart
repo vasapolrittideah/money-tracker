@@ -12,30 +12,34 @@ class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
     required this.text,
-    this.isBlock = false,
-    this.isDisabled = false,
+    this.fullWidth = false,
+    this.disabled = false,
     this.borderWidth,
     this.size = AppButtonSize.md,
     this.variant = AppButtonVariant.primary,
     this.mode = AppButtonMode.filled,
     this.onTap,
+    this.prefix,
+    this.suffix,
   });
 
   final String text;
-  final bool isBlock;
-  final bool isDisabled;
+  final bool fullWidth;
+  final bool disabled;
   final double? borderWidth;
   final AppButtonSize size;
   final AppButtonVariant variant;
   final AppButtonMode mode;
   final VoidCallback? onTap;
+  final Widget? prefix;
+  final Widget? suffix;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: !isDisabled ? (onTap ?? () {}) : null,
+      onTap: !disabled ? (onTap ?? () {}) : null,
       child:
-          isBlock
+          fullWidth
               ? _buildContainer(context)
               : IntrinsicWidth(child: _buildContainer(context)),
     );
@@ -58,7 +62,7 @@ class AppButton extends StatelessWidget {
     };
 
     final Color effectiveBorderColor =
-        !isDisabled
+        !disabled
             ? switch (mode) {
               AppButtonMode.filled => Colors.transparent,
               AppButtonMode.stroke => switch (variant) {
@@ -71,7 +75,7 @@ class AppButton extends StatelessWidget {
             : context.appColors.strokeSub300;
 
     final Color effectiveTextColor =
-        !isDisabled
+        !disabled
             ? switch (mode) {
               AppButtonMode.filled => context.appColors.textWhite0,
               AppButtonMode.stroke => switch (variant) {
@@ -84,7 +88,7 @@ class AppButton extends StatelessWidget {
             : context.appColors.textDisabled300;
 
     final Color effectiveBackgroundColor =
-        !isDisabled
+        !disabled
             ? switch (mode) {
               AppButtonMode.filled => switch (variant) {
                 AppButtonVariant.primary => context.appColors.primaryBase,
@@ -108,16 +112,29 @@ class AppButton extends StatelessWidget {
           width: effectiveBorderWidth,
         ),
       ),
-      child: Align(
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: context.appTypography.regular.textDefault.copyWith(
-            decoration: TextDecoration.none,
-            color: effectiveTextColor,
-            height: 1.h,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (prefix != null) ...[
+            prefix!,
+            SizedBox(width: context.appSpacing.x4s),
+          ],
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              text,
+              style: context.appTypography.regular.textDefault.copyWith(
+                decoration: TextDecoration.none,
+                color: effectiveTextColor,
+                height: 1.h,
+              ),
+            ),
           ),
-        ),
+          if (suffix != null) ...[
+            SizedBox(width: context.appSpacing.x4s),
+            suffix!,
+          ],
+        ],
       ),
     );
   }
