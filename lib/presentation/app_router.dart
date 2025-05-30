@@ -1,11 +1,14 @@
+import 'dart:async';
+
 import 'package:auth/auth.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:money_tracker/presentation/pages/home_page.dart';
 import 'package:money_tracker/presentation/pages/splash_page.dart';
 
 class MainRouteName {
   static const root = '/';
+  static const home = '/home';
 }
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>(
@@ -19,6 +22,7 @@ final class AppRouter {
     debugLogDiagnostics: true,
     navigatorKey: rootNavigatorKey,
     initialLocation: MainRouteName.root,
+    redirect: _redirectWhenUnauthenticated,
     routes: [
       GoRoute(
         path: MainRouteName.root,
@@ -29,7 +33,34 @@ final class AppRouter {
           );
         },
       ),
+      GoRoute(
+        path: MainRouteName.home,
+        pageBuilder: (context, state) {
+          return TransitionUtil.slideTransitionPage(
+            child: const HomePage(),
+            state: state,
+          );
+        },
+      ),
       ...authRoutes,
     ],
   );
+
+  static FutureOr<String?> _redirectWhenUnauthenticated(
+    BuildContext context,
+    GoRouterState state,
+  ) {
+    final status = context.read<AuthCubit>().state.status;
+
+    final isSigningIn = state.matchedLocation == AuthRouteName.signIn;
+
+    if (status == AuthStatus.unauthenticated && !isSigningIn) {
+      return AuthRouteName.signIn;
+    }
+    if (status == AuthStatus.authenticated && isSigningIn) {
+      return MainRouteName.home;
+    }
+
+    return null;
+  }
 }
