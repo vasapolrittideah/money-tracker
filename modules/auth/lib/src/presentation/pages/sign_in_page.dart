@@ -15,7 +15,7 @@ class SignInPage extends HookWidget {
         child: Padding(
           padding: EdgeInsets.fromLTRB(
             context.appSpacing.xs,
-            context.appSpacing.x2l,
+            context.appSpacing.xl,
             context.appSpacing.xs,
             0,
           ),
@@ -27,8 +27,18 @@ class SignInPage extends HookWidget {
                 SvgPicture.asset(
                   Assets.images.brandLogo,
                   semanticsLabel: 'Logo',
+                  width: context.appSpacing.xs,
+                  height: context.appSpacing.xs,
                 ),
-                SizedBox(height: context.appSpacing.md),
+                SizedBox(height: context.appSpacing.lg),
+                _GoogleSignInButton(),
+                SizedBox(height: context.appSpacing.x2s),
+                _FacebookSignInButton(),
+                SizedBox(height: context.appSpacing.x2s),
+                _AppleSignInButton(),
+                SizedBox(height: context.appSpacing.xs),
+                _SocialSignInDivider(),
+                SizedBox(height: context.appSpacing.xs),
                 _EmailInput(),
                 SizedBox(height: context.appSpacing.x2s),
                 _PasswordInput(),
@@ -39,6 +49,92 @@ class SignInPage extends HookWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _GoogleSignInButton extends HookWidget {
+  const _GoogleSignInButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return AppButton(
+      text: 'เข้าสู่ระบบด้วย Google',
+      fullWidth: true,
+      variant: AppButtonVariant.neutral,
+      mode: AppButtonMode.stroke,
+      prefix: SvgPicture.asset(
+        Assets.images.googleLogo,
+        semanticsLabel: 'Google Logo',
+      ),
+    );
+  }
+}
+
+class _FacebookSignInButton extends HookWidget {
+  const _FacebookSignInButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return AppButton(
+      text: 'เข้าสู่ระบบด้วย Facebook',
+      fullWidth: true,
+      variant: AppButtonVariant.neutral,
+      mode: AppButtonMode.filled,
+      backgroundColor: Color(0xFF2374F2),
+      prefix: SvgPicture.asset(
+        Assets.images.facebookLogo,
+        semanticsLabel: 'Apple Logo',
+        colorFilter: ColorFilter.mode(
+          context.appColors.staticWhite,
+          BlendMode.srcIn,
+        ),
+      ),
+    );
+  }
+}
+
+class _AppleSignInButton extends HookWidget {
+  const _AppleSignInButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return AppButton(
+      text: 'เข้าสู่ระบบด้วย Apple',
+      fullWidth: true,
+      variant: AppButtonVariant.neutral,
+      mode: AppButtonMode.filled,
+      prefix: SvgPicture.asset(
+        Assets.images.appleLogo,
+        semanticsLabel: 'Apple Logo',
+        colorFilter: ColorFilter.mode(
+          context.appColors.staticWhite,
+          BlendMode.srcIn,
+        ),
+      ),
+    );
+  }
+}
+
+class _SocialSignInDivider extends StatelessWidget {
+  const _SocialSignInDivider();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(child: Divider(color: context.appColors.strokeSub300)),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: context.appSpacing.x4s),
+          child: Text(
+            'หรือ',
+            style: context.appTypography.regular.text12.copyWith(
+              color: context.appColors.textSub600,
+            ),
+          ),
+        ),
+        Expanded(child: Divider(color: context.appColors.strokeSub300)),
+      ],
     );
   }
 }
@@ -101,6 +197,7 @@ class _PasswordInput extends HookWidget {
               errorText: field.errorText,
               focusNode: focusNode,
               controller: controller,
+              textObscure: true,
             );
           },
         ),
@@ -114,6 +211,6 @@ class _SubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppButton(text: 'เข้าสู่ระบบ', isBlock: true);
+    return AppButton(text: 'เข้าสู่ระบบ', fullWidth: true);
   }
 }
