@@ -35,6 +35,13 @@
       "program": "lib/main.dart",
       "args": ["--flavor", "development"],
       "flutterMode": "debug"
+    },
+    {
+      "name": "Money Tracker UI",
+      "request": "launch",
+      "type": "dart",
+      "program": "modules/ui/widgetbook/lib/main.dart",
+      "flutterMode": "debug"
     }
   ]
 }
