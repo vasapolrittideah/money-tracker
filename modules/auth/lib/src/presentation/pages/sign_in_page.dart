@@ -44,6 +44,10 @@ class SignInPage extends HookWidget {
                 _PasswordInput(),
                 SizedBox(height: context.appSpacing.x2s),
                 _SubmitButton(),
+                SizedBox(height: context.appSpacing.x5s),
+                _ForgotPasswordButton(),
+                Spacer(),
+                _SignUpButton(),
               ],
             ),
           ),
@@ -212,5 +216,54 @@ class _SubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppButton(text: 'เข้าสู่ระบบ', fullWidth: true);
+  }
+}
+
+class _ForgotPasswordButton extends StatelessWidget {
+  const _ForgotPasswordButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        AppButton(
+          text: 'ลืมรหัสผ่าน',
+          fullWidth: true,
+          textColor: context.appColors.primaryBase,
+          variant: AppButtonVariant.neutral,
+          mode: AppButtonMode.ghost,
+          padding: EdgeInsets.zero,
+        ),
+      ],
+    );
+  }
+}
+
+class _SignUpButton extends StatelessWidget {
+  const _SignUpButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'ยังไม่มีบัญชี?',
+          style: context.appTypography.regular.textDefault.copyWith(
+            color: context.appColors.textSoft400,
+          ),
+        ),
+        SizedBox(width: context.appSpacing.x5s),
+        AppButton(
+          text: 'สมัครเลย!',
+          fullWidth: true,
+          textColor: context.appColors.primaryBase,
+          variant: AppButtonVariant.neutral,
+          mode: AppButtonMode.ghost,
+          padding: EdgeInsets.zero,
+        ),
+      ],
+    );
   }
 }

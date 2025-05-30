@@ -18,6 +18,7 @@ class AppButton extends StatelessWidget {
     this.borderColor,
     this.textColor,
     this.backgroundColor,
+    this.padding,
     this.size = AppButtonSize.md,
     this.variant = AppButtonVariant.primary,
     this.mode = AppButtonMode.filled,
@@ -33,6 +34,7 @@ class AppButton extends StatelessWidget {
   final Color? borderColor;
   final Color? textColor;
   final Color? backgroundColor;
+  final EdgeInsetsGeometry? padding;
   final AppButtonSize size;
   final AppButtonVariant variant;
   final AppButtonMode mode;
@@ -111,7 +113,8 @@ class AppButton extends StatelessWidget {
 
     return Container(
       height: effectiveHeight,
-      padding: EdgeInsets.symmetric(horizontal: context.appSpacing.x2s),
+      padding:
+          padding ?? EdgeInsets.symmetric(horizontal: context.appSpacing.x2s),
       decoration: BoxDecoration(
         color: effectiveBackgroundColor,
         boxShadow: effectiveShadow,
