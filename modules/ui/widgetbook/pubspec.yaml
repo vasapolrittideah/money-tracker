@@ -13,6 +13,8 @@ dependencies:
   widgetbook_annotation: ^3.4.0
   ui:
     path: ../
+  core:
+    path: ../../core
   flutter_screenutil: ^5.9.3
 
 dev_dependencies:
@@ -25,9 +27,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   fonts:
-    - family: LINESeedSansTH
+    - family: LineSeedSansTH
       fonts:
-        - asset: ../assets/fonts/LINESeedSansTH_A_Rg.ttf
+        - asset: ./assets/fonts/LINESeedSansTH_A_Rg.ttf
           weight: 400
-        - asset: ../assets/fonts/LINESeedSansTH_A_Bd.ttf
-          weight: 700
+        - asset: ./assets/fonts/LINESeedSansTH_A_Bd.ttf
+          weight: 500
