@@ -30,10 +30,7 @@ class MainApp extends StatelessWidget {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
-            BlocProvider<AuthCubit>(
-              lazy: false,
-              create: (_) => sl()..subscribeToAuthChanges(),
-            ),
+            BlocProvider<AuthCubit>(lazy: false, create: (_) => sl()),
           ],
           child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
