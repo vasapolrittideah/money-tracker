@@ -83,12 +83,12 @@ final class AppColors extends ThemeExtension<AppColors> {
   final Color successLight;
   final Color successLighter;
 
-  static const _primaryDark = AppColorPalette.purple800;
-  static const _primaryDarker = AppColorPalette.purple700;
-  static const _primaryBase = AppColorPalette.purple500;
-  static const _primaryAlpha24 = AppColorPalette.purpleAlpha24;
-  static const _primaryAlpha16 = AppColorPalette.purpleAlpha16;
-  static const _primaryAlpha10 = AppColorPalette.purpleAlpha10;
+  static const _primaryDark = AppColorPalette.neutral950;
+  static const _primaryDarker = AppColorPalette.neutral950;
+  static const _primaryBase = AppColorPalette.neutral950;
+  static const _primaryAlpha24 = AppColorPalette.neutralAlpha24;
+  static const _primaryAlpha16 = AppColorPalette.neutralAlpha16;
+  static const _primaryAlpha10 = AppColorPalette.neutralAlpha10;
 
   static const light = AppColors(
     // Static colors
