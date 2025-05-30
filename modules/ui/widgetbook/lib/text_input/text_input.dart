@@ -12,7 +12,7 @@ AppTextInput buildTextInputUseCase(BuildContext context) {
       label: 'Error text',
       initialValue: null,
     ),
-    isReadOnly: context.knobs.boolean(label: 'Read only', initialValue: false),
-    isDisabled: context.knobs.boolean(label: 'Disabled', initialValue: false),
+    readOnly: context.knobs.boolean(label: 'Read only', initialValue: false),
+    disabled: context.knobs.boolean(label: 'Disabled', initialValue: false),
   );
 }
