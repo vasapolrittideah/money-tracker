@@ -1,5 +1,5 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui/ui.dart';
@@ -11,12 +11,12 @@ class AppTextInput extends HookWidget {
     required this.labelText,
     this.errorText,
     this.initialValue,
-    this.isDisabled = false,
-    this.isReadOnly = false,
-    this.isTextObscure = false,
-    this.isAutoFocus = false,
-    this.isAutoCorrect = true,
-    this.isEnableSuggestion = true,
+    this.disabled = false,
+    this.readOnly = false,
+    this.textObscure = false,
+    this.autoFocus = false,
+    this.autoCorrect = true,
+    this.enableSuggestion = true,
     this.maxLength,
     this.focusNode,
     this.controller,
@@ -32,12 +32,12 @@ class AppTextInput extends HookWidget {
   final String labelText;
   final String? errorText;
   final String? initialValue;
-  final bool isDisabled;
-  final bool isReadOnly;
-  final bool isTextObscure;
-  final bool isAutoFocus;
-  final bool isAutoCorrect;
-  final bool isEnableSuggestion;
+  final bool disabled;
+  final bool readOnly;
+  final bool textObscure;
+  final bool autoFocus;
+  final bool autoCorrect;
+  final bool enableSuggestion;
   final int? maxLength;
   final FocusNode? focusNode;
   final TextEditingController? controller;
@@ -50,6 +50,7 @@ class AppTextInput extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final toggleTextObscure = useState(textObscure);
     final controller =
         this.controller ?? useTextEditingController(text: initialValue);
     final focusNode = this.focusNode ?? useFocusNode();
@@ -66,31 +67,29 @@ class AppTextInput extends HookWidget {
       };
     }, [focusNode]);
 
-    final isError = errorText != null && errorText!.isNotEmpty;
+    final error = errorText != null && errorText!.isNotEmpty;
 
     final effectiveBorderColor =
-        isError
+        error
             ? context.appColors.errorBase
             : isFocused.value
             ? context.appColors.primaryBase
             : context.appColors.strokeSub300;
 
     final effectiveBackgroundColor =
-        isDisabled
-            ? context.appColors.bgSoft200
-            : context.appColors.staticWhite;
+        disabled ? context.appColors.bgSoft200 : context.appColors.staticWhite;
 
     final effectiveTextColor =
-        isError
+        error
             ? context.appColors.errorBase
-            : isDisabled
+            : disabled
             ? context.appColors.textSoft400
             : context.appColors.textStrong950;
 
     final effectiveFloatingLabelTextColor =
-        isError
+        error
             ? context.appColors.errorBase
-            : isDisabled
+            : disabled
             ? context.appColors.textSoft400
             : context.appColors.textSub600;
 
@@ -114,12 +113,12 @@ class AppTextInput extends HookWidget {
           child: TextField(
             controller: controller,
             focusNode: focusNode,
-            enabled: !isDisabled,
-            readOnly: isReadOnly,
-            autofocus: isAutoFocus,
-            autocorrect: isAutoCorrect,
-            enableSuggestions: isEnableSuggestion,
-            obscureText: isTextObscure,
+            enabled: !disabled,
+            readOnly: readOnly,
+            autofocus: autoFocus,
+            autocorrect: autoCorrect,
+            enableSuggestions: enableSuggestion,
+            obscureText: toggleTextObscure.value,
             maxLength: maxLength,
             textCapitalization: textCapitalization ?? TextCapitalization.none,
             textInputAction: textInputAction,
@@ -137,6 +136,30 @@ class AppTextInput extends HookWidget {
               hintStyle: context.appTypography.regular.textDefault.copyWith(
                 color: context.appColors.textSoft400,
               ),
+              suffixIconConstraints: const BoxConstraints(
+                minHeight: 0,
+                minWidth: 0,
+              ),
+              suffixIcon:
+                  textObscure
+                      ? GestureDetector(
+                        onTap: () {
+                          toggleTextObscure.value = !toggleTextObscure.value;
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: context.appSpacing.x4s,
+                          ),
+                          child: FaIcon(
+                            toggleTextObscure.value
+                                ? FontAwesomeIcons.solidEye
+                                : FontAwesomeIcons.solidEyeSlash,
+                            color: context.appColors.textSoft400,
+                            size: context.appTypography.regular.text16.fontSize,
+                          ),
+                        ),
+                      )
+                      : null,
             ),
             cursorColor: context.appColors.primaryBase,
             style: context.appTypography.regular.textDefault.copyWith(
@@ -149,7 +172,7 @@ class AppTextInput extends HookWidget {
             onSubmitted: onSubmitted,
           ),
         ),
-        if (isError) ...[
+        if (error) ...[
           SizedBox(height: context.appSpacing.x5s),
           Row(
             children: [
