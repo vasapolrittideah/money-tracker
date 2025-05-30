@@ -7,7 +7,7 @@ import 'package:ui/ui.dart';
 Widget buildButtonUseCase(BuildContext context) {
   return AppButton(
     text: 'การทดลองสิ่งมหัศจรรย์',
-    isBlock: context.knobs.boolean(label: 'Block'),
+    fullWidth: context.knobs.boolean(label: 'Block'),
     variant: context.knobs.list(
       label: 'Variant',
       options: AppButtonVariant.values,
