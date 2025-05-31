@@ -1,4 +1,5 @@
 import 'package:auth/auth.dart';
+import 'package:auth/src/presentation/cubits/sign_in/sign_in_cubit.dart';
 import 'package:core/core.dart';
 
 class AuthModule extends BaseModule {
@@ -17,5 +18,6 @@ class AuthModule extends BaseModule {
   void register() {
     sl.registerLazySingleton(() => AuthRepository(sl()));
     sl.registerFactory(() => AuthCubit(sl(), sl()));
+    sl.registerFactory(() => SignInCubit(sl()));
   }
 }

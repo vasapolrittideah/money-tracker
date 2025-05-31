@@ -19,6 +19,7 @@ class AppTextInput extends HookWidget {
     this.enableSuggestion = true,
     this.maxLength,
     this.focusNode,
+    this.scrollPadding,
     this.controller,
     this.textCapitalization,
     this.textInputAction,
@@ -40,6 +41,7 @@ class AppTextInput extends HookWidget {
   final bool enableSuggestion;
   final int? maxLength;
   final FocusNode? focusNode;
+  final EdgeInsets? scrollPadding;
   final TextEditingController? controller;
   final TextCapitalization? textCapitalization;
   final TextInputAction? textInputAction;
@@ -119,6 +121,7 @@ class AppTextInput extends HookWidget {
             autocorrect: autoCorrect,
             enableSuggestions: enableSuggestion,
             obscureText: toggleTextObscure.value,
+            scrollPadding: scrollPadding ?? EdgeInsets.zero,
             maxLength: maxLength,
             textCapitalization: textCapitalization ?? TextCapitalization.none,
             textInputAction: textInputAction,
