@@ -14,11 +14,23 @@ class SignInPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.of(context).padding;
+    final emailFocusNode = useFocusNode();
+    final passwordFocusNode = useFocusNode();
+    final signInCubit = useBloc<SignInCubit>();
+
+    useBlocListener(signInCubit, (cubit, value, context) {
+      if (value is SignInFailure) {
+        AppSnackBar.show(
+          context: context,
+          type: SnackBarType.failure,
+          message: 'เข้าสู่ระบบไม่สําเร็จ กรุณาลองใหม่อีกครั้ง',
+        );
+      }
+    });
+
     final bottomInset =
         (MediaQuery.of(context).viewInsets.bottom -
-                padding.top -
-                padding.bottom)
+                MediaQuery.of(context).padding.top)
             .abs();
 
     return Scaffold(
@@ -57,9 +69,12 @@ class SignInPage extends HookWidget {
                   SizedBox(height: context.appSpacing.xs),
                   _SocialSignInDivider(),
                   SizedBox(height: context.appSpacing.xs),
-                  _EmailInput(),
+                  _EmailInput(
+                    focusNode: emailFocusNode,
+                    passwordFocusNode: passwordFocusNode,
+                  ),
                   SizedBox(height: context.appSpacing.x2s),
-                  _PasswordInput(),
+                  _PasswordInput(focusNode: passwordFocusNode),
                   SizedBox(height: context.appSpacing.x2s),
                   _SignInSubmitButton(),
                   SizedBox(height: context.appSpacing.x5s),
@@ -162,11 +177,13 @@ class _SocialSignInDivider extends StatelessWidget {
 }
 
 class _EmailInput extends HookWidget {
-  const _EmailInput();
+  const _EmailInput({required this.focusNode, required this.passwordFocusNode});
+
+  final FocusNode focusNode;
+  final FocusNode passwordFocusNode;
 
   @override
   Widget build(BuildContext context) {
-    final focusNode = useFocusNode();
     final controller = useTextEditingController();
     final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
 
@@ -195,7 +212,9 @@ class _EmailInput extends HookWidget {
                 final field = _formKey.currentState?.fields[_emailFieldName];
                 final valid = field?.validate();
                 if (valid != null && valid) {
-                  _passwordFieldKey.currentState?.focus();
+                  passwordFocusNode.requestFocus();
+                } else {
+                  focusNode.requestFocus();
                 }
               },
             );
@@ -207,11 +226,12 @@ class _EmailInput extends HookWidget {
 }
 
 class _PasswordInput extends HookWidget {
-  const _PasswordInput();
+  const _PasswordInput({required this.focusNode});
+
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
-    final focusNode = useFocusNode();
     final controller = useTextEditingController();
     final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
 
@@ -235,6 +255,13 @@ class _PasswordInput extends HookWidget {
               textObscure: true,
               onChange: field.didChange,
               scrollPadding: EdgeInsets.only(bottom: keyboardHeight),
+              onSubmitted: (_) async {
+                final field = _formKey.currentState?.fields[_passwordFieldName];
+                final valid = field?.validate();
+                if (valid == null || !valid) {
+                  focusNode.requestFocus();
+                }
+              },
             );
           },
         ),
