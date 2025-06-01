@@ -1,10 +1,10 @@
-import 'package:core/src/constants/hive_type_ids.dart';
+import 'package:core/src/constants/hive_type_id.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/adapters.dart';
 
 part 'jwt.g.dart';
 
-@HiveType(typeId: HiveTypeIds.jwt)
+@HiveType(typeId: HiveTypeId.jwt)
 final class Jwt extends Equatable {
   const Jwt({
     required this.accessToken,

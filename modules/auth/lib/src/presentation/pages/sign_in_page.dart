@@ -18,12 +18,23 @@ class SignInPage extends HookWidget {
     final passwordFocusNode = useFocusNode();
     final signInCubit = useBloc<SignInCubit>();
 
-    useBlocListener(signInCubit, (cubit, value, context) {
-      if (value is SignInFailure) {
+    useBlocListener(signInCubit, (cubit, state, context) {
+      if (state is SignInFailure) {
+        var message = 'ไม่สามารถเข้าสู่ระบบได้ ${state.failure.message}';
+
+        if (state.failure is ServerFailure) {
+          message = switch ((state.failure as ServerFailure).code) {
+            ErrorCode.notFound => 'ไม่พบผู้ใช้งานอีเมลนี้ ตรวจสอบอีเมลอีกครั้ง',
+            ErrorCode.unauthenticated =>
+              'รหัสผ่านไม่ถูกต้อง ตรวจสอบรหัสผ่านอีกครั้ง',
+            _ => message,
+          };
+        }
+
         AppSnackBar.show(
           context: context,
           type: SnackBarType.failure,
-          message: 'เข้าสู่ระบบไม่สําเร็จ กรุณาลองใหม่อีกครั้ง',
+          message: message,
         );
       }
     });

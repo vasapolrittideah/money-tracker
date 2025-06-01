@@ -2,7 +2,7 @@ import 'package:core/core.dart';
 
 part 'user.g.dart';
 
-@HiveType(typeId: HiveTypeIds.user)
+@HiveType(typeId: HiveTypeId.user)
 class User extends Equatable {
   const User({
     required this.id,

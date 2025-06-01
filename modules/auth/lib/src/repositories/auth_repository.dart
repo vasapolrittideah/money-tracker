@@ -8,7 +8,7 @@ class AuthRepository {
   Stream<AuthStatus> get status =>
       _apiClient.tokenOperation.authenticationStatus;
 
-  Future<Result<void>> signIn({
+  Future<Either<Failure, Unit>> signIn({
     required String email,
     required String password,
   }) async {
@@ -16,15 +16,15 @@ class AuthRepository {
       final body = {'email': email, 'password': password};
 
       final response = await _apiClient.httpClient.post(
-        '${AppConfig.authApiUrl}/api/auth/login',
+        '${AppConfig.authApiUrl}/api/auth/sign-in',
         data: body,
       );
 
       await _apiClient.tokenOperation.setToken(Jwt(accessToken: response.data));
 
-      return Result.success(null);
+      return right(unit);
     } on Exception catch (error) {
-      return Result.failure(error.toString());
+      return left(ErrorHandlerUtil.handleError(error));
     }
   }
 }
