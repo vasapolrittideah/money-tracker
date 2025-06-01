@@ -16,6 +16,8 @@ class SignInCubit extends Cubit<SignInState> {
       password: password,
     );
 
+    await Future.delayed(const Duration(seconds: 2));
+
     result.fold(
       (failure) => emit(SignInFailure(failure)),
       (_) => emit(SignInSuccess()),
