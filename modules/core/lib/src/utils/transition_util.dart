@@ -5,7 +5,7 @@ final class TransitionUtil {
   static CustomTransitionPage<T> slideTransitionPage<T>({
     required Widget child,
     required GoRouterState state,
-    AxisDirection direction = AxisDirection.right,
+    AxisDirection direction = AxisDirection.left,
   }) {
     return CustomTransitionPage<T>(
       key: state.pageKey,
