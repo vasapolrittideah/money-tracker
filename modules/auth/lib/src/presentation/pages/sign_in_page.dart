@@ -11,13 +11,34 @@ final _passwordFieldName = 'password';
 final _passwordFieldKey = GlobalKey<FormBuilderFieldState>();
 
 class SignInPage extends HookWidget {
-  const SignInPage({super.key});
+  const SignInPage({
+    super.key,
+    this.initialEmailValue = '',
+    this.initialPasswordValue = '',
+  });
+
+  final String initialEmailValue;
+  final String initialPasswordValue;
 
   @override
   Widget build(BuildContext context) {
     final emailFocusNode = useFocusNode();
     final passwordFocusNode = useFocusNode();
     final signInCubit = useBloc<SignInCubit>();
+
+    useEffect(() {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (initialEmailValue.isNotEmpty) {
+          _emailFieldKey.currentState?.didChange(initialEmailValue);
+        }
+
+        if (initialPasswordValue.isNotEmpty) {
+          _passwordFieldKey.currentState?.didChange(initialPasswordValue);
+        }
+      });
+
+      return null;
+    });
 
     useBlocListener(signInCubit, (cubit, state, context) async {
       switch (state) {
@@ -104,9 +125,13 @@ class SignInPage extends HookWidget {
                   _EmailInput(
                     selfFocusNode: emailFocusNode,
                     nextFocusNode: passwordFocusNode,
+                    initialValue: initialEmailValue,
                   ),
                   SizedBox(height: context.appSpacing.x2s),
-                  _PasswordInput(selfFocusNode: passwordFocusNode),
+                  _PasswordInput(
+                    selfFocusNode: passwordFocusNode,
+                    initialValue: initialPasswordValue,
+                  ),
                   SizedBox(height: context.appSpacing.x2s),
                   _SignInSubmitButton(),
                   SizedBox(height: context.appSpacing.x5s),
@@ -209,14 +234,19 @@ class SocialSignInDivider extends StatelessWidget {
 }
 
 class _EmailInput extends HookWidget {
-  const _EmailInput({required this.selfFocusNode, required this.nextFocusNode});
+  const _EmailInput({
+    required this.selfFocusNode,
+    required this.nextFocusNode,
+    this.initialValue = '',
+  });
 
   final FocusNode selfFocusNode;
   final FocusNode nextFocusNode;
+  final String initialValue;
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTextEditingController();
+    final controller = useTextEditingController(text: initialValue);
     final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
 
     return Column(
@@ -258,13 +288,14 @@ class _EmailInput extends HookWidget {
 }
 
 class _PasswordInput extends HookWidget {
-  const _PasswordInput({required this.selfFocusNode});
+  const _PasswordInput({required this.selfFocusNode, this.initialValue = ''});
 
   final FocusNode selfFocusNode;
+  final String initialValue;
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTextEditingController();
+    final controller = useTextEditingController(text: initialValue);
     final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
 
     return Column(
