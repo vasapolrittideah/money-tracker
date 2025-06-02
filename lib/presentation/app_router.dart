@@ -52,15 +52,25 @@ final class AppRouter {
   ) {
     final status = context.read<AuthCubit>().state.status;
 
-    final isSigningIn = state.matchedLocation == AuthRouteName.signIn;
+    final currentLocation = state.matchedLocation;
 
-    if (status == AuthStatus.unauthenticated && !isSigningIn) {
+    final isOnReservedLocation = _reservedLocations.contains(currentLocation);
+    final isUnauthenticated = status == AuthStatus.unauthenticated;
+    final isAuthenticated = status == AuthStatus.authenticated;
+
+    if (isUnauthenticated && !isOnReservedLocation) {
       return AuthRouteName.signIn;
     }
-    if (status == AuthStatus.authenticated && isSigningIn) {
+
+    if (isAuthenticated && isOnReservedLocation) {
       return MainRouteName.home;
     }
 
     return null;
   }
+
+  static const Set<String> _reservedLocations = {
+    AuthRouteName.signIn,
+    AuthRouteName.signUp,
+  };
 }
