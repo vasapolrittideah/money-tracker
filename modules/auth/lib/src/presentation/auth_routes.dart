@@ -1,9 +1,11 @@
 import 'package:auth/src/presentation/cubits/sign_in/sign_in_cubit.dart';
 import 'package:auth/src/presentation/pages/sign_in_page.dart';
+import 'package:auth/src/presentation/pages/sign_up_page.dart';
 import 'package:core/core.dart';
 
 class AuthRouteName {
-  static const signIn = "/sign-in";
+  static const signIn = '/sign-in';
+  static const signUp = '/sign-up';
 }
 
 final List<GoRoute> authRoutes = [
@@ -16,6 +18,15 @@ final List<GoRoute> authRoutes = [
           create: (context) => sl(),
           child: const SignInPage(),
         ),
+      );
+    },
+  ),
+  GoRoute(
+    path: AuthRouteName.signUp,
+    pageBuilder: (context, state) {
+      return TransitionUtil.slideTransitionPage(
+        state: state,
+        child: const SignUpPage(),
       );
     },
   ),

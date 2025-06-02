@@ -1,3 +1,4 @@
+import 'package:auth/src/presentation/auth_routes.dart';
 import 'package:auth/src/presentation/cubits/sign_in/sign_in_cubit.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
@@ -363,6 +364,9 @@ class _SignUpButton extends StatelessWidget {
           variant: AppButtonVariant.neutral,
           mode: AppButtonMode.ghost,
           padding: EdgeInsets.zero,
+          onTap: () {
+            context.go(AuthRouteName.signUp);
+          },
         ),
       ],
     );
