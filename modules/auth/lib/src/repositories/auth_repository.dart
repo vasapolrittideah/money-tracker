@@ -17,7 +17,11 @@ class AuthRepository {
         data: request.toJson(),
       );
 
-      await _apiClient.tokenOperation.setToken(Jwt(accessToken: response.data));
+      final data = response.data['data'];
+
+      await _apiClient.tokenOperation.setToken(
+        Jwt(accessToken: data['access_token']),
+      );
 
       return right(unit);
     } on Exception catch (error) {
