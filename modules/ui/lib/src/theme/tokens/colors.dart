@@ -131,10 +131,10 @@ final class AppColors extends ThemeExtension<AppColors> {
     informationLighter: AppColorPalette.blue50,
 
     // Warning colors
-    warningDark: AppColorPalette.orange950,
-    warningBase: AppColorPalette.orange500,
-    warningLight: AppColorPalette.orange200,
-    warningLighter: AppColorPalette.orange50,
+    warningDark: AppColorPalette.yellow950,
+    warningBase: AppColorPalette.yellow500,
+    warningLight: AppColorPalette.yellow200,
+    warningLighter: AppColorPalette.yellow50,
 
     // Error colors
     errorDark: AppColorPalette.red950,
