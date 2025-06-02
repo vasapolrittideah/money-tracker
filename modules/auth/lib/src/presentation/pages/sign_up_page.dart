@@ -54,16 +54,16 @@ class SignUpPage extends HookWidget {
                   ),
                   SizedBox(height: context.appSpacing.lg),
                   _FullNameInput(
-                    focusNode: fullNameFocusNode,
-                    emailFocusNode: emailFocusNode,
+                    selfFocusNode: fullNameFocusNode,
+                    nextFocusNode: emailFocusNode,
                   ),
                   SizedBox(height: context.appSpacing.x2s),
                   _EmailInput(
-                    focusNode: emailFocusNode,
-                    passwordFocusNode: passwordFocusNode,
+                    selfFocusNode: emailFocusNode,
+                    nextFocusNode: passwordFocusNode,
                   ),
                   SizedBox(height: context.appSpacing.x2s),
-                  _PasswordInput(focusNode: passwordFocusNode),
+                  _PasswordInput(selfFocusNode: passwordFocusNode),
                   SizedBox(height: context.appSpacing.x2s),
                   _SignUpSubmitButton(),
                   Padding(padding: EdgeInsets.only(bottom: bottomInset)),
@@ -78,10 +78,13 @@ class SignUpPage extends HookWidget {
 }
 
 class _FullNameInput extends HookWidget {
-  const _FullNameInput({required this.focusNode, required this.emailFocusNode});
+  const _FullNameInput({
+    required this.selfFocusNode,
+    required this.nextFocusNode,
+  });
 
-  final FocusNode focusNode;
-  final FocusNode emailFocusNode;
+  final FocusNode selfFocusNode;
+  final FocusNode nextFocusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +106,7 @@ class _FullNameInput extends HookWidget {
               hintText: 'กรุณากรอกชื่อ-นามสกุล',
               labelText: 'ชื่อ-นามสกุล',
               errorText: field.errorText,
-              focusNode: focusNode,
+              focusNode: selfFocusNode,
               controller: controller,
               textInputAction: TextInputAction.next,
               onChange: field.didChange,
@@ -112,9 +115,9 @@ class _FullNameInput extends HookWidget {
                 final field = _formKey.currentState?.fields[_emailFieldName];
                 final valid = field?.validate();
                 if (valid != null && valid) {
-                  emailFocusNode.requestFocus();
+                  nextFocusNode.requestFocus();
                 } else {
-                  focusNode.requestFocus();
+                  selfFocusNode.requestFocus();
                 }
               },
             );
@@ -126,10 +129,10 @@ class _FullNameInput extends HookWidget {
 }
 
 class _EmailInput extends HookWidget {
-  const _EmailInput({required this.focusNode, required this.passwordFocusNode});
+  const _EmailInput({required this.selfFocusNode, required this.nextFocusNode});
 
-  final FocusNode focusNode;
-  final FocusNode passwordFocusNode;
+  final FocusNode selfFocusNode;
+  final FocusNode nextFocusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -152,7 +155,7 @@ class _EmailInput extends HookWidget {
               hintText: 'กรุณากรอกอีเมล',
               labelText: 'อีเมล',
               errorText: field.errorText,
-              focusNode: focusNode,
+              focusNode: selfFocusNode,
               controller: controller,
               textInputAction: TextInputAction.next,
               onChange: field.didChange,
@@ -161,9 +164,9 @@ class _EmailInput extends HookWidget {
                 final field = _formKey.currentState?.fields[_emailFieldName];
                 final valid = field?.validate();
                 if (valid != null && valid) {
-                  passwordFocusNode.requestFocus();
+                  selfFocusNode.requestFocus();
                 } else {
-                  focusNode.requestFocus();
+                  nextFocusNode.requestFocus();
                 }
               },
             );
@@ -175,9 +178,9 @@ class _EmailInput extends HookWidget {
 }
 
 class _PasswordInput extends HookWidget {
-  const _PasswordInput({required this.focusNode});
+  const _PasswordInput({required this.selfFocusNode});
 
-  final FocusNode focusNode;
+  final FocusNode selfFocusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +202,7 @@ class _PasswordInput extends HookWidget {
               hintText: 'กรุณากรอกรหัสผ่าน',
               labelText: 'รหัสผ่าน',
               errorText: field.errorText,
-              focusNode: focusNode,
+              focusNode: selfFocusNode,
               controller: controller,
               textObscure: true,
               onChange: field.didChange,
@@ -208,7 +211,7 @@ class _PasswordInput extends HookWidget {
                 final field = _formKey.currentState?.fields[_passwordFieldName];
                 final valid = field?.validate();
                 if (valid == null || !valid) {
-                  focusNode.requestFocus();
+                  selfFocusNode.requestFocus();
                 }
               },
             );
