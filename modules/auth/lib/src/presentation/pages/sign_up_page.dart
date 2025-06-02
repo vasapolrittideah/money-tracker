@@ -1,4 +1,5 @@
 import 'package:auth/auth.dart';
+import 'package:auth/src/presentation/cubits/sign_up/sign_up_cubit.dart';
 import 'package:auth/src/presentation/pages/sign_in_page.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,52 @@ class SignUpPage extends HookWidget {
     final fullNameFocusNode = useFocusNode();
     final emailFocusNode = useFocusNode();
     final passwordFocusNode = useFocusNode();
+    final signUpCubit = useBloc<SignUpCubit>();
+
+    useBlocListener(signUpCubit, (cubit, state, context) async {
+      switch (state) {
+        case SignUpLoading():
+          AppDialog.startLoading(context);
+          break;
+
+        case SignUpFailure(:final failure):
+          AppDialog.stopLoading(context);
+
+          final defaultMessage =
+              'ไม่สามารถสมัครบัญชีได้ เนื่องจาก${failure.message}';
+          String message = defaultMessage;
+
+          if (failure case ServerFailure(code: final code)) {
+            message = switch (code) {
+              ErrorCode.alreadyExists =>
+                'อีเมลนี้ถูกใช้งานแล้ว ตรวจสอบอีเมลอีกครั้ง',
+              _ => defaultMessage,
+            };
+          }
+
+          if (context.mounted) {
+            AppSnackBar.show(
+              context: context,
+              type: SnackBarType.failure,
+              message: message,
+            );
+          }
+          break;
+
+        case SignUpSuccess():
+          AppDialog.stopLoading(context);
+
+          AppSnackBar.show(
+            context: context,
+            type: SnackBarType.success,
+            message: 'สมัครสมาชิกสําเร็จแล้ว',
+          );
+          break;
+
+        case SignUpInitial():
+          break;
+      }
+    });
 
     final bottomInset =
         (MediaQuery.of(context).viewInsets.bottom -
@@ -248,7 +295,19 @@ class _SignUpSubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppButton(text: 'สมัคร', fullWidth: true, onTap: () async {});
+    return AppButton(
+      text: 'สมัคร',
+      fullWidth: true,
+      onTap: () async {
+        if (_formKey.currentState?.saveAndValidate() ?? false) {
+          await context.read<SignUpCubit>().signUp(
+            fullName: _fullNameFieldKey.currentState?.value,
+            email: _emailFieldKey.currentState?.value,
+            password: _passwordFieldKey.currentState?.value,
+          );
+        }
+      },
+    );
   }
 }
 

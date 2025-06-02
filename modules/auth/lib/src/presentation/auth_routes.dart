@@ -1,4 +1,5 @@
 import 'package:auth/src/presentation/cubits/sign_in/sign_in_cubit.dart';
+import 'package:auth/src/presentation/cubits/sign_up/sign_up_cubit.dart';
 import 'package:auth/src/presentation/pages/sign_in_page.dart';
 import 'package:auth/src/presentation/pages/sign_up_page.dart';
 import 'package:core/core.dart';
@@ -26,7 +27,10 @@ final List<GoRoute> authRoutes = [
     pageBuilder: (context, state) {
       return TransitionUtil.slideTransitionPage(
         state: state,
-        child: const SignUpPage(),
+        child: BlocProvider<SignUpCubit>(
+          create: (context) => sl(),
+          child: const SignUpPage(),
+        ),
       );
     },
   ),

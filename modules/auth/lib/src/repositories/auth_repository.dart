@@ -27,4 +27,27 @@ class AuthRepository {
       return left(ErrorHandlerUtil.handleError(error));
     }
   }
+
+  Future<Either<Failure, Unit>> signUp({
+    required String fullName,
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final body = {
+        'full_name': fullName,
+        'email': email,
+        'password': password,
+      };
+
+      await _apiClient.httpClient.post(
+        '${AppConfig.authApiUrl}/api/auth/sign-up',
+        data: body,
+      );
+
+      return right(unit);
+    } on Exception catch (error) {
+      return left(ErrorHandlerUtil.handleError(error));
+    }
+  }
 }

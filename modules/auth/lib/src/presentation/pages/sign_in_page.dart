@@ -28,7 +28,8 @@ class SignInPage extends HookWidget {
         case SignInFailure(:final failure):
           AppDialog.stopLoading(context);
 
-          final defaultMessage = 'ไม่สามารถเข้าสู่ระบบได้ ${failure.message}';
+          final defaultMessage =
+              'ไม่สามารถเข้าสู่ระบบได้ เนื่องจาก${failure.message}';
           String message = defaultMessage;
 
           if (failure case ServerFailure(code: final code)) {
