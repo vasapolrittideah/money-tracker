@@ -20,7 +20,10 @@ class AuthRepository {
       final data = response.data['data'];
 
       await _apiClient.tokenOperation.setToken(
-        Jwt(accessToken: data['access_token']),
+        Jwt(
+          accessToken: data['access_token'],
+          refreshToken: data['refresh_token'],
+        ),
       );
 
       return right(unit);
