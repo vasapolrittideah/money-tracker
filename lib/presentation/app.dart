@@ -2,7 +2,6 @@ import 'package:auth/auth.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:money_tracker/modules/app_module.dart';
 import 'package:money_tracker/presentation/app_router.dart';
 import 'package:ui/ui.dart';

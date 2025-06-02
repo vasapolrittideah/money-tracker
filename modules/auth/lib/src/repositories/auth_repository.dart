@@ -1,3 +1,5 @@
+import 'package:auth/src/models/requests/sign_in_request.dart';
+import 'package:auth/src/models/requests/sign_up_request.dart';
 import 'package:core/core.dart';
 
 class AuthRepository {
@@ -8,16 +10,11 @@ class AuthRepository {
   Stream<AuthStatus> get status =>
       _apiClient.tokenOperation.authenticationStatus;
 
-  Future<Either<Failure, Unit>> signIn({
-    required String email,
-    required String password,
-  }) async {
+  Future<Either<Failure, Unit>> signIn(SignInRequest request) async {
     try {
-      final body = {'email': email, 'password': password};
-
       final response = await _apiClient.httpClient.post(
         '${AppConfig.authApiUrl}/api/auth/sign-in',
-        data: body,
+        data: request.toJson(),
       );
 
       await _apiClient.tokenOperation.setToken(Jwt(accessToken: response.data));
@@ -28,21 +25,11 @@ class AuthRepository {
     }
   }
 
-  Future<Either<Failure, Unit>> signUp({
-    required String fullName,
-    required String email,
-    required String password,
-  }) async {
+  Future<Either<Failure, Unit>> signUp(SignUpRequest request) async {
     try {
-      final body = {
-        'full_name': fullName,
-        'email': email,
-        'password': password,
-      };
-
       await _apiClient.httpClient.post(
         '${AppConfig.authApiUrl}/api/auth/sign-up',
-        data: body,
+        data: request.toJson(),
       );
 
       return right(unit);

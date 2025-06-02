@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:money_tracker/presentation/pages/home_page.dart';
 import 'package:money_tracker/presentation/pages/splash_page.dart';
 
+final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>(
+  debugLabel: 'root_navigator',
+);
+
 class MainRouteName {
   static const root = '/';
   static const home = '/home';
 }
-
-final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>(
-  debugLabel: 'root_navigator',
-);
 
 final class AppRouter {
   AppRouter._();

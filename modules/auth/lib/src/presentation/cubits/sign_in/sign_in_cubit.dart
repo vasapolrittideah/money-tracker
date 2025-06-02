@@ -1,4 +1,5 @@
 import 'package:auth/auth.dart';
+import 'package:auth/src/models/requests/sign_in_request.dart';
 import 'package:core/core.dart';
 
 part 'sign_in_state.dart';
@@ -12,8 +13,7 @@ class SignInCubit extends Cubit<SignInState> {
     emit(SignInLoading());
 
     final result = await _authRepository.signIn(
-      email: email,
-      password: password,
+      SignInRequest(email: email, password: password),
     );
 
     await Future.delayed(const Duration(seconds: 2));
