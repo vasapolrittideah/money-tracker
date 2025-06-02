@@ -1,8 +1,10 @@
 import 'package:auth/auth.dart';
+import 'package:auth/src/models/requests/sign_in_request.dart';
 import 'package:auth/src/presentation/cubits/sign_up/sign_up_cubit.dart';
 import 'package:auth/src/presentation/pages/sign_in_page.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:ui/ui.dart';
 
 final _formKey = GlobalKey<FormBuilderState>();
@@ -56,11 +58,21 @@ class SignUpPage extends HookWidget {
         case SignUpSuccess():
           AppDialog.stopLoading(context);
 
-          AppSnackBar.show(
-            context: context,
-            type: SnackBarType.success,
-            message: 'สมัครสมาชิกสําเร็จแล้ว',
+          context.go(
+            AuthRouteName.signIn,
+            extra: SignInRequest(
+              email: _emailFieldKey.currentState?.value,
+              password: _passwordFieldKey.currentState?.value,
+            ),
           );
+
+          SchedulerBinding.instance.addPostFrameCallback((_) {
+            AppSnackBar.show(
+              context: context,
+              type: SnackBarType.success,
+              message: 'สมัครสมาชิกสําเร็จแล้ว',
+            );
+          });
           break;
 
         case SignUpInitial():
