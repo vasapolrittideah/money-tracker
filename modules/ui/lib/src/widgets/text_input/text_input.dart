@@ -64,8 +64,6 @@ class AppTextInput extends HookWidget {
       focusNode.addListener(listener);
       return () {
         focusNode.removeListener(listener);
-        controller.dispose();
-        focusNode.dispose();
       };
     }, [focusNode]);
 
