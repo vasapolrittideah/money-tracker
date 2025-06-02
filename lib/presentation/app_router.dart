@@ -54,6 +54,7 @@ final class AppRouter {
 
     final currentLocation = state.matchedLocation;
 
+    final isOnRootLocation = currentLocation == MainRouteName.root;
     final isOnReservedLocation = _reservedLocations.contains(currentLocation);
     final isUnauthenticated = status == AuthStatus.unauthenticated;
     final isAuthenticated = status == AuthStatus.authenticated;
@@ -62,7 +63,7 @@ final class AppRouter {
       return AuthRouteName.signIn;
     }
 
-    if (isAuthenticated && isOnReservedLocation) {
+    if (isAuthenticated && (isOnReservedLocation || isOnRootLocation)) {
       return MainRouteName.home;
     }
 
