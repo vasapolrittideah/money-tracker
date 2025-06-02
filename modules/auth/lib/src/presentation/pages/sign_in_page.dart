@@ -92,13 +92,13 @@ class SignInPage extends HookWidget {
                     height: context.appSpacing.xs,
                   ),
                   SizedBox(height: context.appSpacing.lg),
-                  _GoogleSignInButton(),
+                  GoogleSignInButton(),
                   SizedBox(height: context.appSpacing.x2s),
-                  _FacebookSignInButton(),
+                  FacebookSignInButton(),
                   SizedBox(height: context.appSpacing.x2s),
-                  _AppleSignInButton(),
+                  AppleSignInButton(),
                   SizedBox(height: context.appSpacing.xs),
-                  _SocialSignInDivider(),
+                  SocialSignInDivider(),
                   SizedBox(height: context.appSpacing.xs),
                   _EmailInput(
                     selfFocusNode: emailFocusNode,
@@ -121,13 +121,13 @@ class SignInPage extends HookWidget {
   }
 }
 
-class _GoogleSignInButton extends HookWidget {
-  const _GoogleSignInButton();
+class GoogleSignInButton extends HookWidget {
+  const GoogleSignInButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      text: 'เข้าสู่ระบบด้วย Google',
+      text: 'ดำเนินการด้วย Google',
       fullWidth: true,
       variant: AppButtonVariant.neutral,
       mode: AppButtonMode.stroke,
@@ -139,13 +139,13 @@ class _GoogleSignInButton extends HookWidget {
   }
 }
 
-class _FacebookSignInButton extends HookWidget {
-  const _FacebookSignInButton();
+class FacebookSignInButton extends HookWidget {
+  const FacebookSignInButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      text: 'เข้าสู่ระบบด้วย Facebook',
+      text: 'ดำเนินการด้วย Facebook',
       fullWidth: true,
       variant: AppButtonVariant.neutral,
       mode: AppButtonMode.filled,
@@ -162,13 +162,13 @@ class _FacebookSignInButton extends HookWidget {
   }
 }
 
-class _AppleSignInButton extends HookWidget {
-  const _AppleSignInButton();
+class AppleSignInButton extends HookWidget {
+  const AppleSignInButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppButton(
-      text: 'เข้าสู่ระบบด้วย Apple',
+      text: 'ดำเนินการด้วย Apple',
       fullWidth: true,
       variant: AppButtonVariant.neutral,
       mode: AppButtonMode.filled,
@@ -184,8 +184,8 @@ class _AppleSignInButton extends HookWidget {
   }
 }
 
-class _SocialSignInDivider extends StatelessWidget {
-  const _SocialSignInDivider();
+class SocialSignInDivider extends StatelessWidget {
+  const SocialSignInDivider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -226,8 +226,8 @@ class _EmailInput extends HookWidget {
           key: _emailFieldKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: FormBuilderValidators.compose([
-            FormBuilderValidators.required(errorText: 'กรุณากรอกอีเมล'),
-            FormBuilderValidators.email(errorText: 'กรุณากรอกอีเมลให้ถูกต้อง'),
+            FormBuilderValidators.required(errorText: 'จำเป็นต้องกรอกอีเมล'),
+            FormBuilderValidators.email(errorText: 'อีเมลไม่ถูกต้อง'),
           ]),
           builder: (FormFieldState<String> field) {
             return AppTextInput(
@@ -237,7 +237,7 @@ class _EmailInput extends HookWidget {
               focusNode: selfFocusNode,
               controller: controller,
               textInputAction: TextInputAction.next,
-              onChange: field.didChange,
+              onChanged: field.didChange,
               scrollPadding: EdgeInsets.only(bottom: keyboardHeight),
               onSubmitted: (_) {
                 final field = _formKey.currentState?.fields[_emailFieldName];
@@ -274,7 +274,7 @@ class _PasswordInput extends HookWidget {
           key: _passwordFieldKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: FormBuilderValidators.compose([
-            FormBuilderValidators.required(errorText: 'กรุณากรอกรหัสผ่าน'),
+            FormBuilderValidators.required(errorText: 'จำเป็นต้องกรอกรหัสผ่าน'),
           ]),
           builder: (FormFieldState<String> field) {
             return AppTextInput(
@@ -284,7 +284,7 @@ class _PasswordInput extends HookWidget {
               focusNode: selfFocusNode,
               controller: controller,
               textObscure: true,
-              onChange: field.didChange,
+              onChanged: field.didChange,
               scrollPadding: EdgeInsets.only(bottom: keyboardHeight),
               onSubmitted: (_) async {
                 final field = _formKey.currentState?.fields[_passwordFieldName];

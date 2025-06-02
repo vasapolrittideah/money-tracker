@@ -1,4 +1,5 @@
 import 'package:auth/auth.dart';
+import 'package:auth/src/presentation/pages/sign_in_page.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/ui.dart';
@@ -53,6 +54,14 @@ class SignUpPage extends HookWidget {
                     height: context.appSpacing.xs,
                   ),
                   SizedBox(height: context.appSpacing.lg),
+                  GoogleSignInButton(),
+                  SizedBox(height: context.appSpacing.x2s),
+                  FacebookSignInButton(),
+                  SizedBox(height: context.appSpacing.x2s),
+                  AppleSignInButton(),
+                  SizedBox(height: context.appSpacing.xs),
+                  SocialSignInDivider(),
+                  SizedBox(height: context.appSpacing.xs),
                   _FullNameInput(
                     selfFocusNode: fullNameFocusNode,
                     nextFocusNode: emailFocusNode,
@@ -99,7 +108,9 @@ class _FullNameInput extends HookWidget {
           key: _fullNameFieldKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: FormBuilderValidators.compose([
-            FormBuilderValidators.required(errorText: 'กรุณากรอกชื่อ-นามสกุล'),
+            FormBuilderValidators.required(
+              errorText: 'จำเป็นต้องกรอกชื่อ-นามสกุล',
+            ),
           ]),
           builder: (FormFieldState<String> field) {
             return AppTextInput(
@@ -109,7 +120,7 @@ class _FullNameInput extends HookWidget {
               focusNode: selfFocusNode,
               controller: controller,
               textInputAction: TextInputAction.next,
-              onChange: field.didChange,
+              onChanged: field.didChange,
               scrollPadding: EdgeInsets.only(bottom: keyboardHeight),
               onSubmitted: (_) {
                 final field = _formKey.currentState?.fields[_emailFieldName];
@@ -147,8 +158,8 @@ class _EmailInput extends HookWidget {
           key: _emailFieldKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: FormBuilderValidators.compose([
-            FormBuilderValidators.required(errorText: 'กรุณากรอกอีเมล'),
-            FormBuilderValidators.email(errorText: 'กรุณากรอกอีเมลให้ถูกต้อง'),
+            FormBuilderValidators.required(errorText: 'จำเป็นต้องกรอกอีเมล'),
+            FormBuilderValidators.email(errorText: 'อีเมลไม่ถูกต้อง'),
           ]),
           builder: (FormFieldState<String> field) {
             return AppTextInput(
@@ -158,7 +169,7 @@ class _EmailInput extends HookWidget {
               focusNode: selfFocusNode,
               controller: controller,
               textInputAction: TextInputAction.next,
-              onChange: field.didChange,
+              onChanged: field.didChange,
               scrollPadding: EdgeInsets.only(bottom: keyboardHeight),
               onSubmitted: (_) {
                 final field = _formKey.currentState?.fields[_emailFieldName];
@@ -195,7 +206,17 @@ class _PasswordInput extends HookWidget {
           key: _passwordFieldKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: FormBuilderValidators.compose([
-            FormBuilderValidators.required(errorText: 'กรุณากรอกรหัสผ่าน'),
+            FormBuilderValidators.required(errorText: 'จำเป็นต้องกรอกรหัสผ่าน'),
+            FormBuilderValidators.minLength(
+              6,
+              errorText: 'รหัสผ่านต้องมีความยาวอย่างน้อย 6 ตัว',
+            ),
+            FormBuilderValidators.match(
+              RegExp(
+                r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?":{}|<>]+$',
+              ),
+              errorText: 'รหัสผ่านต้องมีทั้งตัวอักษรและตัวเลข',
+            ),
           ]),
           builder: (FormFieldState<String> field) {
             return AppTextInput(
@@ -205,7 +226,7 @@ class _PasswordInput extends HookWidget {
               focusNode: selfFocusNode,
               controller: controller,
               textObscure: true,
-              onChange: field.didChange,
+              onChanged: field.didChange,
               scrollPadding: EdgeInsets.only(bottom: keyboardHeight),
               onSubmitted: (_) async {
                 final field = _formKey.currentState?.fields[_passwordFieldName];
