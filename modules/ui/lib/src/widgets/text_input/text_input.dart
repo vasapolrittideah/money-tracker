@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui/ui.dart';
 
@@ -24,7 +23,7 @@ class AppTextInput extends HookWidget {
     this.textCapitalization,
     this.textInputAction,
     this.keyboardType,
-    this.onChange,
+    this.onChanged,
     this.onSubmitted,
     this.onTap,
   });
@@ -46,7 +45,7 @@ class AppTextInput extends HookWidget {
   final TextCapitalization? textCapitalization;
   final TextInputAction? textInputAction;
   final TextInputType? keyboardType;
-  final Function(String)? onChange;
+  final Function(String)? onChanged;
   final Function(String)? onSubmitted;
   final VoidCallback? onTap;
 
@@ -169,7 +168,7 @@ class AppTextInput extends HookWidget {
             ),
             onTapOutside: (_) => focusNode.unfocus(),
             onTap: onTap,
-            onChanged: onChange,
+            onChanged: onChanged,
             onSubmitted: onSubmitted,
           ),
         ),
