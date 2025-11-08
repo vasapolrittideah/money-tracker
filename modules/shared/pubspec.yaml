@@ -23,6 +23,7 @@ dependencies:
   path: ^1.9.1
   path_provider: ^2.1.5
   pretty_dio_logger: ^1.4.0
+  synchronized: ^3.4.0
   ua_client_hints: ^1.4.1
 
 dev_dependencies:
