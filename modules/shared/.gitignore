@@ -29,3 +29,11 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 /build/
 /coverage/
+
+# Flutter/Dart generated files
+*.g.*
+*.freezed.dart
+*.mocks.dart
+*.gr.dart
+*.config.dart
+gen/
