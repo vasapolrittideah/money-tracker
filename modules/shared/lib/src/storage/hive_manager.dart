@@ -1,3 +1,4 @@
+import 'package:shared/src/storage/hive_registrar.g.dart';
 import 'package:shared/src/utilities/directory_util.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 
@@ -9,9 +10,10 @@ class HiveManager {
   final DirectoryUtil _directoryUtil;
   String get _subDirectory => 'hive_data';
 
-  /// Initializes Hive by opening the storage.
+  /// Initializes Hive by opening the storage and registering adapters.
   Future<void> init() async {
     await _open();
+    _hive.registerAdapters();
   }
 
   /// Clears all data stored in Hive and deletes the storage directory.

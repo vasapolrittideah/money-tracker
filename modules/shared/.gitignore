@@ -37,3 +37,5 @@ migrate_working_dir/
 *.gr.dart
 *.config.dart
 gen/
+!hive_adapters.g.yaml
+!hive_registrar.g.dart
