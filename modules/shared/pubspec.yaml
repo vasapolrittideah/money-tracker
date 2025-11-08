@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_secure_storage: ^9.2.4
   get_it: ^9.0.5
   package_info_plus: ^9.0.0
   path: ^1.9.1
