@@ -20,12 +20,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/config/
 
 melos:
   command:
     bootstrap:
       runPubGetInParallel: true
-  
+
   scripts:
     gen:
       exec: dart run build_runner build --delete-conflicting-outputs
