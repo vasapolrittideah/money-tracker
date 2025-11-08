@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
   flutter_secure_storage: ^9.2.4
   get_it: ^9.0.5
   hive_ce_flutter: ^2.3.3
