@@ -7,8 +7,8 @@ plugins {
 
 android {
     namespace = "com.example.money_tracker"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdk = 36
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -24,10 +24,31 @@ android {
         applicationId = "com.example.money_tracker"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 24
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+    }
+
+    flavorDimensions += "default"
+    productFlavors {
+        create("dev") {
+            dimension = "default"
+            resValue("string", "app_name", "MoneyTracker Dev")
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+        }
+        create("stg") {
+            dimension = "default"
+            resValue("string", "app_name", "MoneyTracker Stg")
+            applicationIdSuffix = ".stg"
+            versionNameSuffix = "-stg"
+        }
+        create("prod") {
+            dimension = "default"
+            resValue("string", "app_name", "MoneyTracker")
+            applicationIdSuffix = ""
+        }
     }
 
     buildTypes {

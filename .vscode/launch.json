@@ -1,0 +1,32 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.1.0",
+  "configurations": [
+    {
+      "name": "MoneyTracker",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "prod"],
+      "flutterMode": "debug"
+    },
+    {
+      "name": "MoneyTracker Stg",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "stg"],
+      "flutterMode": "debug"
+    },
+    {
+      "name": "MoneyTracker Dev",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "args": ["--flavor", "dev"],
+      "flutterMode": "debug"
+    }
+  ]
+}
