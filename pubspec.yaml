@@ -13,7 +13,13 @@ workspace:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  shared:
+    path: ./modules/shared
   cupertino_icons: ^1.0.8
+  flutter_screenutil: ^5.9.3
+  go_router: ^17.0.0
 
 dev_dependencies:
   flutter_test:
