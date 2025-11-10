@@ -16,6 +16,7 @@ dependencies:
   equatable: ^2.0.7
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.21.3+1
   flutter_screenutil: ^5.9.3
   flutter_secure_storage: ^9.2.4
   fpdart: ^1.2.0
@@ -28,6 +29,7 @@ dependencies:
   path: ^1.9.1
   path_provider: ^2.1.5
   pretty_dio_logger: ^1.4.0
+  remixicon: ^1.4.1
   synchronized: ^3.4.0
   ua_client_hints: ^1.4.1
 
