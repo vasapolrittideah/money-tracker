@@ -1,3 +1,29 @@
 {
-  "@@locale": "th"
+  "@@locale": "th",
+  "errorBadRequest": "ข้อมูลคำขอไม่ถูกต้อง",
+  "errorUnauthorized": "การเข้าถึงไม่ได้รับอนุญาต",
+  "errorForbidden": "ไม่มีสิทธิ์เข้าถึง",
+  "errorNotFound": "ไม่พบทรัพยากร",
+  "errorConflict": "ข้อผิดพลาดความขัดแย้งของข้อมูล",
+  "errorUnprocessable": "ไม่สามารถประมวลผลเอนทิตี",
+  "errorTooManyRequests": "ส่งคำขอเกินจำนวนที่กำหนด",
+  "errorInternalServer": "ข้อผิดพลาดของเซิร์ฟเวอร์ภายใน",
+  "errorBadGateway": "ข้อผิดพลาดเกตเวย์",
+  "errorServiceUnavailable": "บริการไม่พร้อมใช้งาน",
+  "errorGatewayTimeout": "หมดเวลาการเชื่อมต่อเกตเวย์",
+  "errorNoInternetConnection": "ไม่มีการเชื่อมต่ออินเทอร์เน็ต",
+  "errorDataParsing": "ข้อผิดพลาดการวิเคราะห์ข้อมูล",
+  "errorLocalStorage": "ข้อผิดพลาดที่เก็บข้อมูลภายในเครื่อง",
+  "errorConnectionTimeout": "หมดเวลาการเชื่อมต่อ",
+  "errorReceiveTimeout": "หมดเวลาการรับข้อมูล",
+  "errorSendTimeout": "หมดเวลาการส่งข้อมูล",
+  "errorCancelled": "คำขอถูกยกเลิก",
+  "errorConnectionError": "ข้อผิดพลาดการเชื่อมต่อ",
+  "errorUnknown": "เกิดข้อผิดพลาดที่ไม่คาดคิด",
+  "errorUnknownCode": "รหัสข้อผิดพลาดของเซิร์ฟเวอร์ที่ไม่คาดคิด: {code}",
+  "@errorUnknownCode": {
+    "placeholders": {
+      "code": {}
+    }
+  }
 }

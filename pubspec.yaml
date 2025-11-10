@@ -39,7 +39,7 @@ melos:
         flutter: true
 
     gen:intl:
-      run: dart run core:merge_l10n
+      run: dart run shared:merge_l10n
       exec:
         concurrency: 1
       packageFilters:

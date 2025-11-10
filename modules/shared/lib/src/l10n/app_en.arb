@@ -1,3 +1,29 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+  "errorBadRequest": "Invalid request data",
+  "errorUnauthorized": "Unauthorized access",
+  "errorForbidden": "No permission to access",
+  "errorNotFound": "Resource not found",
+  "errorConflict": "Data conflict error",
+  "errorUnprocessable": "Unprocessable entity",
+  "errorTooManyRequests": "Too many requests",
+  "errorInternalServer": "Internal server error",
+  "errorBadGateway": "Bad gateway",
+  "errorServiceUnavailable": "Service unavailable",
+  "errorGatewayTimeout": "Gateway timeout",
+  "errorNoInternetConnection": "No internet connection",
+  "errorDataParsing": "Data parsing error",
+  "errorLocalStorage": "Local storage error",
+  "errorConnectionTimeout": "Connection timeout",
+  "errorReceiveTimeout": "Receive timeout",
+  "errorSendTimeout": "Send timeout",
+  "errorCancelled": "Request cancelled",
+  "errorConnectionError": "Connection error",
+  "errorUnknown": "An unexpected error occurred",
+  "errorUnknownCode": "Unexpected server error code: {code}",
+  "@errorUnknownCode": {
+    "placeholders": {
+      "code": {}
+    }
+  }
 }
