@@ -1,4 +1,4 @@
 {
   "appName": "MoneyTracker Dev",
-  "apiBaseUrl": "https://localhost:3000/api/v1"
+  "apiBaseUrl": "https://localhost:9000/api/v1"
 }
