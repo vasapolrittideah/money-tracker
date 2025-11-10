@@ -9,6 +9,7 @@ environment:
 
 workspace:
   - modules/shared
+  - modules/auth
 
 dependencies:
   flutter:
