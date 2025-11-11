@@ -1,6 +1,6 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ui/src/themes/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:remixicon/remixicon.dart';
 
 enum AppSnackBarType { infomation, success, failure }
 
@@ -15,7 +15,7 @@ class AppSnackBar {
         _AppSnackBarInner.show(
           context: context,
           message: message,
-          iconData: Remix.information_2_fill,
+          iconData: FontAwesomeIcons.circleInfo,
           backgroundColor: context.appColors.primaryBase,
         );
         break;
@@ -23,7 +23,7 @@ class AppSnackBar {
         _AppSnackBarInner.show(
           context: context,
           message: message,
-          iconData: Remix.checkbox_circle_fill,
+          iconData: FontAwesomeIcons.circleCheck,
           backgroundColor: context.appColors.successBase,
         );
         break;
@@ -31,7 +31,7 @@ class AppSnackBar {
         _AppSnackBarInner.show(
           context: context,
           message: message,
-          iconData: Remix.error_warning_fill,
+          iconData: FontAwesomeIcons.circleExclamation,
           backgroundColor: context.appColors.errorBase,
         );
         break;
