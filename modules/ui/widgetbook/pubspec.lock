@@ -317,6 +317,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: transitive
+    description:
+      name: font_awesome_flutter
+      sha256: b9011df3a1fa02993630b8fb83526368cf2206a711259830325bab2f1d2a4eb0
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.12.0"
   fpdart:
     dependency: transitive
     description:
@@ -661,14 +669,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.0"
-  remixicon:
-    dependency: transitive
-    description:
-      name: remixicon
-      sha256: "9a0e6a67d622a1d6ddc5e5cff4898f9711ec8880fc2ebeb720f6e0bc268ea905"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.4.1"
   resizable_widget:
     dependency: transitive
     description:

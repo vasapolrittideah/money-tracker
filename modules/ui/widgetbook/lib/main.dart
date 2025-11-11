@@ -41,7 +41,7 @@ class WidgetbookApp extends StatelessWidget {
           ),
           home: Builder(
             builder: (context) => Padding(
-              padding: const EdgeInsets.only(top: 100),
+              padding: const EdgeInsets.only(top: 60, left: 16, right: 16),
               child: Align(alignment: Alignment.topCenter, child: child),
             ),
           ),

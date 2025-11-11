@@ -6,7 +6,7 @@ import 'package:ui/ui.dart';
 @widgetbook.UseCase(name: 'Playground', type: AppButton)
 Widget buildDefaultAppButtonUseCase(BuildContext context) {
   return AppButton(
-    text: 'This is a button',
+    text: context.knobs.string(label: 'text', initialValue: 'button'),
     size: context.knobs.object.segmented(
       label: 'size',
       labelBuilder: (value) => value.name,
