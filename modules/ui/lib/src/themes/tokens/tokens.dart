@@ -1,8 +1,8 @@
-import 'package:shared/src/themes/tokens/borders.dart';
-import 'package:shared/src/themes/tokens/colors.dart';
-import 'package:shared/src/themes/tokens/shadows.dart';
-import 'package:shared/src/themes/tokens/spacing.dart';
-import 'package:shared/src/themes/tokens/typography/typography.dart';
+import 'package:ui/src/themes/tokens/borders.dart';
+import 'package:ui/src/themes/tokens/colors.dart';
+import 'package:ui/src/themes/tokens/shadows.dart';
+import 'package:ui/src/themes/tokens/spacing.dart';
+import 'package:ui/src/themes/tokens/typography/typography.dart';
 import 'package:flutter/material.dart';
 
 final class AppTokens extends ThemeExtension<AppTokens> {

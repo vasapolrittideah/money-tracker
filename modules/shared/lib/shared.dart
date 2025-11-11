@@ -14,7 +14,5 @@ export 'src/storage/hive_manager.dart';
 export 'src/storage/hive_storage.dart';
 export 'src/storage/secure_storage.dart';
 export 'src/storage/hive_adapters.dart';
-export 'src/themes/tokens/tokens.dart';
-export 'src/themes/themes.dart';
 export 'gen/fonts.gen.dart';
 export 'gen/l10n.dart';

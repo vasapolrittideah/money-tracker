@@ -9,6 +9,7 @@ environment:
 
 workspace:
   - modules/shared
+  - modules/ui
   - modules/auth
 
 dependencies:
@@ -18,6 +19,8 @@ dependencies:
     sdk: flutter
   shared:
     path: ./modules/shared
+  ui:
+    path: ./modules/ui
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   go_router: ^17.0.0

@@ -1,4 +1,4 @@
-import 'package:shared/src/themes/themes.dart';
+import 'package:ui/src/themes/themes.dart';
 import 'package:flutter/material.dart';
 
 class AppDivider extends StatelessWidget {

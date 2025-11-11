@@ -1,5 +1,5 @@
-import 'package:shared/src/themes/tokens/colors.dart';
-import 'package:shared/src/themes/tokens/typography/text_styles.dart';
+import 'package:ui/src/themes/tokens/colors.dart';
+import 'package:ui/src/themes/tokens/typography/text_styles.dart';
 import 'package:flutter/material.dart';
 
 final class AppTypography extends ThemeExtension<AppTypography> {

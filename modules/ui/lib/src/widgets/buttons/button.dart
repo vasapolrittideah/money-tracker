@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared/src/themes/themes.dart';
+import 'package:ui/src/themes/themes.dart';
 
 enum AppButtonVariant { primary, neutral, error }
 
