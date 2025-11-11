@@ -32,19 +32,19 @@ android {
 
     flavorDimensions += "default"
     productFlavors {
-        create("dev") {
+        create("development") {
             dimension = "default"
             resValue("string", "app_name", "MoneyTracker Dev")
             applicationIdSuffix = ".dev"
             versionNameSuffix = "-dev"
         }
-        create("stg") {
+        create("staging") {
             dimension = "default"
             resValue("string", "app_name", "MoneyTracker Stg")
             applicationIdSuffix = ".stg"
             versionNameSuffix = "-stg"
         }
-        create("prod") {
+        create("production") {
             dimension = "default"
             resValue("string", "app_name", "MoneyTracker")
             applicationIdSuffix = ""
