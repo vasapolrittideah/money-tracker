@@ -16,7 +16,6 @@ dependencies:
   equatable: ^2.0.7
   flutter:
     sdk: flutter
-  flutter_hooks: ^0.21.3+1
   flutter_secure_storage: ^9.2.4
   fpdart: ^1.2.0
   freezed_annotation: ^3.1.0
@@ -29,7 +28,6 @@ dependencies:
   path: ^1.9.1
   path_provider: ^2.1.5
   pretty_dio_logger: ^1.4.0
-  remixicon: ^1.4.1
   synchronized: ^3.4.0
   ua_client_hints: ^1.4.1
 
@@ -37,41 +35,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  flutter_gen: ^5.12.0
-  flutter_gen_runner: ^5.12.0
   build_runner: ^2.10.1
   freezed: ^3.2.3
   json_serializable: ^6.11.1
   hive_ce_generator: ^1.10.0
   intl_utils: ^2.8.12
-
-flutter:
-  fonts:
-    - family: ibmPlexSansThai
-      fonts:
-        - asset: ../../assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Thin.ttf
-          weight: 100
-        - asset: ../../assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-ExtraLight.ttf
-          weight: 200
-        - asset: ../../assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Light.ttf
-          weight: 300
-        - asset: ../../assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Regular.ttf
-          weight: 400
-        - asset: ../../assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Medium.ttf
-          weight: 500
-        - asset: ../../assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-SemiBold.ttf
-          weight: 600
-        - asset: ../../assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Bold.ttf
-          weight: 700
-
-flutter_gen:
-  output: ./lib/gen
-  line_length: 120
-  assets:
-    enabled: true
-    outputs:
-      style: dot-delimiter
-      class_name: Assets
 
 flutter_intl:
   enabled: true

@@ -11,8 +11,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.21.3+1
   flutter_screenutil: ^5.9.3
   go_router: ^17.0.0
+  remixicon: ^1.4.1
   shared:
     path: ../shared
 
@@ -20,6 +22,29 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_gen: ^5.12.0
+  flutter_gen_runner: ^5.12.0
+
+flutter:
+  fonts:
+    - family: ibmPlexSansThai
+      fonts:
+        - asset: ./assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Thin.ttf
+        - asset: ./assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-ExtraLight.ttf
+        - asset: ./assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Light.ttf
+        - asset: ./assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Regular.ttf
+        - asset: ./assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Medium.ttf
+        - asset: ./assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-SemiBold.ttf
+        - asset: ./assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Bold.ttf
+
+flutter_gen:
+  output: ./lib/gen
+  line_length: 120
+  assets:
+    enabled: true
+    outputs:
+      style: dot-delimiter
+      class_name: Assets
 
 flutter_intl:
   enabled: true

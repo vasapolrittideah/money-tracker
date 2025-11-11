@@ -1,4 +1,4 @@
-import 'package:shared/gen/fonts.gen.dart';
+import 'package:ui/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -43,7 +43,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text8: TextStyle(
@@ -51,7 +51,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text10: TextStyle(
@@ -59,7 +59,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text12: TextStyle(
@@ -67,7 +67,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text16: TextStyle(
@@ -75,7 +75,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text18: TextStyle(
@@ -83,7 +83,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text20: TextStyle(
@@ -91,7 +91,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text24: TextStyle(
@@ -99,7 +99,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text28: TextStyle(
@@ -107,7 +107,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text32: TextStyle(
@@ -115,7 +115,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _regular,
       fontVariations: _regularVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
   );
@@ -126,7 +126,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text8: TextStyle(
@@ -134,7 +134,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text10: TextStyle(
@@ -142,7 +142,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text12: TextStyle(
@@ -150,7 +150,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text16: TextStyle(
@@ -158,7 +158,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text18: TextStyle(
@@ -166,7 +166,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text20: TextStyle(
@@ -174,7 +174,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text24: TextStyle(
@@ -182,7 +182,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text28: TextStyle(
@@ -190,7 +190,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text32: TextStyle(
@@ -198,7 +198,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _medium,
       fontVariations: _mediumVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
   );
@@ -209,7 +209,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text8: TextStyle(
@@ -217,7 +217,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text10: TextStyle(
@@ -225,7 +225,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text12: TextStyle(
@@ -233,7 +233,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text16: TextStyle(
@@ -241,7 +241,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text18: TextStyle(
@@ -249,7 +249,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text20: TextStyle(
@@ -257,7 +257,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text24: TextStyle(
@@ -265,7 +265,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text28: TextStyle(
@@ -273,7 +273,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text32: TextStyle(
@@ -281,7 +281,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _semiBold,
       fontVariations: _semiBoldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
   );
@@ -292,7 +292,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text8: TextStyle(
@@ -300,7 +300,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text10: TextStyle(
@@ -308,7 +308,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text12: TextStyle(
@@ -316,7 +316,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text16: TextStyle(
@@ -324,7 +324,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text18: TextStyle(
@@ -332,7 +332,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text20: TextStyle(
@@ -340,7 +340,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text24: TextStyle(
@@ -348,7 +348,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text28: TextStyle(
@@ -356,7 +356,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
     text32: TextStyle(
@@ -364,7 +364,7 @@ final class AppTextStyles extends ThemeExtension<AppTextStyles> {
       fontWeight: _bold,
       fontVariations: _boldVariant,
       fontFamily: _fontFamily,
-      letterSpacing: 0.1,
+      letterSpacing: 0,
       color: defaultColor,
     ),
   );

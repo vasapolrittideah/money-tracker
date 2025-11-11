@@ -1,3 +1,4 @@
+export 'gen/l10n.dart';
 export 'src/shared_module.dart';
 export 'src/config/config.dart';
 export 'src/constants/auth_status.dart';
@@ -14,5 +15,3 @@ export 'src/storage/hive_manager.dart';
 export 'src/storage/hive_storage.dart';
 export 'src/storage/secure_storage.dart';
 export 'src/storage/hive_adapters.dart';
-export 'gen/fonts.gen.dart';
-export 'gen/l10n.dart';

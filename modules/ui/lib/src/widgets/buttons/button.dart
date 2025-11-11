@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ui/src/themes/themes.dart';
 
 enum AppButtonVariant { primary, neutral, error }
@@ -105,7 +104,7 @@ class AppButton extends StatelessWidget {
                 AppButtonMode.stroke => context.appColors.bgWhite0,
                 AppButtonMode.ghost => Colors.transparent,
               }
-            : context.appColors.bgSub300);
+            : context.appColors.bgSoft200);
 
     return Container(
       height: effectiveHeight,
@@ -127,7 +126,6 @@ class AppButton extends StatelessWidget {
               style: context.appTypography.regular.textDefault.copyWith(
                 decoration: TextDecoration.none,
                 color: effectiveTextColor,
-                height: 1.h,
               ),
             ),
           ),
