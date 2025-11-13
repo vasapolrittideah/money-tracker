@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:money_tracker/app.dart';
+import 'package:money_tracker/src/app_module.dart';
+import 'package:shared/shared.dart';
 
 /// Entry point of the Flutter application.
 Future<void> main() async {
@@ -17,6 +19,7 @@ Future<void> main() async {
   await runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
 
+    AppModule.init();
     await _initializeServices();
     _configureErrorHandling();
     await _configureSystemUI();
@@ -27,7 +30,11 @@ Future<void> main() async {
 
 /// Initializes essential services before the application launches.
 Future<void> _initializeServices() async {
-  try {} catch (error, stackTrace) {
+  try {
+    await sl<AppConfig>().load();
+
+    await sl<HiveManager>().init();
+  } catch (error, stackTrace) {
     _reportError('Service initialization failed', error, stackTrace);
     rethrow;
   }

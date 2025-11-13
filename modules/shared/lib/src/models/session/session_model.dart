@@ -4,7 +4,7 @@ import 'package:hive_ce_flutter/hive_flutter.dart';
 part 'session_model.freezed.dart';
 part 'session_model.g.dart';
 
-@Freezed(toJson: false)
+@Freezed(fromJson: true, toJson: false)
 abstract class SessionModel extends HiveObject with _$SessionModel {
   SessionModel._();
 

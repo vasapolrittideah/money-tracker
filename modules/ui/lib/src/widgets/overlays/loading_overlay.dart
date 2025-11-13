@@ -6,12 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AppLoadingOverlay {
   AppLoadingOverlay._();
 
-  static bool loading = false;
-  static const loadingRouteSettins = RouteSettings(name: 'loading');
+  static bool isLoading = false;
+  static const loadingRouteSettings = RouteSettings(name: 'loading');
 
   static void start(BuildContext context) {
-    if (loading) {
-      loading = true;
+    if (!isLoading) {
+      isLoading = true;
 
       showDialog<void>(
         context: context,
@@ -46,8 +46,8 @@ class AppLoadingOverlay {
   }
 
   static void stop(BuildContext context) {
-    if (loading) {
-      loading = false;
+    if (isLoading) {
+      isLoading = false;
 
       if (Navigator.canPop(context)) {
         Navigator.pop(context);

@@ -1,5 +1,7 @@
 import 'package:auth/gen/l10n.dart';
+import 'package:auth/src/logic/cubits/login/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -40,9 +42,11 @@ class LoginForm extends HookWidget {
 
     Future<void> handleFormSubmission() async {
       if (formKey.currentState?.saveAndValidate() ?? false) {
-        final formData = formKey.currentState?.value;
-        // TODO: Implement actual login logic here
-        print('Form submitted with data: $formData');
+        final formData = formKey.currentState!.value;
+        final email = formData[_emailFieldName] as String;
+        final password = formData[_passwordFieldName] as String;
+
+        context.read<LoginCubit>().login(email, password);
       }
     }
 
