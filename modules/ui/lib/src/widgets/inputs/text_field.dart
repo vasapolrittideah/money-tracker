@@ -69,9 +69,10 @@ class AppTextField extends HookWidget {
       focusNode.addListener(onFocusChangeListener);
 
       return () {
-        controller.dispose();
         focusNode.removeListener(onFocusChangeListener);
-        focusNode.dispose();
+        if (this.focusNode == null) {
+          focusNode.dispose();
+        }
       };
     }, [focusNode]);
 
