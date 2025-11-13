@@ -1,0 +1,12 @@
+{
+  "@@locale": "th",
+  "screenLoginTitle": "ยินดีต้อนรับ",
+  "screenLoginSubtitle": "กรุณาเข้าสู่ระบบบัญชีของคุณ",
+  "screenLoginSubmitButton": "เข้าสู่ระบบ",
+  "screenLoginUsernameLabel": "ชื่อผู้ใช้",
+  "screenLoginUsernameHint": "กรอกชื่อผู้ใช้ของคุณ",
+  "screenLoginUsernameRequiredError": "โปรดกรอกชื่อผู้ใช้",
+  "screenLoginPasswordLabel": "รหัสผ่าน",
+  "screenLoginPasswordHint": "กรอกรหัสผ่านของคุณ",
+  "screenLoginPasswordRequiredError": "โปรดกรอกรหัสผ่าน"
+}

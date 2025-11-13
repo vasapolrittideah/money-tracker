@@ -1,4 +1,5 @@
-import 'package:money_tracker/src/router/router.dart';
+import 'package:auth/gen/l10n.dart';
+import 'package:money_tracker/src/view/app_router.dart';
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -28,6 +29,7 @@ class App extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
           SharedLocalizations.delegate,
+          AuthLocalizations.delegate,
         ],
         supportedLocales: SharedLocalizations.delegate.supportedLocales,
         builder: (context, child) => child!,

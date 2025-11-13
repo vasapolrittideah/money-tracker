@@ -1,8 +1,10 @@
 export 'gen/l10n.dart';
+export 'gen/assets.gen.dart';
 export 'gen/fonts.gen.dart';
 export 'src/ui_module.dart';
 export 'src/themes/tokens/tokens.dart';
 export 'src/themes/themes.dart';
+export 'src/utilities/transition_util.dart';
 export 'src/widgets/buttons/button.dart';
 export 'src/widgets/display/divider.dart';
 export 'src/widgets/inputs/text_field.dart';

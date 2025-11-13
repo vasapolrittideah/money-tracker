@@ -1,0 +1,12 @@
+{
+  "@@locale": "en",
+  "screenLoginTitle": "Welcome",
+  "screenLoginSubtitle": "Please login to your account",
+  "screenLoginSubmitButton": "Login",
+  "screenLoginUsernameLabel": "Username",
+  "screenLoginUsernameHint": "Enter your username",
+  "screenLoginUsernameErrorRequired": "Username is required",
+  "screenLoginPasswordLabel": "Password",
+  "screenLoginPasswordHint": "Enter your password",
+  "screenLoginPasswordErrorRequired": "Password is required"
+}
