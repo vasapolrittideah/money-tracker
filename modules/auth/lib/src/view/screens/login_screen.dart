@@ -1,17 +1,23 @@
 import 'package:auth/gen/l10n.dart';
+import 'package:auth/src/view/auth_router.dart';
 import 'package:auth/src/view/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ui/ui.dart';
 
 class LoginScreen extends HookWidget {
-  const LoginScreen({super.key, this.initialUsernameValue = '', this.initialPasswordValue = ''});
+  const LoginScreen({super.key, this.initialEmailValue = '', this.initialPasswordValue = ''});
 
-  final String initialUsernameValue;
+  final String initialEmailValue;
   final String initialPasswordValue;
 
   @override
   Widget build(BuildContext context) {
+    void handleRegisterLinkTap() {
+      context.go(AuthRouteName.register);
+    }
+
     return Scaffold(
       backgroundColor: context.appColors.staticWhite,
       resizeToAvoidBottomInset: false,
@@ -34,8 +40,14 @@ class LoginScreen extends HookWidget {
                 SizedBox(height: context.appSpacing.md),
                 LoginForm(
                   key: const Key('login_form'),
-                  initialUsernameValue: initialUsernameValue,
+                  initialEmailValue: initialEmailValue,
                   initialPasswordValue: initialPasswordValue,
+                ),
+                AppButton(
+                  text: AuthLocalizations.of(context).screenLoginRegisterLink,
+                  fullWidth: true,
+                  mode: AppButtonMode.ghost,
+                  onTap: handleRegisterLinkTap,
                 ),
               ],
             ),

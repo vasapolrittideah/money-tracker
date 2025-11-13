@@ -6,26 +6,26 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:ui/ui.dart';
 
 class LoginForm extends HookWidget {
-  const LoginForm({super.key, this.initialUsernameValue = '', this.initialPasswordValue = ''});
+  const LoginForm({super.key, this.initialEmailValue = '', this.initialPasswordValue = ''});
 
-  final String initialUsernameValue;
+  final String initialEmailValue;
   final String initialPasswordValue;
 
-  static const _usernameFieldName = 'username';
+  static const _emailFieldName = 'email';
   static const _passwordFieldName = 'password';
 
   @override
   Widget build(BuildContext context) {
     final formKey = useMemoized(() => GlobalKey<FormBuilderState>());
-    final usernameFocusNode = useFocusNode();
+    final emailFocusNode = useFocusNode();
     final passwordFocusNode = useFocusNode();
 
-    void handleUsernameSubmitted() {
-      final formField = formKey.currentState?.fields[_usernameFieldName];
+    void handleEmailSubmitted() {
+      final formField = formKey.currentState?.fields[_emailFieldName];
       if (formField?.validate() ?? false) {
         passwordFocusNode.requestFocus();
       } else {
-        usernameFocusNode.requestFocus();
+        emailFocusNode.requestFocus();
       }
     }
 
@@ -52,19 +52,20 @@ class LoginForm extends HookWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Username Field
+          // Email Field
           AppTextField(
-            fieldName: _usernameFieldName,
-            fieldKey: const Key(_usernameFieldName),
-            labelText: AuthLocalizations.of(context).screenLoginUsernameLabel,
-            hintText: AuthLocalizations.of(context).screenLoginUsernameHint,
-            focusNode: usernameFocusNode,
-            initialValue: initialUsernameValue,
+            fieldName: _emailFieldName,
+            fieldKey: const Key(_emailFieldName),
+            labelText: AuthLocalizations.of(context).screenLoginEmailLabel,
+            hintText: AuthLocalizations.of(context).screenLoginEmailHint,
+            focusNode: emailFocusNode,
+            initialValue: initialEmailValue,
             textInputAction: TextInputAction.next,
             validators: [
-              FormBuilderValidators.required(errorText: AuthLocalizations.of(context).screenLoginUsernameRequiredError),
+              FormBuilderValidators.required(errorText: AuthLocalizations.of(context).screenLoginEmailErrorRequired),
+              FormBuilderValidators.email(errorText: AuthLocalizations.of(context).screenLoginEmailErrorInvalid),
             ],
-            onSubmitted: (_) => handleUsernameSubmitted(),
+            onSubmitted: (_) => handleEmailSubmitted(),
           ),
           SizedBox(height: context.appSpacing.x2s),
 
@@ -79,7 +80,7 @@ class LoginForm extends HookWidget {
             initialValue: initialPasswordValue,
             textInputAction: TextInputAction.done,
             validators: [
-              FormBuilderValidators.required(errorText: AuthLocalizations.of(context).screenLoginPasswordRequiredError),
+              FormBuilderValidators.required(errorText: AuthLocalizations.of(context).screenLoginPasswordErrorRequired),
             ],
             onSubmitted: (_) => handlePasswordSubmitted(),
           ),
