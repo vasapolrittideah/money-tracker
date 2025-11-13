@@ -20,7 +20,7 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<AppFailure, Unit>> login(LoginRequest request) => ErrorHandler.handle(() async {
-    final url = '${_config.apiBaseUrl}/login';
+    final url = '${_config.apiBaseUrl}/auth/login';
     final response = await _dioClient.instance.post(url, data: request.toJson());
 
     await _dioClient.sessionManager.storeSession(
