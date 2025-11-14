@@ -23,10 +23,11 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<AppFailure, Unit>> login(LoginRequest request) => ErrorHandler.handle(() async {
     final url = '${_config.apiBaseUrl}/auth/login';
-    final response = await _dioClient.instance.post(url, data: request.toJson());
+    final dioResponse = await _dioClient.instance.post(url, data: request.toJson());
+    final apiResponse = ApiResponse.fromJson(dioResponse.data);
 
     await _dioClient.sessionManager.storeSession(
-      SessionModel(accessToken: response.data['access_token'], refreshToken: response.data['refresh_token']),
+      SessionModel(accessToken: apiResponse.data?['access_token'], refreshToken: apiResponse.data?['refresh_token']),
     );
 
     return unit;

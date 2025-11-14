@@ -1,4 +1,6 @@
+import 'package:auth/auth.dart';
 import 'package:auth/gen/l10n.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money_tracker/src/view/app_router.dart';
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,10 @@ class App extends StatelessWidget {
           AuthLocalizations.delegate,
         ],
         supportedLocales: SharedLocalizations.delegate.supportedLocales,
-        builder: (context, child) => child!,
+        builder: (context, child) => MultiBlocProvider(
+          providers: [BlocProvider<AuthBloc>(create: (_) => sl()..add(AuthEvent.subscriptionRequested()))],
+          child: child!,
+        ),
       ),
     );
   }

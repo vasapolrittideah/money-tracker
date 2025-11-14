@@ -1,7 +1,10 @@
 import 'package:auth/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
+import 'package:money_tracker/src/view/app_router.dart';
+import 'package:shared/shared.dart';
 import 'package:ui/ui.dart';
 
 class SplashScreen extends HookWidget {
@@ -9,21 +12,36 @@ class SplashScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    useEffect(() {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        Future.delayed(const Duration(seconds: 2), () {
-          if (context.mounted) {
-            context.go(AuthRouteName.login);
-          }
-        });
-      });
+    final hasDelayed = useRef(false);
 
-      return null;
-    }, []);
+    // Navigate to the appropriate screen after a delay when the application opens.
+    Future<void> navigateWithDelay(String routeName) async {
+      if (!hasDelayed.value) {
+        hasDelayed.value = true;
+        await Future.delayed(const Duration(seconds: 1));
+      }
+      if (context.mounted) {
+        context.push(routeName);
+      }
+    }
 
-    return Scaffold(
-      backgroundColor: context.appColors.staticWhite,
-      body: const SafeArea(child: Center()),
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (context, state) async {
+        switch (state.status) {
+          case AuthStatus.authenticated:
+            // TODO: Navigate to the main application screen.
+            break;
+          case AuthStatus.unauthenticated:
+            await navigateWithDelay(AuthRouteName.login);
+            break;
+          case AuthStatus.unknown:
+            break;
+        }
+      },
+      child: Scaffold(
+        backgroundColor: context.appColors.staticWhite,
+        body: SafeArea(child: Container()),
+      ),
     );
   }
 }

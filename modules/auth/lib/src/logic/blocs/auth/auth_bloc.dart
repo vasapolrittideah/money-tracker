@@ -23,10 +23,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         switch (status) {
           case AuthStatus.authenticated:
             return AuthState(status: AuthStatus.authenticated);
-
           case AuthStatus.unauthenticated:
             return AuthState(status: AuthStatus.unauthenticated);
-
           case AuthStatus.unknown:
             return AuthState(status: AuthStatus.unknown);
         }
