@@ -32,7 +32,12 @@ class LoginScreen extends HookWidget {
           }
 
           if (state.failure != null) {
-            AppSnackBar.show(context, type: AppSnackBarType.failure, message: state.failure!.message);
+            AppSnackBar.show(
+              context,
+              type: AppSnackBarType.failure,
+              title: state.failure!.errorCode,
+              message: state.failure!.message,
+            );
           }
         },
         child: Scaffold(

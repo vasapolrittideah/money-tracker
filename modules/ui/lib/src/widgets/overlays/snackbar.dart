@@ -5,11 +5,17 @@ import 'package:flutter/material.dart';
 enum AppSnackBarType { infomation, success, failure }
 
 class AppSnackBar {
-  static void show(BuildContext context, {required String message, AppSnackBarType type = AppSnackBarType.infomation}) {
+  static void show(
+    BuildContext context, {
+    String? title,
+    required String message,
+    AppSnackBarType type = AppSnackBarType.infomation,
+  }) {
     switch (type) {
       case AppSnackBarType.infomation:
         _AppSnackBarInner.show(
           context,
+          title: title,
           message: message,
           iconData: FontAwesomeIcons.circleInfo,
           backgroundColor: context.appColors.primaryBase,
@@ -18,17 +24,21 @@ class AppSnackBar {
       case AppSnackBarType.success:
         _AppSnackBarInner.show(
           context,
+          title: title,
           message: message,
-          iconData: FontAwesomeIcons.circleCheck,
+          iconData: FontAwesomeIcons.solidCircleCheck,
           backgroundColor: context.appColors.successBase,
+          messageColor: context.appColors.successDark,
         );
         break;
       case AppSnackBarType.failure:
         _AppSnackBarInner.show(
           context,
+          title: title,
           message: message,
           iconData: FontAwesomeIcons.circleExclamation,
           backgroundColor: context.appColors.errorBase,
+          messageColor: context.appColors.errorDark,
         );
         break;
     }
@@ -40,6 +50,7 @@ class _AppSnackBarInner {
 
   static void show(
     BuildContext context, {
+    String? title,
     required String message,
     required IconData iconData,
     Color? backgroundColor,
@@ -62,10 +73,21 @@ class _AppSnackBarInner {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(iconData, color: context.appColors.staticWhite, size: context.appTypography.regular.text16.fontSize),
+            Padding(
+              padding: EdgeInsets.only(top: context.appSpacing.x6s),
+              child: Icon(iconData, color: messageColor, size: context.appTypography.regular.textDefault.fontSize),
+            ),
             SizedBox(width: context.appSpacing.x4s),
             Flexible(
-              child: Text(message, style: context.appTypography.regular.textDefault.copyWith(color: messageColor)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (title != null)
+                    Text(title, style: context.appTypography.bold.textDefault.copyWith(color: messageColor)),
+                  Text(message, style: context.appTypography.regular.textDefault.copyWith(color: messageColor)),
+                ],
+              ),
             ),
           ],
         ),
