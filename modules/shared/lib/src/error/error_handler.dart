@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:shared/gen/l10n.dart';
+import 'package:shared/src/contract/api_response.dart';
 import 'package:shared/src/error/exceptions.dart';
 import 'package:shared/src/error/failure.dart';
 import 'package:dio/dio.dart';
@@ -95,18 +96,15 @@ class ErrorHandler {
   /// an [AppFailure] with the relevant details.
   static AppFailure _handleBadResponse(Response? response, StackTrace? stackTrace) {
     final statusCode = response?.statusCode ?? HttpStatus.internalServerError;
-    var message = _getMessageFromStatusCode(statusCode);
-    var code = statusCode;
 
-    final data = response?.data;
-    if (data is Map<String, dynamic>) {
-      message = _extractErrorMessage(data) ?? message;
-      code = _extractStatusCode(data) ?? statusCode;
-    } else if (data is String && data.isNotEmpty) {
-      message = data;
-    }
+    final apiResponse = response != null && response.data is Map<String, dynamic>
+        ? ApiResponse.fromJson(response.data as Map<String, dynamic>)
+        : null;
 
-    return AppFailure(code, message, stackTrace: stackTrace);
+    var message = apiResponse?.error?.message ?? _getMessageFromStatusCode(statusCode);
+    var errorCode = apiResponse?.error?.code ?? '';
+
+    return AppFailure(statusCode: statusCode, errorCode: errorCode, message: message, stackTrace: stackTrace);
   }
 
   /// Maps common HTTP status codes to user-friendly messages.
@@ -130,36 +128,5 @@ class ErrorHandler {
       HttpStatus.gatewayTimeout => l10n.errorGatewayTimeout,
       _ => l10n.errorUnknownCode(statusCode),
     };
-  }
-
-  /// Extracts an error message from a JSON-like [data] map.
-  ///
-  /// Looks for common fields that may contain error messages and returns the first
-  /// non-empty string found. Returns `null` if no message is found.
-  static String? _extractErrorMessage(Map<String, dynamic> data) {
-    const messageFields = ['message', 'error', 'detail', 'description'];
-
-    for (final field in messageFields) {
-      final value = data[field];
-      if (value is String && value.isNotEmpty) return value;
-    }
-
-    return null;
-  }
-
-  /// Extracts a status code from a JSON-like [data] map.
-  ///
-  /// Looks for common fields that may contain status codes and returns the first
-  /// valid integer found. Returns `null` if no status code is found.
-  static int? _extractStatusCode(Map<String, dynamic> data) {
-    const statusCodeFields = ['code', 'statusCode', 'status_code', 'errorCode', 'error_code'];
-
-    for (final field in statusCodeFields) {
-      final value = data[field];
-      if (value is int) return value;
-      if (value is String && value.isNotEmpty) return int.tryParse(value);
-    }
-
-    return null;
   }
 }
