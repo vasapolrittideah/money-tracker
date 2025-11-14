@@ -2,6 +2,7 @@ export 'gen/l10n.dart';
 export 'src/shared_module.dart';
 export 'src/config/config.dart';
 export 'src/constants/auth_status.dart';
+export 'src/contract/api_response.dart';
 export 'src/error/error_handler.dart';
 export 'src/error/exceptions.dart';
 export 'src/error/failure.dart';
