@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'failure.freezed.dart';
 
 // Local or custom error codes used inside the application only
-final class AppErrorCode {
+final class ErrorCode {
   /// Unknown or unhandled error occurred
   static const int unidentified = 1000;
   static const String unidentifiedCode = 'UNIDENTIFIED_ERROR';
@@ -46,81 +46,81 @@ final class AppErrorCode {
 
 /// Represents a failure used throughout the application
 @freezed
-abstract class AppFailure with _$AppFailure {
-  const AppFailure._();
+abstract class Failure with _$Failure {
+  const Failure._();
 
-  const factory AppFailure({
+  const factory Failure({
     required int statusCode,
     required String errorCode,
     required String message,
     StackTrace? stackTrace,
-  }) = _AppFailure;
+  }) = _Failure;
 
-  factory AppFailure.connectionTimeout(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.connectionTimeout,
-    errorCode: AppErrorCode.connectionTimeoutCode,
+  factory Failure.connectionTimeout(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.connectionTimeout,
+    errorCode: ErrorCode.connectionTimeoutCode,
     message: message,
     stackTrace: stackTrace,
   );
-  factory AppFailure.connectionError(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.connectionError,
-    errorCode: AppErrorCode.connectionErrorCode,
-    message: message,
-    stackTrace: stackTrace,
-  );
-
-  factory AppFailure.receiveTimeout(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.receiveTimeout,
-    errorCode: AppErrorCode.receiveTimeoutCode,
+  factory Failure.connectionError(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.connectionError,
+    errorCode: ErrorCode.connectionErrorCode,
     message: message,
     stackTrace: stackTrace,
   );
 
-  factory AppFailure.sendTimeout(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.sendTimeout,
-    errorCode: AppErrorCode.sendTimeoutCode,
+  factory Failure.receiveTimeout(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.receiveTimeout,
+    errorCode: ErrorCode.receiveTimeoutCode,
     message: message,
     stackTrace: stackTrace,
   );
 
-  factory AppFailure.cancelled(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.cancelled,
-    errorCode: AppErrorCode.cancelledCode,
+  factory Failure.sendTimeout(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.sendTimeout,
+    errorCode: ErrorCode.sendTimeoutCode,
     message: message,
     stackTrace: stackTrace,
   );
 
-  factory AppFailure.localStorageError(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.localStorageError,
-    errorCode: AppErrorCode.localStorageErrorCode,
+  factory Failure.cancelled(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.cancelled,
+    errorCode: ErrorCode.cancelledCode,
     message: message,
     stackTrace: stackTrace,
   );
 
-  factory AppFailure.noInternetConnection(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.noInternetConnection,
-    errorCode: AppErrorCode.noInternetConnectionCode,
+  factory Failure.localStorageError(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.localStorageError,
+    errorCode: ErrorCode.localStorageErrorCode,
     message: message,
     stackTrace: stackTrace,
   );
 
-  factory AppFailure.dataParsingError(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.dataParsingError,
-    errorCode: AppErrorCode.dataParsingErrorCode,
+  factory Failure.noInternetConnection(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.noInternetConnection,
+    errorCode: ErrorCode.noInternetConnectionCode,
     message: message,
     stackTrace: stackTrace,
   );
 
-  factory AppFailure.thirdPartyServiceError(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.thirdPartyServiceError,
-    errorCode: AppErrorCode.thirdPartyServiceErrorCode,
+  factory Failure.dataParsingError(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.dataParsingError,
+    errorCode: ErrorCode.dataParsingErrorCode,
     message: message,
     stackTrace: stackTrace,
   );
 
-  factory AppFailure.unidentified(String message, {StackTrace? stackTrace}) => AppFailure(
-    statusCode: AppErrorCode.unidentified,
-    errorCode: AppErrorCode.unidentifiedCode,
+  factory Failure.thirdPartyServiceError(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.thirdPartyServiceError,
+    errorCode: ErrorCode.thirdPartyServiceErrorCode,
+    message: message,
+    stackTrace: stackTrace,
+  );
+
+  factory Failure.unidentified(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.unidentified,
+    errorCode: ErrorCode.unidentifiedCode,
     message: message,
     stackTrace: stackTrace,
   );

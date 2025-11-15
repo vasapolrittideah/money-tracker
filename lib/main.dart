@@ -31,7 +31,7 @@ Future<void> main() async {
 /// Initializes essential services before the application launches.
 Future<void> _initializeServices() async {
   try {
-    await sl<AppConfig>().load();
+    await sl<AppConfig>().loadEnv();
 
     await sl<HiveManager>().init();
   } catch (error, stackTrace) {

@@ -7,8 +7,8 @@ import 'package:shared/shared.dart';
 
 abstract class IAuthRepository {
   Stream<AuthStatus> get status;
-  Future<Either<AppFailure, Unit>> login(LoginRequest request);
-  Future<Either<AppFailure, Unit>> register(RegisterRequest request);
+  Future<Either<Failure, Unit>> login(LoginRequest request);
+  Future<Either<Failure, Unit>> register(RegisterRequest request);
 }
 
 class AuthRepository implements IAuthRepository {
@@ -21,7 +21,7 @@ class AuthRepository implements IAuthRepository {
   Stream<AuthStatus> get status => _dioClient.sessionManager.authStatus;
 
   @override
-  Future<Either<AppFailure, Unit>> login(LoginRequest request) => ErrorHandler.handle(() async {
+  Future<Either<Failure, Unit>> login(LoginRequest request) => ErrorHandler.handle(() async {
     final url = '${_config.apiBaseUrl}/auth/login';
     final dioResponse = await _dioClient.instance.post(url, data: request.toJson());
     final apiResponse = ApiResponse.fromJson(dioResponse.data);
@@ -34,7 +34,7 @@ class AuthRepository implements IAuthRepository {
   });
 
   @override
-  Future<Either<AppFailure, Unit>> register(RegisterRequest request) => ErrorHandler.handle(() async {
+  Future<Either<Failure, Unit>> register(RegisterRequest request) => ErrorHandler.handle(() async {
     final url = '${_config.apiBaseUrl}/auth/register';
     await _dioClient.instance.post(url, data: request.toJson());
 

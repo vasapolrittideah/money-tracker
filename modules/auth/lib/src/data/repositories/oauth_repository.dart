@@ -3,7 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared/shared.dart';
 
 abstract class IOAuthRepository {
-  Future<Either<AppFailure, Unit>> signInWithGoogle();
+  Future<Either<Failure, Unit>> signInWithGoogle();
 }
 
 class OAuthRepository implements IOAuthRepository {
@@ -15,7 +15,7 @@ class OAuthRepository implements IOAuthRepository {
   bool _isGoogleSignInInitialized = false;
 
   @override
-  Future<Either<AppFailure, Unit>> signInWithGoogle() => ErrorHandler.handle(() async {
+  Future<Either<Failure, Unit>> signInWithGoogle() => ErrorHandler.handle(() async {
     if (!_isGoogleSignInInitialized) {
       await _initializeGoogleSignIn();
     }

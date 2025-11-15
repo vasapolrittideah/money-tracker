@@ -10,13 +10,13 @@ import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 
-/// Handles exceptions and maps them to appropriate [AppFailure].
+/// Handles exceptions and maps them to appropriate [Failure].
 class ErrorHandler {
-  /// Handles errors from the given [operation] and maps them to [AppFailure].
+  /// Handles errors from the given [operation] and maps them to [Failure].
   ///
   /// Returns an [Either] containing either the successful result of type [T]
-  /// or an [AppFailure] in case of an error.
-  static Future<Either<AppFailure, T>> handle<T>(Future<T> Function() operation) async {
+  /// or an [Failure] in case of an error.
+  static Future<Either<Failure, T>> handle<T>(Future<T> Function() operation) async {
     try {
       final result = await operation();
       return Right(result);
@@ -41,62 +41,62 @@ class ErrorHandler {
       final l10n = SharedLocalizations.current;
 
       if (error is SocketException) {
-        return Left(AppFailure.noInternetConnection(l10n.errorNoInternetConnection, stackTrace: stackTrace));
+        return Left(Failure.noInternetConnection(l10n.errorNoInternetConnection, stackTrace: stackTrace));
       }
 
       if (error is FormatException) {
-        return Left(AppFailure.dataParsingError(l10n.errorDataParsing, stackTrace: stackTrace));
+        return Left(Failure.dataParsingError(l10n.errorDataParsing, stackTrace: stackTrace));
       }
 
       if (error is HiveError || error is LocalStorageException) {
-        return Left(AppFailure.localStorageError(l10n.errorLocalStorage, stackTrace: stackTrace));
+        return Left(Failure.localStorageError(l10n.errorLocalStorage, stackTrace: stackTrace));
       }
 
-      return Left(AppFailure.unidentified(l10n.errorUnknown, stackTrace: stackTrace));
+      return Left(Failure.unidentified(l10n.errorUnknown, stackTrace: stackTrace));
     }
   }
 
-  /// Maps a [DioException] to an appropriate [AppFailure].
+  /// Maps a [DioException] to an appropriate [Failure].
   ////
-  /// Inspects the type of Dio error and constructs a corresponding [AppFailure]
+  /// Inspects the type of Dio error and constructs a corresponding [Failure]
   /// with a localized message.
-  static AppFailure _handleDioError(DioException error, StackTrace? stackTrace) {
+  static Failure _handleDioError(DioException error, StackTrace? stackTrace) {
     final l10n = SharedLocalizations.current;
 
     // Sometimes Dio wraps the real error (e.g., SocketException) inside DioException.
     if (error.error is SocketException) {
-      return AppFailure.noInternetConnection(l10n.errorNoInternetConnection, stackTrace: stackTrace);
+      return Failure.noInternetConnection(l10n.errorNoInternetConnection, stackTrace: stackTrace);
     }
 
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
-        return AppFailure.connectionTimeout(l10n.errorConnectionTimeout, stackTrace: stackTrace);
+        return Failure.connectionTimeout(l10n.errorConnectionTimeout, stackTrace: stackTrace);
 
       case DioExceptionType.sendTimeout:
-        return AppFailure.sendTimeout(l10n.errorSendTimeout, stackTrace: stackTrace);
+        return Failure.sendTimeout(l10n.errorSendTimeout, stackTrace: stackTrace);
 
       case DioExceptionType.receiveTimeout:
-        return AppFailure.receiveTimeout(l10n.errorReceiveTimeout, stackTrace: stackTrace);
+        return Failure.receiveTimeout(l10n.errorReceiveTimeout, stackTrace: stackTrace);
 
       case DioExceptionType.cancel:
-        return AppFailure.cancelled(l10n.errorCancelled, stackTrace: stackTrace);
+        return Failure.cancelled(l10n.errorCancelled, stackTrace: stackTrace);
 
       case DioExceptionType.connectionError:
-        return AppFailure.connectionError(l10n.errorConnectionError, stackTrace: stackTrace);
+        return Failure.connectionError(l10n.errorConnectionError, stackTrace: stackTrace);
 
       case DioExceptionType.badResponse:
         return _handleBadResponse(error.response, stackTrace);
 
       default:
-        return AppFailure.unidentified(l10n.errorUnknown, stackTrace: stackTrace);
+        return Failure.unidentified(l10n.errorUnknown, stackTrace: stackTrace);
     }
   }
 
   /// Handles bad HTTP responses and extracts meaningful error information.
   ///
   /// Analyzes the [response] to extract status code and error message and constructs
-  /// an [AppFailure] with the relevant details.
-  static AppFailure _handleBadResponse(Response? response, StackTrace? stackTrace) {
+  /// an [Failure] with the relevant details.
+  static Failure _handleBadResponse(Response? response, StackTrace? stackTrace) {
     final statusCode = response?.statusCode ?? HttpStatus.internalServerError;
 
     final apiResponse = response != null && response.data is Map<String, dynamic>
@@ -106,13 +106,13 @@ class ErrorHandler {
     var message = apiResponse?.error?.message ?? _getMessageFromStatusCode(statusCode);
     var errorCode = apiResponse?.error?.code ?? '';
 
-    return AppFailure(statusCode: statusCode, errorCode: errorCode, message: message, stackTrace: stackTrace);
+    return Failure(statusCode: statusCode, errorCode: errorCode, message: message, stackTrace: stackTrace);
   }
 
-  /// Handles errors from third-party services and maps them to [AppFailure].
-  static AppFailure? _handleThirdPartyServiceError(Object error, {StackTrace? stackTrace}) {
+  /// Handles errors from third-party services and maps them to [Failure].
+  static Failure? _handleThirdPartyServiceError(Object error, {StackTrace? stackTrace}) {
     if (error is GoogleSignInException) {
-      return AppFailure.thirdPartyServiceError(error.description ?? '', stackTrace: stackTrace);
+      return Failure.thirdPartyServiceError(error.description ?? '', stackTrace: stackTrace);
     }
 
     return null;
