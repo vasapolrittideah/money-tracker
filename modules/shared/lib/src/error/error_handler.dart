@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared/gen/l10n.dart';
 import 'package:shared/src/contract/api_response.dart';
 import 'package:shared/src/error/exceptions.dart';
@@ -28,6 +29,11 @@ class ErrorHandler {
         level: 1000, // SEVERE
       );
 
+      final thirdPartyFailure = _handleThirdPartyServiceError(error, stackTrace: stackTrace);
+      if (thirdPartyFailure != null) {
+        return Left(thirdPartyFailure);
+      }
+
       if (error is DioException) {
         return Left(_handleDioError(error, stackTrace));
       }
@@ -44,10 +50,6 @@ class ErrorHandler {
 
       if (error is HiveError || error is LocalStorageException) {
         return Left(AppFailure.localStorageError(l10n.errorLocalStorage, stackTrace: stackTrace));
-      }
-
-      if (error is Exception) {
-        return Left(AppFailure.unidentified(error.toString(), stackTrace: stackTrace));
       }
 
       return Left(AppFailure.unidentified(l10n.errorUnknown, stackTrace: stackTrace));
@@ -105,6 +107,15 @@ class ErrorHandler {
     var errorCode = apiResponse?.error?.code ?? '';
 
     return AppFailure(statusCode: statusCode, errorCode: errorCode, message: message, stackTrace: stackTrace);
+  }
+
+  /// Handles errors from third-party services and maps them to [AppFailure].
+  static AppFailure? _handleThirdPartyServiceError(Object error, {StackTrace? stackTrace}) {
+    if (error is GoogleSignInException) {
+      return AppFailure.thirdPartyServiceError(error.description ?? '', stackTrace: stackTrace);
+    }
+
+    return null;
   }
 
   /// Maps common HTTP status codes to user-friendly messages.
