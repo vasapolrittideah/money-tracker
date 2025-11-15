@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auth/src/data/dtos/login/login_request.dart';
 import 'package:auth/src/data/dtos/register/register_request.dart';
 import 'package:fpdart/fpdart.dart';
@@ -10,12 +12,10 @@ abstract class IAuthRepository {
 }
 
 class AuthRepository implements IAuthRepository {
-  AuthRepository(this._dioClient) {
-    _config = sl<AppConfig>();
-  }
+  AuthRepository(this._dioClient);
 
   final DioClient _dioClient;
-  late final AppConfig _config;
+  final AppConfig _config = sl<AppConfig>();
 
   @override
   Stream<AuthStatus> get status => _dioClient.sessionManager.authStatus;

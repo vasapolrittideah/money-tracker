@@ -8,9 +8,10 @@ import 'package:ui/src/widgets/buttons/button.dart';
 enum AppSocialButtonProvider { apple, facebook, google }
 
 class AppSocialButton extends StatelessWidget {
-  const AppSocialButton({super.key, required this.provider});
+  const AppSocialButton({super.key, required this.provider, this.onTap});
 
   final AppSocialButtonProvider provider;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class AppSocialButton extends StatelessWidget {
         fullWidth: true,
         variant: AppButtonVariant.neutral,
         mode: AppButtonMode.filled,
+        onTap: onTap,
       ),
       AppSocialButtonProvider.facebook => AppButton(
         text: UILocalizations.of(context).socialButtonFacebook,
@@ -36,6 +38,7 @@ class AppSocialButton extends StatelessWidget {
         fullWidth: true,
         backgroundColor: const Color(0xFF1877F2), // Facebook brand color
         mode: AppButtonMode.filled,
+        onTap: onTap,
       ),
       AppSocialButtonProvider.google => AppButton(
         text: UILocalizations.of(context).socialButtonGoogle,
@@ -43,6 +46,7 @@ class AppSocialButton extends StatelessWidget {
         fullWidth: true,
         variant: AppButtonVariant.neutral,
         mode: AppButtonMode.stroke,
+        onTap: onTap,
       ),
     };
   }

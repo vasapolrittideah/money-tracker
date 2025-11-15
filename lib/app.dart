@@ -31,6 +31,7 @@ class App extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
           SharedLocalizations.delegate,
+          UILocalizations.delegate,
           AuthLocalizations.delegate,
         ],
         supportedLocales: SharedLocalizations.delegate.supportedLocales,

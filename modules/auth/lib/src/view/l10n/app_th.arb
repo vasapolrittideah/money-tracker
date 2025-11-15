@@ -11,6 +11,7 @@
   "screenLoginPasswordHint": "กรอกรหัสผ่านของคุณ",
   "screenLoginPasswordErrorRequired": "โปรดกรอกรหัสผ่าน",
   "screenLoginRegisterLink": "ยังไม่มีบัญชี? ลงทะเบียน",
+  "screenLoginOrDivider": "หรือ",
   "screenRegisterTitle": "สร้างบัญชีผู้ใช้",
   "screenRegisterSubtitle": "กรุณาลงทะเบียนเพื่อเริ่มต้น",
   "screenRegisterSubmitButton": "ลงทะเบียน",

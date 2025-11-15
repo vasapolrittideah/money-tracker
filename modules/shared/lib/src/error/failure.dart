@@ -39,6 +39,9 @@ final class AppErrorCode {
   /// Failed to parse response data into expected format
   static const int dataParsingError = 1008;
   static const String dataParsingErrorCode = 'DATA_PARSING_ERROR';
+
+  static const int thirdPartyServiceError = 1009;
+  static const String thirdPartyServiceErrorCode = 'THIRD_PARTY_SERVICE_ERROR';
 }
 
 /// Represents a failure used throughout the application
@@ -104,6 +107,13 @@ abstract class AppFailure with _$AppFailure {
   factory AppFailure.dataParsingError(String message, {StackTrace? stackTrace}) => AppFailure(
     statusCode: AppErrorCode.dataParsingError,
     errorCode: AppErrorCode.dataParsingErrorCode,
+    message: message,
+    stackTrace: stackTrace,
+  );
+
+  factory AppFailure.thirdPartyServiceError(String message, {StackTrace? stackTrace}) => AppFailure(
+    statusCode: AppErrorCode.thirdPartyServiceError,
+    errorCode: AppErrorCode.thirdPartyServiceErrorCode,
     message: message,
     stackTrace: stackTrace,
   );

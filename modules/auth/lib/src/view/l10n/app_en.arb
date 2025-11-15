@@ -11,6 +11,7 @@
   "screenLoginPasswordHint": "Enter your password",
   "screenLoginPasswordErrorRequired": "Password is required",
   "screenLoginRegisterLink": "Don't have an account? Register",
+  "screenLoginOrDivider": "OR",
   "screenRegisterTitle": "Create an Account",
   "screenRegisterSubtitle": "Please register to get started",
   "screenRegisterSubmitButton": "Register",
