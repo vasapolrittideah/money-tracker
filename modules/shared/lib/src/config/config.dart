@@ -8,7 +8,7 @@ class AppConfig {
   late final String appName;
   late final String apiBaseUrl;
 
-  Future<void> load() async {
+  Future<void> loadEnv() async {
     final packageInfo = await PackageInfo.fromPlatform();
     final env = packageInfo.packageName.split('.').last.toLowerCase();
 
