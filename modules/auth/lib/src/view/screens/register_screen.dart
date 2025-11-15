@@ -55,6 +55,19 @@ class RegisterScreen extends HookWidget {
                       style: context.appTypography.regular.textDefault.copyWith(color: context.appColors.textSub600),
                     ),
                     SizedBox(height: context.appSpacing.md),
+
+                    // Social Buttons
+                    const AppSocialButton(provider: AppSocialButtonProvider.apple),
+                    SizedBox(height: context.appSpacing.x3s),
+                    const AppSocialButton(provider: AppSocialButtonProvider.facebook),
+                    SizedBox(height: context.appSpacing.x3s),
+                    const AppSocialButton(provider: AppSocialButtonProvider.google),
+
+                    AppDivider(
+                      padding: EdgeInsets.symmetric(vertical: context.appSpacing.xs),
+                      text: AuthLocalizations.of(context).screenLoginOrDivider,
+                    ),
+
                     RegisterForm(
                       key: const Key('register_form'),
                       initialEmailValue: initialEmailValue,
