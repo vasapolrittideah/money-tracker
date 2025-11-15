@@ -1,3 +1,6 @@
 {
-  "@@locale": "th"
+  "@@locale": "th",
+  "socialButtonApple": "ดำเนินการต่อด้วย Apple",
+  "socialButtonFacebook": "ดำเนินการต่อด้วย Facebook",
+  "socialButtonGoogle": "ดำเนินการต่อด้วย Google"
 }
