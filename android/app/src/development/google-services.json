@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "903877837874",
+    "project_id": "money-tracker-dev-9887c",
+    "storage_bucket": "money-tracker-dev-9887c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903877837874:android:077ab34dcfd790c0aa282b",
+        "android_client_info": {
+          "package_name": "dev.vasapol.moneytracker.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYg2PrbZq808uP44obGlUXUSJltZ2mW6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
