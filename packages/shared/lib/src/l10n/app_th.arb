@@ -13,7 +13,7 @@
   "errorGatewayTimeout": "หมดเวลาการเชื่อมต่อเกตเวย์",
   "errorNoInternetConnection": "ไม่มีการเชื่อมต่ออินเทอร์เน็ต",
   "errorDataParsing": "ข้อผิดพลาดการวิเคราะห์ข้อมูล",
-  "errorLocalStorage": "ข้อผิดพลาดที่เก็บข้อมูลภายในเครื่อง",
+  "errorCache": "ข้อผิดพลาดแคช",
   "errorConnectionTimeout": "หมดเวลาการเชื่อมต่อ",
   "errorReceiveTimeout": "หมดเวลาการรับข้อมูล",
   "errorSendTimeout": "หมดเวลาการส่งข้อมูล",

@@ -28,9 +28,9 @@ final class ErrorCode {
   static const int cancelled = 1005;
   static const String cancelledCode = 'REQUEST_CANCELLED';
 
-  /// Error occurred while accessing local storage data
-  static const int localStorageError = 1006;
-  static const String localStorageErrorCode = 'LOCAL_STORAGE_ERROR';
+  /// Error occurred while accessing cache data
+  static const int cacheError = 1006;
+  static const String cacheErrorCode = 'CACHE_ERROR';
 
   /// No internet connection available
   static const int noInternetConnection = 1007;
@@ -90,9 +90,9 @@ abstract class Failure with _$Failure {
     stackTrace: stackTrace,
   );
 
-  factory Failure.localStorageError(String message, {StackTrace? stackTrace}) => Failure(
-    statusCode: ErrorCode.localStorageError,
-    errorCode: ErrorCode.localStorageErrorCode,
+  factory Failure.cacheError(String message, {StackTrace? stackTrace}) => Failure(
+    statusCode: ErrorCode.cacheError,
+    errorCode: ErrorCode.cacheErrorCode,
     message: message,
     stackTrace: stackTrace,
   );

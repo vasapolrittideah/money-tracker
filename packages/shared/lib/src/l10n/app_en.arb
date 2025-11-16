@@ -13,7 +13,7 @@
   "errorGatewayTimeout": "Gateway timeout",
   "errorNoInternetConnection": "No internet connection",
   "errorDataParsing": "Data parsing error",
-  "errorLocalStorage": "Local storage error",
+  "errorCache": "Cache error",
   "errorConnectionTimeout": "Connection timeout",
   "errorReceiveTimeout": "Receive timeout",
   "errorSendTimeout": "Send timeout",

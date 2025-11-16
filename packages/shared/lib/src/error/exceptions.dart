@@ -1,12 +1,12 @@
-/// Thrown when there is an error with local storage operations.
-class LocalStorageException implements Exception {
-  const LocalStorageException([this.message]);
+/// Thrown when there is an error during cache operations.
+class CacheException implements Exception {
+  const CacheException([this.message]);
 
   final String? message;
 
   @override
   String toString() {
-    return message != null ? 'LocalStorageException: $message' : 'LocalStorageException';
+    return message != null ? 'CacheException: $message' : 'CacheException';
   }
 }
 

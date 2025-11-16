@@ -48,8 +48,8 @@ class ErrorHandler {
         return Left(Failure.dataParsingError(l10n.errorDataParsing, stackTrace: stackTrace));
       }
 
-      if (error is HiveError || error is LocalStorageException) {
-        return Left(Failure.localStorageError(l10n.errorLocalStorage, stackTrace: stackTrace));
+      if (error is HiveError || error is CacheException) {
+        return Left(Failure.cacheError(l10n.errorCache, stackTrace: stackTrace));
       }
 
       return Left(Failure.unidentified(l10n.errorUnknown, stackTrace: stackTrace));
