@@ -115,6 +115,10 @@ class ErrorHandler {
       return Failure.thirdPartyServiceError(error.description ?? '', stackTrace: stackTrace);
     }
 
+    if (error is FacebookSignInException) {
+      return Failure.thirdPartyServiceError(error.message ?? '', stackTrace: stackTrace);
+    }
+
     return null;
   }
 

@@ -21,4 +21,15 @@ class OAuthCubit extends Cubit<OAuthState> {
       (_) => emit(state.copyWith(isLoading: false, failure: null)),
     );
   }
+
+  Future<void> signInWithFacebook() async {
+    emit(state.copyWith(isLoading: true, failure: null));
+
+    final result = await _oauthRepository.signInWithFacebook();
+
+    result.fold(
+      (failure) => emit(state.copyWith(isLoading: false, failure: failure)),
+      (_) => emit(state.copyWith(isLoading: false, failure: null)),
+    );
+  }
 }

@@ -58,5 +58,20 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>fb855105350329720</string>
+    </array>
+    </dict>
+  </array>
+  <key>FacebookAppID</key>
+  <string>855105350329720</string>
+  <key>FacebookClientToken</key>
+  <string>66eb275bf10994cb4b44db5f9fc63b4e</string>
+  <key>FacebookDisplayName</key>
+  <string>Money Tracker</string>
 </dict>
 </plist>

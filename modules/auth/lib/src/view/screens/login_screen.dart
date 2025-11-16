@@ -95,7 +95,10 @@ class LoginScreen extends HookWidget {
                         // Social Buttons
                         // const AppSocialButton(provider: AppSocialButtonProvider.apple),
                         // SizedBox(height: context.appSpacing.x3s),
-                        const AppSocialButton(provider: AppSocialButtonProvider.facebook),
+                        AppSocialButton(
+                          provider: AppSocialButtonProvider.facebook,
+                          onTap: () => context.read<OAuthCubit>().signInWithFacebook(),
+                        ),
                         SizedBox(height: context.appSpacing.x3s),
                         AppSocialButton(
                           provider: AppSocialButtonProvider.google,

@@ -9,3 +9,15 @@ class LocalStorageException implements Exception {
     return message != null ? 'LocalStorageException: $message' : 'LocalStorageException';
   }
 }
+
+/// Thrown when there is an error during Facebook sign-in.
+class FacebookSignInException implements Exception {
+  const FacebookSignInException([this.message]);
+
+  final String? message;
+
+  @override
+  String toString() {
+    return message != null ? 'FacebookSignInException: $message' : 'FacebookSignInException';
+  }
+}
