@@ -5,7 +5,8 @@ publish_to: "none"
 resolution: "workspace"
 
 executables:
-  merge_l10n:
+  create_feature:
+  generate_l10n:
 
 environment:
   sdk: ^3.9.2
