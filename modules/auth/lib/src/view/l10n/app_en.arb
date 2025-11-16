@@ -22,5 +22,6 @@
   "screenRegisterPasswordLabel": "Password",
   "screenRegisterPasswordHint": "Choose a password",
   "screenRegisterPasswordErrorRequired": "Password is required",
-  "screenRegisterLoginLink": "Already have an account? Login"
+  "screenRegisterLoginLink": "Already have an account? Login",
+  "screenRegisterOrDivider": "OR"
 }

@@ -57,15 +57,15 @@ class RegisterScreen extends HookWidget {
                     SizedBox(height: context.appSpacing.md),
 
                     // Social Buttons
-                    const AppSocialButton(provider: AppSocialButtonProvider.apple),
-                    SizedBox(height: context.appSpacing.x3s),
+                    // const AppSocialButton(provider: AppSocialButtonProvider.apple),
+                    // SizedBox(height: context.appSpacing.x3s),
                     const AppSocialButton(provider: AppSocialButtonProvider.facebook),
                     SizedBox(height: context.appSpacing.x3s),
                     const AppSocialButton(provider: AppSocialButtonProvider.google),
 
                     AppDivider(
                       padding: EdgeInsets.symmetric(vertical: context.appSpacing.xs),
-                      text: AuthLocalizations.of(context).screenLoginOrDivider,
+                      text: AuthLocalizations.of(context).screenRegisterOrDivider,
                     ),
 
                     RegisterForm(

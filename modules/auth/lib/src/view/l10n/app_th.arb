@@ -22,5 +22,6 @@
   "screenRegisterPasswordLabel": "รหัสผ่าน",
   "screenRegisterPasswordHint": "เลือกตั้งรหัสผ่าน",
   "screenRegisterPasswordErrorRequired": "โปรดกรอกรหัสผ่าน",
-  "screenRegisterLoginLink": "มีบัญชีอยู่แล้ว? เข้าสู่ระบบ"
+  "screenRegisterLoginLink": "มีบัญชีอยู่แล้ว? เข้าสู่ระบบ",
+  "screenRegisterOrDivider": "หรือ"
 }

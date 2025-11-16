@@ -93,8 +93,8 @@ class LoginScreen extends HookWidget {
                         SizedBox(height: context.appSpacing.md),
 
                         // Social Buttons
-                        const AppSocialButton(provider: AppSocialButtonProvider.apple),
-                        SizedBox(height: context.appSpacing.x3s),
+                        // const AppSocialButton(provider: AppSocialButtonProvider.apple),
+                        // SizedBox(height: context.appSpacing.x3s),
                         const AppSocialButton(provider: AppSocialButtonProvider.facebook),
                         SizedBox(height: context.appSpacing.x3s),
                         AppSocialButton(
