@@ -6,8 +6,8 @@ class AppModule {
   AppModule._();
 
   static void init() {
-    final List<BaseModule> modules = [SharedModule(), UIModule(), AuthModule()];
-    for (var module in modules) {
+    final List<BaseModule> packages = [SharedModule(), UIModule(), AuthModule()];
+    for (var module in packages) {
       module.setupDependencies();
     }
   }

@@ -8,10 +8,10 @@ environment:
   sdk: ^3.9.2
 
 workspace:
-  - modules/shared
-  - modules/ui
-  - modules/auth
-  - modules/settings
+  - packages/shared
+  - packages/ui
+  - packages/auth
+  - packages/settings
 
 dependencies:
   flutter:
@@ -19,11 +19,11 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   shared:
-    path: ./modules/shared
+    path: ./packages/shared
   ui:
-    path: ./modules/ui
+    path: ./packages/ui
   auth:
-    path: ./modules/auth
+    path: ./packages/auth
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
   go_router: ^17.0.0
@@ -41,18 +41,18 @@ flutter:
   uses-material-design: true
   assets:
     - assets/config/
-    - ./modules/ui/assets/images/
+    - ./packages/ui/assets/images/
 
   fonts:
     - family: ibmPlexSansThai
       fonts:
-        - asset: ./modules/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Thin.ttf
-        - asset: ./modules/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-ExtraLight.ttf
-        - asset: ./modules/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Light.ttf
-        - asset: ./modules/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Regular.ttf
-        - asset: ./modules/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Medium.ttf
-        - asset: ./modules/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-SemiBold.ttf
-        - asset: ./modules/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Bold.ttf
+        - asset: ./packages/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Thin.ttf
+        - asset: ./packages/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-ExtraLight.ttf
+        - asset: ./packages/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Light.ttf
+        - asset: ./packages/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Regular.ttf
+        - asset: ./packages/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Medium.ttf
+        - asset: ./packages/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-SemiBold.ttf
+        - asset: ./packages/ui/assets/fonts/ibm_plex_sans_thai/IBMPlexSansThai-Bold.ttf
 
 melos:
   command:

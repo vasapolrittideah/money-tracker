@@ -32,7 +32,7 @@
       "name": "Widgetbook",
       "request": "launch",
       "type": "dart",
-      "program": "modules/ui/widgetbook/lib/main.dart",
+      "program": "packages/ui/widgetbook/lib/main.dart",
       "flutterMode": "debug"
     }
   ]

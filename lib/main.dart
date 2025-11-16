@@ -11,7 +11,7 @@ import 'package:shared/shared.dart';
 /// Entry point of the Flutter application.
 Future<void> main() async {
   LicenseRegistry.addLicense(() async* {
-    final fontPath = './modules/ui/assets/fonts/ibm_plex_sans_thai';
+    final fontPath = './packages/ui/assets/fonts/ibm_plex_sans_thai';
     final license = await rootBundle.loadString('$fontPath/OFL.txt');
     yield LicenseEntryWithLineBreaks(<String>[fontPath], license);
   });
