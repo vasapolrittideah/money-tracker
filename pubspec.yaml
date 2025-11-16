@@ -11,6 +11,7 @@ workspace:
   - modules/shared
   - modules/ui
   - modules/auth
+  - modules/settings
 
 dependencies:
   flutter:

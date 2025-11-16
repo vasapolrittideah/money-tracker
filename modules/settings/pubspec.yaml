@@ -1,0 +1,20 @@
+name: settings
+description: "Settings module for Money Tracker application."
+version: 0.0.1
+publish_to: "none"
+resolution: "workspace"
+
+environment:
+  sdk: ^3.9.2
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  shared:
+    path: ../shared
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
