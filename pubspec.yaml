@@ -71,3 +71,8 @@ melos:
         concurrency: 1
       packageFilters:
         flutter: true
+
+scripts:
+  create-feature:
+    $script: dart run shared:create_feature ${0}
+    $description: Create a new feature package

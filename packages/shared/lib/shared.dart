@@ -4,6 +4,7 @@ export 'src/config/config.dart';
 export 'src/constants/auth_status.dart';
 export 'src/contract/api_response.dart';
 export 'src/error/error_handler.dart';
+export 'src/extensions/string_extension.dart';
 export 'src/error/exceptions.dart';
 export 'src/error/failure.dart';
 export 'src/injection/service_locator.dart';
