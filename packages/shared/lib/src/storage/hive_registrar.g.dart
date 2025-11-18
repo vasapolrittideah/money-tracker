@@ -7,12 +7,14 @@ import 'package:shared/src/storage/hive_adapters.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
+    registerAdapter(LocaleModelAdapter());
     registerAdapter(SessionModelAdapter());
   }
 }
 
 extension IsolatedHiveRegistrar on IsolatedHiveInterface {
   void registerAdapters() {
+    registerAdapter(LocaleModelAdapter());
     registerAdapter(SessionModelAdapter());
   }
 }

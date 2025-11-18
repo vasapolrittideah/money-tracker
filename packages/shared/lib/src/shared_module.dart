@@ -1,5 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_ce/hive.dart';
+import 'package:shared/shared.dart';
 import 'package:shared/src/config/config.dart';
 import 'package:shared/src/injection/service_locator.dart';
 import 'package:shared/src/managers/session_manager.dart';
@@ -39,6 +40,8 @@ class SharedModule extends BaseModule {
     sl.registerLazySingleton(() => HiveEncryption(sl(), sl()));
 
     sl.registerLazySingleton(() => HiveStorage<SessionModel>(sl(), sl()));
+
+    sl.registerLazySingleton(() => HiveStorage<LocaleModel>(sl(), sl()));
 
     sl.registerLazySingleton(() => SessionManager(sl()));
 

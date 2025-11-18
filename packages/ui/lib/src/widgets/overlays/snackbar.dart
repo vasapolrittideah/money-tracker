@@ -62,8 +62,8 @@ class _AppSnackBarInner {
     final snackBar = SnackBar(
       padding: EdgeInsets.only(
         top: context.appSpacing.xs,
-        left: context.appSpacing.sm,
-        right: context.appSpacing.sm,
+        left: context.appSpacing.xs,
+        right: context.appSpacing.xs,
         bottom: context.appSpacing.x2s,
       ),
       backgroundColor: backgroundColor,
@@ -71,7 +71,7 @@ class _AppSnackBarInner {
       content: Center(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsets.only(top: context.appSpacing.x6s),

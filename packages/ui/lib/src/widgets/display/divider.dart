@@ -13,7 +13,11 @@ class AppDivider extends StatelessWidget {
     if (text.isEmpty) {
       return Padding(
         padding: padding,
-        child: Divider(color: context.appColors.strokeSub300, thickness: thickness),
+        child: Divider(
+          color: context.appColors.strokeSub300,
+          thickness: thickness,
+          height: context.appBorders.defaultBorderWidth,
+        ),
       );
     }
 
@@ -22,7 +26,11 @@ class AppDivider extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Divider(color: context.appColors.strokeSub300, thickness: thickness),
+            child: Divider(
+              color: context.appColors.strokeSub300,
+              thickness: thickness,
+              height: context.appBorders.defaultBorderWidth,
+            ),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: context.appSpacing.x4s),
@@ -32,7 +40,11 @@ class AppDivider extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: Divider(color: context.appColors.strokeSub300, thickness: thickness),
+            child: Divider(
+              color: context.appColors.strokeSub300,
+              thickness: thickness,
+              height: context.appBorders.defaultBorderWidth,
+            ),
           ),
         ],
       ),

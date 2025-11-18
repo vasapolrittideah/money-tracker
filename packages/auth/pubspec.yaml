@@ -23,10 +23,13 @@ dependencies:
   go_router: ^17.0.0
   google_sign_in: ^7.2.0
   json_annotation: ^4.9.0
+  country_flags: ^4.1.0
   shared:
     path: ../shared
   ui:
     path: ../ui
+  settings:
+    path: ../settings
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,7 @@ import 'package:auth/generated/locale_keys.g.dart';
 import 'package:auth/src/logic/cubits/login/login_cubit.dart';
 import 'package:auth/src/logic/cubits/oauth/oauth_cubit.dart';
 import 'package:auth/src/view/auth_router.dart';
+import 'package:auth/src/view/widgets/language_button.dart';
 import 'package:auth/src/view/widgets/login_form.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -73,14 +74,11 @@ class LoginScreen extends HookWidget {
                   reverse: true,
                   keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(
-                      context.appSpacing.xs,
-                      context.appSpacing.md,
-                      context.appSpacing.xs,
-                      0,
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: context.appSpacing.xs),
                     child: Column(
                       children: [
+                        Align(alignment: Alignment.centerRight, child: LanguageButton()),
+                        SizedBox(height: context.appSpacing.x4s),
                         Text(
                           AuthLocaleKeys.login_title.tr(),
                           style: context.appTypography.bold.text28.copyWith(color: context.appColors.textStrong950),
