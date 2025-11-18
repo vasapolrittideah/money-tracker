@@ -9,6 +9,7 @@ export 'src/errors/failure.dart';
 export 'src/injection/service_locator.dart';
 export 'src/l10n/translations_loader.dart';
 export 'src/managers/session_manager.dart';
+export 'src/models/locale/locale_model.dart';
 export 'src/models/session/session_model.dart';
 export 'src/module/base_module.dart';
 export 'src/network/dio_client.dart';

@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money_tracker/src/app_module.dart';
 import 'package:money_tracker/src/view/app_router.dart';
+import 'package:settings/settings.dart';
 import 'package:shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,12 +24,14 @@ class App extends StatelessWidget {
         fallbackLocale: Locale('th'),
         startLocale: Locale('th'),
         assetLoader: MultiPackageAssetLoader(AppModule.translationsAssets),
+        saveLocale: false,
         child: Builder(
           builder: (context) {
             return MaterialApp.router(
               debugShowCheckedModeBanner: false,
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
+              locale: context.locale,
               routerDelegate: AppRouter.router.routerDelegate,
               routeInformationParser: AppRouter.router.routeInformationParser,
               routeInformationProvider: AppRouter.router.routeInformationProvider,
@@ -37,7 +40,10 @@ class App extends StatelessWidget {
                 extensions: <ThemeExtension<dynamic>>[AppThemes(tokens: AppTokens.light)],
               ),
               builder: (context, child) => MultiBlocProvider(
-                providers: [BlocProvider<AuthBloc>(create: (_) => sl()..add(AuthEvent.subscriptionRequested()))],
+                providers: [
+                  BlocProvider<AuthBloc>(create: (_) => sl()),
+                  BlocProvider<LocaleCubit>(create: (_) => sl()),
+                ],
                 child: child!,
               ),
             );
