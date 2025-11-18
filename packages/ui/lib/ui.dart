@@ -1,6 +1,5 @@
-export 'gen/l10n.dart';
-export 'gen/assets.gen.dart';
-export 'gen/fonts.gen.dart';
+export 'generated/assets.gen.dart';
+export 'generated/fonts.gen.dart';
 export 'src/ui_module.dart';
 export 'src/themes/tokens/tokens.dart';
 export 'src/themes/themes.dart';

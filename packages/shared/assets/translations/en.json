@@ -1,0 +1,25 @@
+{
+  "error": {
+    "badRequest": "Invalid request data",
+    "unauthorized": "Unauthorized access",
+    "forbidden": "No permission to access",
+    "notFound": "Resource not found",
+    "conflict": "Data conflict error",
+    "unprocessable": "Unprocessable entity",
+    "tooManyRequests": "Too many requests",
+    "internalServer": "Internal server error",
+    "badGateway": "Bad gateway",
+    "serviceUnavailable": "Service unavailable",
+    "gatewayTimeout": "Gateway timeout",
+    "noInternetConnection": "No internet connection",
+    "dataParsing": "Data parsing error",
+    "cache": "Cache error",
+    "connectionTimeout": "Connection timeout",
+    "receiveTimeout": "Receive timeout",
+    "sendTimeout": "Send timeout",
+    "cancelled": "Request cancelled",
+    "connectionError": "Connection error",
+    "unknown": "An unexpected error occurred",
+    "unknownCode": "Unexpected server error code: {}"
+  }
+}

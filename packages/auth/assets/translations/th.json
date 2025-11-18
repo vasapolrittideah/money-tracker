@@ -1,0 +1,30 @@
+{
+  "login": {
+    "title": "ยินดีต้อนรับ",
+    "subtitle": "กรุณาเข้าสู่ระบบบัญชีของคุณ",
+    "submitButton": "เข้าสู่ระบบ",
+    "emailLabel": "อีเมล",
+    "emailHint": "กรอกอีเมลของคุณ",
+    "emailErrorRequired": "จำเป็นต้องใช้อีเมล",
+    "emailErrorInvalid": "กรุณาใส่อีเมลที่ถูกต้อง",
+    "passwordLabel": "รหัสผ่าน",
+    "passwordHint": "กรอกรหัสผ่านของคุณ",
+    "passwordErrorRequired": "จำเป็นต้องใช้รหัสผ่าน",
+    "registerLink": "ยังไม่มีบัญชี? ลงทะเบียน",
+    "orDivider": "หรือ"
+  },
+  "register": {
+    "title": "สร้างบัญชี",
+    "subtitle": "กรุณาลงทะเบียนเพื่อเริ่มต้น",
+    "submitButton": "ลงทะเบียน",
+    "emailLabel": "อีเมล",
+    "emailHint": "เลือกอีเมล",
+    "emailErrorRequired": "จำเป็นต้องใช้อีเมล",
+    "emailErrorInvalid": "กรุณาใส่อีเมลที่ถูกต้อง",
+    "passwordLabel": "รหัสผ่าน",
+    "passwordHint": "เลือกใช้รหัสผ่าน",
+    "passwordErrorRequired": "จำเป็นต้องใช้รหัสผ่าน",
+    "loginLink": "มีบัญชีอยู่แล้ว? เข้าสู่ระบบ",
+    "orDivider": "หรือ"
+  }
+}

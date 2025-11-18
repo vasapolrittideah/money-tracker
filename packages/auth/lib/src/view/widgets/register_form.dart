@@ -1,5 +1,6 @@
-import 'package:auth/gen/l10n.dart';
+import 'package:auth/generated/locale_keys.g.dart';
 import 'package:auth/src/logic/cubits/register/register_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -59,14 +60,14 @@ class RegisterForm extends HookWidget {
           AppTextField(
             fieldName: _emailFieldName,
             fieldKey: const Key(_emailFieldName),
-            labelText: AuthLocalizations.of(context).screenRegisterEmailLabel,
-            hintText: AuthLocalizations.of(context).screenRegisterEmailHint,
+            labelText: AuthLocaleKeys.register_emailLabel.tr(),
+            hintText: AuthLocaleKeys.register_emailHint.tr(),
             focusNode: emailFocusNode,
             initialValue: initialEmailValue,
             textInputAction: TextInputAction.next,
             validators: [
-              FormBuilderValidators.required(errorText: AuthLocalizations.of(context).screenRegisterEmailErrorRequired),
-              FormBuilderValidators.email(errorText: AuthLocalizations.of(context).screenRegisterEmailErrorInvalid),
+              FormBuilderValidators.required(errorText: AuthLocaleKeys.register_emailErrorRequired.tr()),
+              FormBuilderValidators.email(errorText: AuthLocaleKeys.register_emailErrorInvalid.tr()),
             ],
             onSubmitted: (_) => handleEmailSubmitted(),
           ),
@@ -76,27 +77,19 @@ class RegisterForm extends HookWidget {
           AppTextField(
             fieldName: _passwordFieldName,
             fieldKey: const Key(_passwordFieldName),
-            labelText: AuthLocalizations.of(context).screenRegisterPasswordLabel,
-            hintText: AuthLocalizations.of(context).screenRegisterPasswordHint,
+            labelText: AuthLocaleKeys.register_passwordLabel.tr(),
+            hintText: AuthLocaleKeys.register_passwordHint.tr(),
             focusNode: passwordFocusNode,
             textObscure: true,
             initialValue: initialPasswordValue,
             textInputAction: TextInputAction.done,
-            validators: [
-              FormBuilderValidators.required(
-                errorText: AuthLocalizations.of(context).screenRegisterPasswordErrorRequired,
-              ),
-            ],
+            validators: [FormBuilderValidators.required(errorText: AuthLocaleKeys.register_passwordErrorRequired.tr())],
             onSubmitted: (_) => handlePasswordSubmitted(),
           ),
           SizedBox(height: context.appSpacing.x2s),
 
           // Submit Button
-          AppButton(
-            text: AuthLocalizations.of(context).screenRegisterSubmitButton,
-            fullWidth: true,
-            onTap: handleFormSubmission,
-          ),
+          AppButton(text: AuthLocaleKeys.register_submitButton.tr(), fullWidth: true, onTap: handleFormSubmission),
         ],
       ),
     );

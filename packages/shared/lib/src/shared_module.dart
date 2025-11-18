@@ -15,6 +15,9 @@ import 'package:shared/src/utilities/directory_util.dart';
 
 class SharedModule extends BaseModule {
   @override
+  String get name => 'shared';
+
+  @override
   void setupDependencies() {
     sl.registerSingleton(Hive);
 

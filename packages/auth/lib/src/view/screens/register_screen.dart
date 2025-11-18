@@ -1,7 +1,8 @@
-import 'package:auth/gen/l10n.dart';
+import 'package:auth/generated/locale_keys.g.dart';
 import 'package:auth/src/logic/cubits/register/register_cubit.dart';
 import 'package:auth/src/view/auth_router.dart';
 import 'package:auth/src/view/widgets/register_form.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -47,11 +48,11 @@ class RegisterScreen extends HookWidget {
                 child: Column(
                   children: [
                     Text(
-                      AuthLocalizations.of(context).screenRegisterTitle,
+                      AuthLocaleKeys.register_title.tr(),
                       style: context.appTypography.bold.text28.copyWith(color: context.appColors.textStrong950),
                     ),
                     Text(
-                      AuthLocalizations.of(context).screenRegisterSubtitle,
+                      AuthLocaleKeys.register_subtitle.tr(),
                       style: context.appTypography.regular.textDefault.copyWith(color: context.appColors.textSub600),
                     ),
                     SizedBox(height: context.appSpacing.md),
@@ -65,7 +66,7 @@ class RegisterScreen extends HookWidget {
 
                     AppDivider(
                       padding: EdgeInsets.symmetric(vertical: context.appSpacing.xs),
-                      text: AuthLocalizations.of(context).screenRegisterOrDivider,
+                      text: AuthLocaleKeys.register_orDivider.tr(),
                     ),
 
                     RegisterForm(
@@ -74,7 +75,7 @@ class RegisterScreen extends HookWidget {
                       initialPasswordValue: initialPasswordValue,
                     ),
                     AppButton(
-                      text: AuthLocalizations.of(context).screenRegisterLoginLink,
+                      text: AuthLocaleKeys.register_loginLink.tr(),
                       fullWidth: true,
                       mode: AppButtonMode.ghost,
                       onTap: handleLoginLinkTap,

@@ -8,6 +8,9 @@ import 'package:shared/shared.dart';
 
 class AuthModule extends BaseModule {
   @override
+  String get name => 'auth';
+
+  @override
   void setupDependencies() {
     sl.registerLazySingleton<IAuthRepository>(() => AuthRepository(sl()));
 

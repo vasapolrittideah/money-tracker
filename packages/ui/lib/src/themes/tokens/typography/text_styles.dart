@@ -1,4 +1,4 @@
-import 'package:ui/gen/fonts.gen.dart';
+import 'package:ui/generated/fonts.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

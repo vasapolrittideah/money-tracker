@@ -6,7 +6,7 @@ resolution: "workspace"
 
 executables:
   create_feature:
-  generate_l10n:
+  create_locale_keys:
 
 environment:
   sdk: ^3.9.2
@@ -14,6 +14,7 @@ environment:
 
 dependencies:
   dio: ^5.9.0
+  easy_localization: ^3.0.8
   equatable: ^2.0.7
   flutter:
     sdk: flutter
@@ -42,10 +43,21 @@ dev_dependencies:
   json_serializable: ^6.11.1
   hive_ce_generator: ^1.10.0
   intl_utils: ^2.8.12
+  flutter_gen: ^5.12.0
+  flutter_gen_runner: ^5.12.0
 
-flutter_intl:
-  enabled: true
-  main_locale: th
-  class_name: SharedLocalizations
-  arb_dir: lib/gen/l10n
-  output_dir: lib/gen
+flutter:
+  assets:
+    - ./assets/translations/
+
+flutter_gen:
+  output: ./lib/generated
+  line_length: 120
+  assets:
+    enabled: true
+    outputs:
+      style: dot-delimiter
+      class_name: UiAssets
+      package_parameter_enabled: true
+    exclude:
+      - assets/translations/**

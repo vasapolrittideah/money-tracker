@@ -36,4 +36,4 @@ migrate_working_dir/
 *.mocks.dart
 *.gr.dart
 *.config.dart
-gen/
+generated/

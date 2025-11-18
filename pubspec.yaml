@@ -29,6 +29,7 @@ dependencies:
   go_router: ^17.0.0
   flutter_hooks: ^0.21.3+1
   flutter_bloc: ^9.1.1
+  easy_localization: ^3.0.8
 
 dev_dependencies:
   flutter_test:
@@ -40,7 +41,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/config/
+    - ./assets/config/
+    - ./assets/translations/
     - ./packages/ui/assets/images/
 
   fonts:
@@ -60,19 +62,16 @@ melos:
       runPubGetInParallel: true
 
   scripts:
-    generate-code:
-      exec: dart run build_runner build --delete-conflicting-outputs
-      packageFilters:
-        flutter: true
-
-    generate-l10n:
-      run: dart run shared:genearate_l10n
-      exec:
-        concurrency: 1
+    generate:
+      exec: dart run build_runner build --delete-conflicting-outputs && dart run shared:create_locale_keys MELOS_PACKAGE_NAME
       packageFilters:
         flutter: true
 
 scripts:
+  generate:
+    $script: dart run build_runner build --delete-conflicting-outputs && dart run shared:create_locale_keys app
+    $description: Generate code for all packages
+
   create-feature:
     $script: dart run shared:create_feature ${0}
     $description: Create a new feature package

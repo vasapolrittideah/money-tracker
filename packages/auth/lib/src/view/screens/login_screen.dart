@@ -1,8 +1,9 @@
-import 'package:auth/gen/l10n.dart';
+import 'package:auth/generated/locale_keys.g.dart';
 import 'package:auth/src/logic/cubits/login/login_cubit.dart';
 import 'package:auth/src/logic/cubits/oauth/oauth_cubit.dart';
 import 'package:auth/src/view/auth_router.dart';
 import 'package:auth/src/view/widgets/login_form.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -81,11 +82,11 @@ class LoginScreen extends HookWidget {
                     child: Column(
                       children: [
                         Text(
-                          AuthLocalizations.of(context).screenLoginTitle,
+                          AuthLocaleKeys.login_title.tr(),
                           style: context.appTypography.bold.text28.copyWith(color: context.appColors.textStrong950),
                         ),
                         Text(
-                          AuthLocalizations.of(context).screenLoginSubtitle,
+                          AuthLocaleKeys.login_subtitle.tr(),
                           style: context.appTypography.regular.textDefault.copyWith(
                             color: context.appColors.textSub600,
                           ),
@@ -107,7 +108,7 @@ class LoginScreen extends HookWidget {
 
                         AppDivider(
                           padding: EdgeInsets.symmetric(vertical: context.appSpacing.xs),
-                          text: AuthLocalizations.of(context).screenLoginOrDivider,
+                          text: AuthLocaleKeys.login_orDivider.tr(),
                         ),
 
                         LoginForm(
@@ -116,7 +117,7 @@ class LoginScreen extends HookWidget {
                           initialPasswordValue: initialPasswordValue,
                         ),
                         AppButton(
-                          text: AuthLocalizations.of(context).screenLoginRegisterLink,
+                          text: AuthLocaleKeys.login_registerLink.tr(),
                           fullWidth: true,
                           mode: AppButtonMode.ghost,
                           onTap: () => context.go(AuthRouteName.register),

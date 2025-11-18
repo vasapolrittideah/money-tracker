@@ -5,10 +5,21 @@ import 'package:ui/ui.dart';
 class AppModule {
   AppModule._();
 
+  static final List<BaseModule> _packages = [SharedModule(), UiModule(), AuthModule()];
+
   static void init() {
-    final List<BaseModule> packages = [SharedModule(), UIModule(), AuthModule()];
-    for (var module in packages) {
+    for (var module in _packages) {
       module.setupDependencies();
     }
+  }
+
+  static List<String> get translationsAssets {
+    final List<String> assets = ['assets/translations'];
+
+    for (var module in _packages) {
+      assets.add('packages/${module.name}/assets/translations');
+    }
+
+    return assets;
   }
 }

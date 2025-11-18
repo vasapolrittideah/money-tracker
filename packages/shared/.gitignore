@@ -36,6 +36,6 @@ migrate_working_dir/
 *.mocks.dart
 *.gr.dart
 *.config.dart
-gen/
+generated/
 !hive_adapters.g.yaml
 !hive_registrar.g.dart

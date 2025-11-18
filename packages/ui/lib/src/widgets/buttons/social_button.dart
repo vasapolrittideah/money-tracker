@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ui/gen/assets.gen.dart';
-import 'package:ui/gen/l10n.dart';
+import 'package:ui/generated/assets.gen.dart';
+import 'package:ui/generated/locale_keys.g.dart';
 import 'package:ui/src/themes/themes.dart';
 import 'package:ui/src/widgets/buttons/button.dart';
 
@@ -21,7 +22,7 @@ class AppSocialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return switch (provider) {
       // AppSocialButtonProvider.apple => AppButton(
-      //   text: UILocalizations.of(context).socialButtonApple,
+      //   text: UiLocaleKeys.socialButton_continueWithApple.tr(),
       //   prefix: SvgPicture.asset(
       //     Assets.images.apple,
       //     semanticsLabel: 'Apple',
@@ -33,9 +34,9 @@ class AppSocialButton extends StatelessWidget {
       //   onTap: onTap,
       // ),
       AppSocialButtonProvider.facebook => AppButton(
-        text: UILocalizations.of(context).socialButtonFacebook,
+        text: UiLocaleKeys.socialButton_continueWithFacebook.tr(),
         prefix: SvgPicture.asset(
-          Assets.images.facebook,
+          UiAssets.images.facebook,
           semanticsLabel: 'Facebook',
           colorFilter: ColorFilter.mode(context.appColors.staticWhite, BlendMode.srcIn),
         ),
@@ -45,8 +46,8 @@ class AppSocialButton extends StatelessWidget {
         onTap: onTap,
       ),
       AppSocialButtonProvider.google => AppButton(
-        text: UILocalizations.of(context).socialButtonGoogle,
-        prefix: SvgPicture.asset(Assets.images.google, semanticsLabel: 'Google'),
+        text: UiLocaleKeys.socialButton_continueWithGoogle.tr(),
+        prefix: SvgPicture.asset(UiAssets.images.google, semanticsLabel: 'Google'),
         fullWidth: true,
         variant: AppButtonVariant.neutral,
         mode: AppButtonMode.stroke,

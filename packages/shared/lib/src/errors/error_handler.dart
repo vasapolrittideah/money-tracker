@@ -1,11 +1,12 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:shared/gen/l10n.dart';
+import 'package:shared/generated/locale_keys.g.dart';
 import 'package:shared/src/contract/api_response.dart';
-import 'package:shared/src/error/exceptions.dart';
-import 'package:shared/src/error/failure.dart';
+import 'package:shared/src/errors/exceptions.dart';
+import 'package:shared/src/errors/failure.dart';
 import 'package:dio/dio.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
@@ -38,21 +39,21 @@ class ErrorHandler {
         return Left(_handleDioError(error, stackTrace));
       }
 
-      final l10n = SharedLocalizations.current;
-
       if (error is SocketException) {
-        return Left(Failure.noInternetConnection(l10n.errorNoInternetConnection, stackTrace: stackTrace));
+        return Left(
+          Failure.noInternetConnection(SharedLocaleKeys.error_noInternetConnection.tr(), stackTrace: stackTrace),
+        );
       }
 
       if (error is FormatException) {
-        return Left(Failure.dataParsingError(l10n.errorDataParsing, stackTrace: stackTrace));
+        return Left(Failure.dataParsingError(SharedLocaleKeys.error_dataParsing.tr(), stackTrace: stackTrace));
       }
 
       if (error is HiveError || error is CacheException) {
-        return Left(Failure.cacheError(l10n.errorCache, stackTrace: stackTrace));
+        return Left(Failure.cacheError(SharedLocaleKeys.error_cache.tr(), stackTrace: stackTrace));
       }
 
-      return Left(Failure.unidentified(l10n.errorUnknown, stackTrace: stackTrace));
+      return Left(Failure.unidentified(SharedLocaleKeys.error_unknown.tr(), stackTrace: stackTrace));
     }
   }
 
@@ -61,34 +62,32 @@ class ErrorHandler {
   /// Inspects the type of Dio error and constructs a corresponding [Failure]
   /// with a localized message.
   static Failure _handleDioError(DioException error, StackTrace? stackTrace) {
-    final l10n = SharedLocalizations.current;
-
     // Sometimes Dio wraps the real error (e.g., SocketException) inside DioException.
     if (error.error is SocketException) {
-      return Failure.noInternetConnection(l10n.errorNoInternetConnection, stackTrace: stackTrace);
+      return Failure.noInternetConnection(SharedLocaleKeys.error_noInternetConnection.tr(), stackTrace: stackTrace);
     }
 
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
-        return Failure.connectionTimeout(l10n.errorConnectionTimeout, stackTrace: stackTrace);
+        return Failure.connectionTimeout(SharedLocaleKeys.error_connectionTimeout.tr(), stackTrace: stackTrace);
 
       case DioExceptionType.sendTimeout:
-        return Failure.sendTimeout(l10n.errorSendTimeout, stackTrace: stackTrace);
+        return Failure.sendTimeout(SharedLocaleKeys.error_sendTimeout.tr(), stackTrace: stackTrace);
 
       case DioExceptionType.receiveTimeout:
-        return Failure.receiveTimeout(l10n.errorReceiveTimeout, stackTrace: stackTrace);
+        return Failure.receiveTimeout(SharedLocaleKeys.error_receiveTimeout.tr(), stackTrace: stackTrace);
 
       case DioExceptionType.cancel:
-        return Failure.cancelled(l10n.errorCancelled, stackTrace: stackTrace);
+        return Failure.cancelled(SharedLocaleKeys.error_cancelled.tr(), stackTrace: stackTrace);
 
       case DioExceptionType.connectionError:
-        return Failure.connectionError(l10n.errorConnectionError, stackTrace: stackTrace);
+        return Failure.connectionError(SharedLocaleKeys.error_connectionError.tr(), stackTrace: stackTrace);
 
       case DioExceptionType.badResponse:
         return _handleBadResponse(error.response, stackTrace);
 
       default:
-        return Failure.unidentified(l10n.errorUnknown, stackTrace: stackTrace);
+        return Failure.unidentified(SharedLocaleKeys.error_unknown.tr(), stackTrace: stackTrace);
     }
   }
 
@@ -127,21 +126,19 @@ class ErrorHandler {
   /// Returns a localized message for the given [statusCode]. If the status code
   /// is not recognized, returns a generic unknown error message.
   static String _getMessageFromStatusCode(int statusCode) {
-    final l10n = SharedLocalizations.current;
-
     return switch (statusCode) {
-      HttpStatus.badRequest => l10n.errorBadRequest,
-      HttpStatus.unauthorized => l10n.errorUnauthorized,
-      HttpStatus.forbidden => l10n.errorForbidden,
-      HttpStatus.notFound => l10n.errorNotFound,
-      HttpStatus.conflict => l10n.errorConflict,
-      HttpStatus.unprocessableEntity => l10n.errorUnprocessable,
-      HttpStatus.tooManyRequests => l10n.errorTooManyRequests,
-      HttpStatus.internalServerError => l10n.errorInternalServer,
-      HttpStatus.serviceUnavailable => l10n.errorServiceUnavailable,
-      HttpStatus.badGateway => l10n.errorBadGateway,
-      HttpStatus.gatewayTimeout => l10n.errorGatewayTimeout,
-      _ => l10n.errorUnknownCode(statusCode),
+      HttpStatus.badRequest => SharedLocaleKeys.error_badRequest.tr(),
+      HttpStatus.unauthorized => SharedLocaleKeys.error_unauthorized.tr(),
+      HttpStatus.forbidden => SharedLocaleKeys.error_forbidden.tr(),
+      HttpStatus.notFound => SharedLocaleKeys.error_notFound.tr(),
+      HttpStatus.conflict => SharedLocaleKeys.error_conflict.tr(),
+      HttpStatus.unprocessableEntity => SharedLocaleKeys.error_unprocessable.tr(),
+      HttpStatus.tooManyRequests => SharedLocaleKeys.error_tooManyRequests.tr(),
+      HttpStatus.internalServerError => SharedLocaleKeys.error_internalServer.tr(),
+      HttpStatus.serviceUnavailable => SharedLocaleKeys.error_serviceUnavailable.tr(),
+      HttpStatus.badGateway => SharedLocaleKeys.error_badGateway.tr(),
+      HttpStatus.gatewayTimeout => SharedLocaleKeys.error_gatewayTimeout.tr(),
+      _ => SharedLocaleKeys.error_unknownCode.tr(args: [statusCode.toString()]),
     };
   }
 }

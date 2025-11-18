@@ -1,0 +1,30 @@
+{
+  "login": {
+    "title": "Welcome",
+    "subtitle": "Please login to your account",
+    "submitButton": "Login",
+    "emailLabel": "Email",
+    "emailHint": "Enter your email",
+    "emailErrorRequired": "Email is required",
+    "emailErrorInvalid": "Please enter a valid email",
+    "passwordLabel": "Password",
+    "passwordHint": "Enter your password",
+    "passwordErrorRequired": "Password is required",
+    "registerLink": "Don't have an account? Register",
+    "orDivider": "OR"
+  },
+  "register": {
+    "title": "Create an Account",
+    "subtitle": "Please register to get started",
+    "submitButton": "Register",
+    "emailLabel": "Email",
+    "emailHint": "Choose an email",
+    "emailErrorRequired": "Email is required",
+    "emailErrorInvalid": "Please enter a valid email",
+    "passwordLabel": "Password",
+    "passwordHint": "Choose a password",
+    "passwordErrorRequired": "Password is required",
+    "loginLink": "Already have an account? Login",
+    "orDivider": "OR"
+  }
+}
