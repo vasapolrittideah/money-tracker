@@ -11,3 +11,4 @@ export 'src/widgets/inputs/text_field.dart';
 export 'src/widgets/overlays/bottom_sheet.dart';
 export 'src/widgets/overlays/loading_overlay.dart';
 export 'src/widgets/overlays/snackbar.dart';
+export 'src/widgets/feedback/circular_progress.dart';

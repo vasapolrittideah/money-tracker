@@ -1,6 +1,6 @@
 import 'package:ui/src/themes/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ui/src/widgets/feedback/circular_progress.dart';
 
 // Showcases the duration of a process or an indefinite wait period.
 class AppLoadingOverlay {
@@ -27,16 +27,7 @@ class AppLoadingOverlay {
                   boxShadow: context.appShadows.xs,
                   borderRadius: BorderRadius.circular(context.appBorders.borderRadiusMd),
                 ),
-                child: SizedBox(
-                  width: context.appSpacing.xs,
-                  height: context.appSpacing.xs,
-                  child: CircularProgressIndicator(
-                    color: context.appColors.bgStrong950,
-                    backgroundColor: context.appColors.bgSoft200,
-                    strokeCap: StrokeCap.round,
-                    strokeWidth: 3.r,
-                  ),
-                ),
+                child: AppCircularProgress(),
               ),
             ),
           );
