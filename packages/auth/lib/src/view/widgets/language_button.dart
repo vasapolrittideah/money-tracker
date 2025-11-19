@@ -1,6 +1,6 @@
-import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:settings/settings.dart';
 import 'package:ui/ui.dart';
 
@@ -13,17 +13,17 @@ class LanguageButton extends StatelessWidget {
 
     return GestureDetector(
       onTap: () => SelectLanguageBottomSheet.show(context),
-      child: Container(
-        decoration: BoxDecoration(
-          color: context.appColors.strokeStrong950.withAlpha(120),
-          borderRadius: BorderRadius.circular(context.appBorders.borderRadiusFull),
-          boxShadow: context.appShadows.xs,
+      child: AppButton(
+        text: currentLocale?.languageCode.toUpperCase() ?? '',
+        prefix: FaIcon(
+          FontAwesomeIcons.language,
+          size: context.appTypography.regular.textDefault.fontSize,
+          color: context.appColors.textSub600,
         ),
-        padding: EdgeInsets.all(context.appBorders.defaultBorderWidth),
-        child: CountryFlag.fromLanguageCode(
-          currentLocale?.languageCode ?? '',
-          theme: ImageTheme(width: context.appSpacing.xs, height: context.appSpacing.xs, shape: Circle()),
-        ),
+        mode: AppButtonMode.stroke,
+        variant: AppButtonVariant.neutral,
+        size: AppButtonSize.xs,
+        onTap: () => SelectLanguageBottomSheet.show(context),
       ),
     );
   }
