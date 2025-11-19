@@ -35,7 +35,7 @@ class AppBottomSheet {
                 height: 40.h,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: context.appColors.bgWeak50,
+                    color: context.appColors.staticWhite,
                     borderRadius: BorderRadius.vertical(top: Radius.circular(context.appBorders.borderRadiusLg)),
                   ),
                   padding: EdgeInsets.symmetric(horizontal: context.appSpacing.x2s),
@@ -46,7 +46,7 @@ class AppBottomSheet {
                         alignment: Alignment.topCenter,
                         child: Padding(
                           padding: EdgeInsets.only(top: context.appSpacing.x3s),
-                          child: Text(title ?? '', style: context.appTypography.bold.text16),
+                          child: Text(title ?? '', style: context.appTypography.semiBold.text16),
                         ),
                       ),
 

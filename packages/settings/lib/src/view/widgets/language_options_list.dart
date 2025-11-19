@@ -88,9 +88,17 @@ class _LanguageOptionTile extends StatelessWidget {
               theme: ImageTheme(width: context.appSpacing.xs, height: context.appSpacing.xs, shape: Circle()),
             ),
             SizedBox(width: context.appSpacing.x2s),
-            Text(
-              languageName,
-              style: context.appTypography.regular.textDefault.copyWith(color: context.appColors.textSub600),
+            Row(
+              children: [
+                Text(
+                  locale.languageCode.toUpperCase(),
+                  style: context.appTypography.regular.textDefault.copyWith(color: context.appColors.textSub600),
+                ),
+                Text(
+                  ' / $languageName',
+                  style: context.appTypography.regular.textDefault.copyWith(color: context.appColors.textSub600),
+                ),
+              ],
             ),
             Spacer(),
             if (isSelected)

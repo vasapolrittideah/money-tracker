@@ -10,7 +10,7 @@ enum AppButtonSize { xs, sm, md }
 class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
-    required this.text,
+    this.text,
     this.fullWidth = false,
     this.disabled = false,
     this.borderWidth,
@@ -26,7 +26,7 @@ class AppButton extends StatelessWidget {
     this.suffix,
   });
 
-  final String text;
+  final String? text;
   final bool fullWidth;
   final bool disabled;
   final double? borderWidth;
@@ -122,7 +122,7 @@ class AppButton extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Text(
-              text,
+              text ?? '',
               style: context.appTypography.regular.textDefault.copyWith(
                 decoration: TextDecoration.none,
                 color: effectiveTextColor,
