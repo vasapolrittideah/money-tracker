@@ -3,6 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:settings/settings.dart';
 import 'package:shared/shared.dart';
@@ -27,7 +29,7 @@ class SplashScreen extends HookWidget {
     Future<void> navigateWithDelay(String routeName) async {
       if (!hasNavigated.value) {
         hasNavigated.value = true;
-        // await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 2));
       }
       if (context.mounted) {
         context.push(routeName);
@@ -71,7 +73,18 @@ class SplashScreen extends HookWidget {
       ],
       child: Scaffold(
         backgroundColor: context.appColors.staticWhite,
-        body: SafeArea(child: Container()),
+        body: SafeArea(
+          child: Center(
+            child: Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
+              children: [
+                SvgPicture.asset(UiAssets.images.brand, width: 65.w, height: 65.h),
+                Positioned(top: 100.h, child: AppCircularProgress()),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
