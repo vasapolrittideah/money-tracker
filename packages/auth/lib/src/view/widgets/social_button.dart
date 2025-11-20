@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui/generated/assets.gen.dart';
 import 'package:ui/generated/locale_keys.g.dart';
-import 'package:ui/src/themes/themes.dart';
-import 'package:ui/src/widgets/buttons/button.dart';
 import 'package:shared/libs.dart';
+import 'package:ui/ui.dart';
 
 enum AppSocialButtonProvider {
   // apple,

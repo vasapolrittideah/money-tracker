@@ -4,6 +4,7 @@ import 'package:auth/src/logic/cubits/oauth/oauth_cubit.dart';
 import 'package:auth/src/view/auth_router.dart';
 import 'package:auth/src/view/widgets/language_button.dart';
 import 'package:auth/src/view/widgets/login_form.dart';
+import 'package:auth/src/view/widgets/social_button.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/libs.dart';
 import 'package:shared/shared.dart';
