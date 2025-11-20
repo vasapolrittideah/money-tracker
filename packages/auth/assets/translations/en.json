@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Welcome",
+    "title": "Welcome Back",
     "subtitle": "Please login to your account",
     "submitButton": "Login",
     "emailLabel": "Email",
@@ -11,6 +11,7 @@
     "passwordHint": "Enter your password",
     "passwordErrorRequired": "Password is required",
     "registerLink": "Don't have an account? Register",
+    "forgotPasswordLink": "Forgot Password?",
     "orDivider": "OR"
   },
   "register": {
@@ -26,5 +27,14 @@
     "passwordErrorRequired": "Password is required",
     "loginLink": "Already have an account? Login",
     "orDivider": "OR"
+  },
+  "forgotPassword": {
+    "title": "Forgot Your Password?",
+    "subtitle": "Enter your email to send a password reset link",
+    "submitButton": "Send Reset Link",
+    "emailLabel": "Email",
+    "emailHint": "Enter your email",
+    "emailErrorRequired": "Email is required",
+    "emailErrorInvalid": "Please enter a valid email"
   }
 }

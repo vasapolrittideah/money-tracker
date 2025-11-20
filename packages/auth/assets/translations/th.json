@@ -11,6 +11,7 @@
     "passwordHint": "กรอกรหัสผ่านของคุณ",
     "passwordErrorRequired": "จำเป็นต้องใช้รหัสผ่าน",
     "registerLink": "ยังไม่มีบัญชี? ลงทะเบียน",
+    "forgotPasswordLink": "ลืมรหัสผ่าน?",
     "orDivider": "หรือ"
   },
   "register": {
@@ -26,5 +27,14 @@
     "passwordErrorRequired": "จำเป็นต้องใช้รหัสผ่าน",
     "loginLink": "มีบัญชีอยู่แล้ว? เข้าสู่ระบบ",
     "orDivider": "หรือ"
+  },
+  "forgotPassword": {
+    "title": "ลืมรหัสผ่านของคุณ?",
+    "subtitle": "กรอกอีเมลของคุณเพื่อส่งลิงก์รีเซ็ตรหัสผ่าน",
+    "submitButton": "ส่งลิงก์รีเซ็ต",
+    "emailLabel": "อีเมล",
+    "emailHint": "กรอกอีเมลของคุณ",
+    "emailErrorRequired": "จำเป็นต้องใช้อีเมล",
+    "emailErrorInvalid": "กรุณาใส่อีเมลที่ถูกต้อง"
   }
 }

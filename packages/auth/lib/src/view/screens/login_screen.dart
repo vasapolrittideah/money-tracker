@@ -71,6 +71,10 @@ class LoginScreen extends HookWidget {
             child: Scaffold(
               backgroundColor: context.appColors.staticWhite,
               resizeToAvoidBottomInset: false,
+              appBar: AppHeader(
+                leading: SvgPicture.asset(UiAssets.images.brand, width: 24.w, height: 24.h),
+                action: const LanguageButton(),
+              ),
               body: SafeArea(
                 child: SingleChildScrollView(
                   reverse: true,
@@ -79,15 +83,7 @@ class LoginScreen extends HookWidget {
                     padding: EdgeInsets.symmetric(horizontal: context.appSpacing.xs),
                     child: Column(
                       children: [
-                        SizedBox(height: context.appSpacing.x6s),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SvgPicture.asset(UiAssets.images.brand, width: 24.w, height: 24.h),
-                            const LanguageButton(),
-                          ],
-                        ),
-                        SizedBox(height: context.appSpacing.xs),
+                        SizedBox(height: context.appSpacing.sm),
                         Text(
                           AuthLocaleKeys.login_title.tr(),
                           style: context.appTypography.bold.text28.copyWith(color: context.appColors.textStrong950),
@@ -98,7 +94,7 @@ class LoginScreen extends HookWidget {
                             color: context.appColors.textSub600,
                           ),
                         ),
-                        SizedBox(height: context.appSpacing.md),
+                        SizedBox(height: context.appSpacing.sm),
 
                         // Social Buttons
                         // const AppSocialButton(provider: AppSocialButtonProvider.apple),
