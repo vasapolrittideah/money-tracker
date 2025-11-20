@@ -1,7 +1,7 @@
 import 'package:auth/auth.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:money_tracker/src/view/screens/splash_screen.dart';
+import 'package:shared/libs.dart';
 import 'package:ui/ui.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');

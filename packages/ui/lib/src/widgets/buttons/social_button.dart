@@ -1,10 +1,9 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:ui/generated/assets.gen.dart';
 import 'package:ui/generated/locale_keys.g.dart';
 import 'package:ui/src/themes/themes.dart';
 import 'package:ui/src/widgets/buttons/button.dart';
+import 'package:shared/libs.dart';
 
 enum AppSocialButtonProvider {
   // apple,

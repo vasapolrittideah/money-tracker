@@ -1,11 +1,7 @@
 import 'package:auth/generated/locale_keys.g.dart';
 import 'package:auth/src/logic/cubits/register/register_cubit.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:shared/libs.dart';
 import 'package:ui/ui.dart';
 
 class RegisterForm extends HookWidget {

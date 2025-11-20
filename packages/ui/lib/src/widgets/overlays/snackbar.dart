@@ -1,4 +1,4 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared/libs.dart';
 import 'package:ui/src/themes/themes.dart';
 import 'package:flutter/material.dart';
 

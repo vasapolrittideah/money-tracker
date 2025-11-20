@@ -1,8 +1,7 @@
-import 'package:shared/src/config/config.dart';
-import 'package:shared/src/injection/service_locator.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:shared/libs.dart';
+import 'package:shared/shared.dart';
 import 'package:ua_client_hints/ua_client_hints.dart';
 
 /// Creates Dio HTTP client instances with configuration.

@@ -1,18 +1,5 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:hive_ce/hive.dart';
+import 'package:shared/libs.dart';
 import 'package:shared/shared.dart';
-import 'package:shared/src/config/config.dart';
-import 'package:shared/src/injection/service_locator.dart';
-import 'package:shared/src/managers/session_manager.dart';
-import 'package:shared/src/models/session/session_model.dart';
-import 'package:shared/src/module/base_module.dart';
-import 'package:shared/src/network/dio_client.dart';
-import 'package:shared/src/network/dio_factory.dart';
-import 'package:shared/src/storage/hive_encryption.dart';
-import 'package:shared/src/storage/hive_manager.dart';
-import 'package:shared/src/storage/hive_storage.dart';
-import 'package:shared/src/storage/secure_storage.dart';
-import 'package:shared/src/utilities/directory_util.dart';
 
 class SharedModule extends BaseModule {
   @override

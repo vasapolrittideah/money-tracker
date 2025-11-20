@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared/libs.dart';
 
 final class AppBorders extends ThemeExtension<AppBorders> {
   const AppBorders({

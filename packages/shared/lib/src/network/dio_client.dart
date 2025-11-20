@@ -2,9 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:shared/src/models/session/session_model.dart';
-import 'package:shared/src/managers/session_manager.dart';
-import 'package:dio/dio.dart';
+import 'package:shared/libs.dart';
+import 'package:shared/shared.dart';
 import 'package:synchronized/synchronized.dart';
 
 // Helper class to store request context

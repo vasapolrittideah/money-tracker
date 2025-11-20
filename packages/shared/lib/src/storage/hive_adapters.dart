@@ -1,6 +1,5 @@
-import 'package:shared/src/models/locale/locale_model.dart';
-import 'package:shared/src/models/session/session_model.dart';
-import 'package:hive_ce_flutter/hive_flutter.dart';
+import 'package:shared/libs.dart';
+import 'package:shared/shared.dart';
 
 part 'hive_adapters.g.dart';
 

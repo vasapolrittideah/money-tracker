@@ -1,6 +1,6 @@
+import 'package:shared/libs.dart';
 import 'package:ui/generated/fonts.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final class AppTextStyles extends ThemeExtension<AppTextStyles> {
   const AppTextStyles({

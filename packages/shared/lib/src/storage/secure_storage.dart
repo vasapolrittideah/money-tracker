@@ -1,4 +1,4 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared/libs.dart';
 
 /// Stores key-value pairs securely using [FlutterSecureStorage].
 class SecureStorage {

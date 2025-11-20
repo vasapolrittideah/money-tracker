@@ -1,4 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared/libs.dart';
 
 part 'api_response.freezed.dart';
 part 'api_response.g.dart';

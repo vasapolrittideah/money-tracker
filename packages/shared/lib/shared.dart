@@ -18,3 +18,5 @@ export 'src/storage/hive_manager.dart';
 export 'src/storage/hive_storage.dart';
 export 'src/storage/secure_storage.dart';
 export 'src/storage/hive_adapters.dart';
+export 'src/storage/hive_encryption.dart';
+export 'src/utilities/directory_util.dart';

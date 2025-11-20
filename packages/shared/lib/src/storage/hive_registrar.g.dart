@@ -2,8 +2,8 @@
 // Do not modify
 // Check in to version control
 
-import 'package:hive_ce/hive.dart';
-import 'package:shared/src/storage/hive_adapters.dart';
+import 'package:shared/libs.dart';
+import 'package:shared/shared.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {

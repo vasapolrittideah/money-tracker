@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
+
+import 'package:shared/libs.dart';
 
 /// Manages directories within the application's document directory.
 class DirectoryUtil {
@@ -42,7 +42,7 @@ class DirectoryUtil {
   /// and returns the resulting [Directory] object.
   Future<Directory> _resolveDirectory(String subPath) async {
     final appDocDir = await getApplicationDocumentsDirectory();
-    final dirPath = p.join(appDocDir.path, subPath);
+    final dirPath = join(appDocDir.path, subPath);
 
     return Directory(dirPath);
   }

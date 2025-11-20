@@ -1,8 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:settings/generated/locale_keys.g.dart';
 import 'package:settings/src/view/widgets/language_options_list.dart';
+import 'package:shared/libs.dart';
 import 'package:ui/ui.dart';
 
 class SelectLanguageBottomSheet {
