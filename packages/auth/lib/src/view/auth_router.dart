@@ -2,7 +2,7 @@ import 'package:auth/src/view/screens/forgot_password_screen.dart';
 import 'package:auth/src/view/screens/login_screen.dart';
 import 'package:auth/src/view/screens/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:shared/libs.dart';
 import 'package:ui/ui.dart';
 
 class AuthRouteName {

@@ -11,7 +11,6 @@ const folderPaths = [
   'data/repositories',
   'logic/blocs',
   'logic/cubits',
-  'view/l10n',
   'view/overlays',
   'view/screens',
   'view/widgets',
@@ -28,7 +27,10 @@ Future<void> main(List<String> args) async {
   _writeReadmeFile(featureName, folderStructure);
   _writePubspecYaml(featureName);
   _appendGitignoreFile(featureName);
-  _createLocalizationFiles(featureName);
+  _createTranslationFiles(featureName);
+
+  _appendWorkspaceToRootPubspec(featureName);
+  _installDependencies(featureName);
 
   print('🎉 Feature package "$featureName" created successfully!');
 }
@@ -109,6 +111,9 @@ import 'package:shared/shared.dart';
 
 class ${featureName.toCapitalized()}Module extends BaseModule {
   @override
+  String get name => '$featureName';
+
+  @override
   void setupDependencies() {
     // TODO: add dependency injections here
   }
@@ -121,11 +126,30 @@ class ${featureName.toCapitalized()}Module extends BaseModule {
 export 'src/${featureName}_module.dart';
 ''');
 
+  final routerFile = File('${srcDir.path}/view/${featureName}_router.dart');
+  routerFile.createSync(recursive: true);
+  routerFile.writeAsStringSync('''
+import 'package:shared/libs.dart';
+
+class ${featureName.toCapitalized()}RouteName {
+
+}
+
+class ${featureName.toCapitalized()}Router {
+  static List<GoRoute> get routes => [
+
+  ];
+}
+
+''');
+
   final folderStructure =
       '''
 📁 Folder structure created for $featureName package:
 
 $featureName/
+├── assets/
+│   └── translations/           # JSON translation files
 └── lib/
     ├── src/
     │   ├── data/               # Data layer - external data sources
@@ -135,7 +159,6 @@ $featureName/
     │   │   ├── blocs/          # BLoC pattern - complex state management
     │   │   └── cubits/         # Cubit pattern - simplified state management
     │   ├── view/               # Presentation layer - UI components
-    │   │   ├── localization/   # Localization - translations & localization
     │   │   ├── overlays/       # Modal overlays - dialogs, bottom sheets
     │   │   ├── screens/        # Full-screen views - app pages
     │   │   └── widgets/        # Reusable UI components
@@ -206,7 +229,6 @@ Responsibilities:
 - Apply consistent theming and styling
 
 Components:
-- l10n: Localization files and translation management
 - Overlays: Modal components like dialogs and bottom sheets
 - Screens: Full-screen views representing app pages
 - Widgets: Reusable UI components used across screens
@@ -257,13 +279,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.10.1
+  freezed: ^3.2.3
+  json_serializable: ^6.11.1
 
-flutter_intl:
-  enabled: true
-  main_locale: th
-  class_name: ${featureName.toCapitalized()}Localizations
-  arb_dir: lib/gen/l10n
-  output_dir: lib/gen
+flutter:
+  assets:
+    - ./assets/translations/
 ''');
 
   print('📝 pubspec.yaml created.');
@@ -285,21 +307,83 @@ gen/
   print('📝 .gitignore updated.');
 }
 
-void _createLocalizationFiles(String featureName) {
-  final localizationDir = Directory('$packagesDir/$featureName/lib/src/view/l10n');
-  localizationDir.createSync(recursive: true);
+void _createTranslationFiles(String featureName) {
+  final translationsDir = Directory('$packagesDir/$featureName/assets/translations');
+  translationsDir.createSync(recursive: true);
 
-  _createArbFile(localizationDir, 'en');
-  _createArbFile(localizationDir, 'th');
+  _createTranslationFile(translationsDir, 'en');
+  _createTranslationFile(translationsDir, 'th');
 
-  print('🌐 Localization files created in ${localizationDir.path}');
+  print('🌐 Translation files created in ${translationsDir.path}');
 }
 
-void _createArbFile(Directory localizationDir, String locale) {
-  final arbFile = File('${localizationDir.path}/app_$locale.arb');
-  arbFile.writeAsStringSync('''
-{
-  "@@locale": "$locale"
+void _createTranslationFile(Directory translationsDir, String languageCode) {
+  final jsonFile = File('${translationsDir.path}/$languageCode.json');
+  jsonFile.writeAsStringSync('{}');
 }
-''');
+
+void _appendWorkspaceToRootPubspec(String featureName) {
+  final rootPubspecFile = File('./pubspec.yaml');
+  final content = rootPubspecFile.readAsStringSync();
+  final lines = content.split('\n');
+
+  // Find the workspace section
+  int workspaceIndex = -1;
+  int lastWorkspaceEntryIndex = -1;
+
+  for (int i = 0; i < lines.length; i++) {
+    if (lines[i].trim().startsWith('workspace:')) {
+      workspaceIndex = i;
+    } else if (workspaceIndex != -1 && lines[i].trim().startsWith('- packages/')) {
+      lastWorkspaceEntryIndex = i;
+    } else if (workspaceIndex != -1 &&
+        lastWorkspaceEntryIndex != -1 &&
+        lines[i].isNotEmpty &&
+        !lines[i].trim().startsWith('- packages/')) {
+      // Found the workspace section end
+      break;
+    }
+  }
+
+  final newWorkspaceEntry = '  - packages/$featureName';
+
+  // Check if entry already exists
+  if (content.contains(newWorkspaceEntry)) {
+    print('ℹ️  Workspace entry for "$featureName" already exists in root pubspec.yaml.');
+    return;
+  }
+
+  // Insert after the last workspace entry
+  lines.insert(lastWorkspaceEntryIndex + 1, newWorkspaceEntry);
+
+  rootPubspecFile.writeAsStringSync(lines.join('\n'));
+  print('✅ Added "$featureName" to workspace in root pubspec.yaml');
+}
+
+void _installDependencies(String featureName) {
+  ProcessResult result = Process.runSync(
+    'flutter',
+    ['pub', 'get'],
+    runInShell: true,
+    workingDirectory: '$packagesDir/$featureName',
+  );
+
+  stdout.write(result.stdout);
+  stderr.write(result.stderr);
+
+  if (result.exitCode != 0) {
+    print('❌ Failed to install dependencies for feature package "$featureName".');
+    exit(result.exitCode);
+  }
+
+  // Also run pub get in the root to ensure workspace dependencies are resolved
+  result = Process.runSync('flutter', ['pub', 'get'], runInShell: true, workingDirectory: '.');
+
+  stdout.write(result.stdout);
+  stderr.write(result.stderr);
+
+  if (result.exitCode != 0) {
+    print('❌ Failed to install root dependencies.');
+    exit(result.exitCode);
+  }
 }

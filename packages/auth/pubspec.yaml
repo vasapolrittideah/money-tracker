@@ -27,21 +27,7 @@ dev_dependencies:
   build_runner: ^2.10.2
   freezed: ^3.2.3
   json_serializable: ^6.11.1
-  flutter_gen: ^5.12.0
-  flutter_gen_runner: ^5.12.0
 
 flutter:
   assets:
     - ./assets/translations/
-
-flutter_gen:
-  output: ./lib/generated
-  line_length: 120
-  assets:
-    enabled: true
-    outputs:
-      style: dot-delimiter
-      class_name: UiAssets
-      package_parameter_enabled: true
-    exclude:
-      - assets/translations/**
